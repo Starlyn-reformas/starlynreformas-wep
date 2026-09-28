@@ -12,5 +12,15 @@
   "assets": {
     "binding": "ASSETS",
     "directory": "dist"
-  }
+  },
+  "routes": [
+    {
+      "pattern": "starlynreformas.com",
+      "custom_domain": true
+    },
+    {
+      "pattern": "www.starlynreformas.com",
+      "custom_domain": true
+    }
+  ]
 }
