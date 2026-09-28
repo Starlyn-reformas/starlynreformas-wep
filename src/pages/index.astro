@@ -1,0 +1,948 @@
+---
+import Layout from "../layouts/Layout.astro";
+
+import {
+	House,
+	Bath,
+	ChefHat,
+	Droplets,
+	Plug,
+	PanelsTopLeft,
+	Grid3X3,
+	ArrowRight,
+	Phone,
+	MessageCircle,
+	Building2,
+	Ruler,
+	ClipboardCheck,
+	Clock3,
+	MapPin,
+	Check,
+	Sparkles,
+	Quote,
+	ArrowUpRight,
+} from "@lucide/astro";
+---
+
+<Layout
+	title="STARLYN REFORMAS | Reformas Integrales, Baños y Cocinas en Zaragoza"
+	description="Especialistas en reformas integrales, baños, cocinas y alicatados en Zaragoza. Gremios propios, pladur y acabados de alta calidad. Presupuesto sin compromiso. 614 783 004"
+>
+	<!-- =====================================================
+	     HERO
+	====================================================== -->
+	<section
+		class="relative overflow-hidden border-b border-[#e8ded0] bg-[#102a43] text-white"
+	>
+		<!-- Luz decorativa -->
+		<div
+			class="pointer-events-none absolute -right-32 -top-32 h-96 w-96 rounded-full bg-[#b58a3a]/10 blur-3xl"
+		></div>
+
+		<div
+			class="pointer-events-none absolute -bottom-40 -left-32 h-96 w-96 rounded-full bg-[#294d67]/30 blur-3xl"
+		></div>
+
+		<div
+			class="relative mx-auto max-w-7xl px-4 py-20 sm:px-6 md:py-28 lg:px-8 lg:py-32"
+		>
+			<div class="max-w-4xl">
+				<!-- ETIQUETA SUPERIOR -->
+				<div
+					class="mb-7 inline-flex items-center gap-2 rounded-full border border-[#d2b06a]/30 bg-white/[0.04] px-4 py-2"
+				>
+					<span class="h-2 w-2 rounded-full bg-[#d2b06a]"></span>
+
+					<span
+						class="text-xs font-semibold uppercase tracking-[0.16em] text-[#e7d5ae]"
+					>
+						12+ años de experiencia · Zaragoza y alrededores
+					</span>
+				</div>
+
+				<!-- H1 -->
+				<h1
+					class="max-w-4xl text-4xl font-black leading-[1.08] tracking-tight sm:text-5xl md:text-6xl lg:text-7xl"
+				>
+					Reformas que transforman
+					<span class="block text-[#d2b06a]">
+						espacios en hogares.
+					</span>
+				</h1>
+
+				<p
+					class="mt-7 max-w-2xl text-base leading-relaxed text-[#d8e0e5] sm:text-lg md:text-xl"
+				>
+					Reformas integrales, baños, cocinas e instalaciones con
+					una ejecución técnica cuidada, coordinación directa y
+					atención personalizada.
+				</p>
+
+				<!-- CTAs -->
+				<div class="mt-9 flex flex-col gap-3 sm:flex-row">
+					<a
+						href="tel:+34614783004"
+						class="group inline-flex items-center justify-center gap-2 rounded-xl bg-[#d2b06a] px-7 py-4 text-base font-bold text-[#102a43] shadow-lg shadow-black/10 transition hover:bg-[#e0c384]"
+					>
+						<Phone class="h-5 w-5" stroke-width="1.8" />
+						Solicitar presupuesto
+						<ArrowRight
+							class="h-4 w-4 transition-transform group-hover:translate-x-1"
+							stroke-width="1.8"
+						/>
+					</a>
+
+					<a
+						href="https://wa.me/34614783004?text=Hola,%20quiero%20pedir%20presupuesto"
+						target="_blank"
+						rel="noopener noreferrer"
+						class="inline-flex items-center justify-center gap-2 rounded-xl border border-white/15 bg-white/[0.06] px-7 py-4 text-base font-semibold text-white transition hover:border-white/30 hover:bg-white/[0.1]"
+					>
+						<MessageCircle
+							class="h-5 w-5 text-[#d2b06a]"
+							stroke-width="1.7"
+						/>
+						Hablar por WhatsApp
+					</a>
+				</div>
+
+				<!-- MINI DATOS -->
+				<div
+					class="mt-10 flex flex-wrap gap-x-7 gap-y-3 border-t border-white/10 pt-7 text-sm text-[#c6d0d7]"
+				>
+					<div class="flex items-center gap-2">
+						<Check class="h-4 w-4 text-[#d2b06a]" stroke-width="2" />
+						Trabajo directo
+					</div>
+
+					<div class="flex items-center gap-2">
+						<Check class="h-4 w-4 text-[#d2b06a]" stroke-width="2" />
+						Atención personalizada
+					</div>
+
+					<div class="flex items-center gap-2">
+						<Check class="h-4 w-4 text-[#d2b06a]" stroke-width="2" />
+						Zaragoza y alrededores
+					</div>
+				</div>
+			</div>
+		</div>
+	</section>
+
+	<!-- =====================================================
+	     VENTAJAS
+	====================================================== -->
+	<section
+		id="ventajas"
+		class="border-b border-[#e8ded0] bg-[#f1ebe2]"
+	>
+		<div
+			class="mx-auto grid max-w-7xl grid-cols-2 md:grid-cols-4"
+		>
+			<div
+				class="flex items-center justify-center gap-3 border-b border-r border-[#e1d6c7] px-4 py-6 text-center md:border-b-0"
+			>
+				<Building2
+					class="h-7 w-7 text-[#b58a3a]"
+					stroke-width="1.4"
+				/>
+				<span class="text-sm font-semibold text-[#173b57]">
+					Gremios propios
+				</span>
+			</div>
+
+			<div
+				class="flex items-center justify-center gap-3 border-b border-[#e1d6c7] px-4 py-6 text-center md:border-b-0 md:border-r"
+			>
+				<Ruler
+					class="h-7 w-7 text-[#b58a3a]"
+					stroke-width="1.4"
+				/>
+				<span class="text-sm font-semibold text-[#173b57]">
+					Dirección técnica
+				</span>
+			</div>
+
+			<div
+				class="flex items-center justify-center gap-3 border-r border-[#e1d6c7] px-4 py-6 text-center"
+			>
+				<ClipboardCheck
+					class="h-7 w-7 text-[#b58a3a]"
+					stroke-width="1.4"
+				/>
+				<span class="text-sm font-semibold text-[#173b57]">
+					Trabajo directo
+				</span>
+			</div>
+
+			<div
+				class="flex items-center justify-center gap-3 px-4 py-6 text-center"
+			>
+				<Clock3
+					class="h-7 w-7 text-[#b58a3a]"
+					stroke-width="1.4"
+				/>
+				<span class="text-sm font-semibold text-[#173b57]">
+					Compromiso con los plazos
+				</span>
+			</div>
+		</div>
+	</section>
+
+	<!-- =====================================================
+	     SERVICIOS
+	====================================================== -->
+	<section
+		id="servicios"
+		class="bg-[#f7f4ee] py-20 md:py-28"
+	>
+		<div class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
+			<div class="max-w-3xl">
+				<span
+					class="text-xs font-bold uppercase tracking-[0.18em] text-[#b58a3a]"
+				>
+					Servicios
+				</span>
+
+				<h2
+					class="mt-3 text-3xl font-black tracking-tight text-[#102a43] md:text-5xl"
+				>
+					Soluciones para cada parte de tu reforma
+				</h2>
+
+				<p
+					class="mt-5 max-w-2xl text-base leading-relaxed text-[#687078] md:text-lg"
+				>
+					Desde una reforma integral hasta una intervención
+					específica. Una misma visión: trabajo cuidado,
+					coordinación y buenos acabados.
+				</p>
+			</div>
+
+			<div
+				class="mt-12 grid grid-cols-1 gap-5 md:grid-cols-2 lg:grid-cols-3"
+			>
+				<!-- REFORMAS -->
+				<a
+					href="/reformas-integrales"
+					class="group rounded-2xl border border-[#e2d8cb] bg-white p-7 shadow-[0_8px_30px_rgba(16,42,67,0.04)] transition duration-300 hover:border-[#b58a3a]/50 hover:shadow-[0_16px_40px_rgba(16,42,67,0.09)]"
+				>
+					<div
+						class="mb-7 flex h-16 w-16 items-center justify-center rounded-2xl bg-[#102a43] text-[#d2b06a]"
+					>
+						<House class="h-8 w-8" stroke-width="1.25" />
+					</div>
+
+					<h3 class="text-xl font-bold text-[#102a43]">
+						Reformas integrales
+					</h3>
+
+					<p class="mt-3 text-sm leading-relaxed text-[#687078]">
+						Gestión completa de la obra y coordinación de los
+						trabajos necesarios para transformar el espacio.
+					</p>
+
+					<div
+						class="mt-6 flex items-center gap-2 text-sm font-bold text-[#b58a3a]"
+					>
+						Ver servicio
+						<ArrowRight
+							class="h-4 w-4 transition-transform group-hover:translate-x-1"
+							stroke-width="1.8"
+						/>
+					</div>
+				</a>
+
+				<!-- BAÑOS -->
+				<a
+					href="/banos"
+					class="group rounded-2xl border border-[#e2d8cb] bg-white p-7 shadow-[0_8px_30px_rgba(16,42,67,0.04)] transition duration-300 hover:border-[#b58a3a]/50 hover:shadow-[0_16px_40px_rgba(16,42,67,0.09)]"
+				>
+					<div
+						class="mb-7 flex h-16 w-16 items-center justify-center rounded-2xl bg-[#173b57] text-[#d2b06a]"
+					>
+						<Bath class="h-8 w-8" stroke-width="1.25" />
+					</div>
+
+					<h3 class="text-xl font-bold text-[#102a43]">
+						Reformas de baños
+					</h3>
+
+					<p class="mt-3 text-sm leading-relaxed text-[#687078]">
+						Renovación de baños, duchas, revestimientos,
+						alicatados e instalaciones.
+					</p>
+
+					<div
+						class="mt-6 flex items-center gap-2 text-sm font-bold text-[#b58a3a]"
+					>
+						Ver servicio
+						<ArrowRight
+							class="h-4 w-4 transition-transform group-hover:translate-x-1"
+							stroke-width="1.8"
+						/>
+					</div>
+				</a>
+
+				<!-- COCINAS -->
+				<a
+					href="/cocinas"
+					class="group rounded-2xl border border-[#e2d8cb] bg-white p-7 shadow-[0_8px_30px_rgba(16,42,67,0.04)] transition duration-300 hover:border-[#b58a3a]/50 hover:shadow-[0_16px_40px_rgba(16,42,67,0.09)]"
+				>
+					<div
+						class="mb-7 flex h-16 w-16 items-center justify-center rounded-2xl bg-[#102a43] text-[#d2b06a]"
+					>
+						<ChefHat class="h-8 w-8" stroke-width="1.25" />
+					</div>
+
+					<h3 class="text-xl font-bold text-[#102a43]">
+						Reformas de cocinas
+					</h3>
+
+					<p class="mt-3 text-sm leading-relaxed text-[#687078]">
+						Renovación de cocinas con atención a distribución,
+						instalaciones, revestimientos y acabados.
+					</p>
+
+					<div
+						class="mt-6 flex items-center gap-2 text-sm font-bold text-[#b58a3a]"
+					>
+						Ver servicio
+						<ArrowRight
+							class="h-4 w-4 transition-transform group-hover:translate-x-1"
+							stroke-width="1.8"
+						/>
+					</div>
+				</a>
+
+				<!-- FONTANERÍA -->
+				<a
+					href="/fontaneria-electricidad"
+					class="group rounded-2xl border border-[#e2d8cb] bg-white p-7 shadow-[0_8px_30px_rgba(16,42,67,0.04)] transition duration-300 hover:border-[#b58a3a]/50 hover:shadow-[0_16px_40px_rgba(16,42,67,0.09)]"
+				>
+					<div
+						class="mb-7 flex h-16 w-16 items-center justify-center rounded-2xl bg-[#173b57] text-[#d2b06a]"
+					>
+						<Droplets class="h-8 w-8" stroke-width="1.25" />
+					</div>
+
+					<h3 class="text-xl font-bold text-[#102a43]">
+						Fontanería
+					</h3>
+
+					<p class="mt-3 text-sm leading-relaxed text-[#687078]">
+						Instalaciones, renovación y trabajos de fontanería
+						integrados en reformas y viviendas.
+					</p>
+
+					<div
+						class="mt-6 flex items-center gap-2 text-sm font-bold text-[#b58a3a]"
+					>
+						Ver servicio
+						<ArrowRight
+							class="h-4 w-4 transition-transform group-hover:translate-x-1"
+							stroke-width="1.8"
+						/>
+					</div>
+				</a>
+
+				<!-- ELECTRICIDAD -->
+				<a
+					href="/fontaneria-electricidad"
+					class="group rounded-2xl border border-[#e2d8cb] bg-white p-7 shadow-[0_8px_30px_rgba(16,42,67,0.04)] transition duration-300 hover:border-[#b58a3a]/50 hover:shadow-[0_16px_40px_rgba(16,42,67,0.09)]"
+				>
+					<div
+						class="mb-7 flex h-16 w-16 items-center justify-center rounded-2xl bg-[#102a43] text-[#d2b06a]"
+					>
+						<Plug class="h-8 w-8" stroke-width="1.25" />
+					</div>
+
+					<h3 class="text-xl font-bold text-[#102a43]">
+						Electricidad
+					</h3>
+
+					<p class="mt-3 text-sm leading-relaxed text-[#687078]">
+						Instalaciones eléctricas y adaptación de espacios
+						dentro de proyectos de reforma.
+					</p>
+
+					<div
+						class="mt-6 flex items-center gap-2 text-sm font-bold text-[#b58a3a]"
+					>
+						Ver servicio
+						<ArrowRight
+							class="h-4 w-4 transition-transform group-hover:translate-x-1"
+							stroke-width="1.8"
+						/>
+					</div>
+				</a>
+
+				<!-- PLADUR -->
+				<a
+					href="/#servicios"
+					class="group rounded-2xl border border-[#e2d8cb] bg-white p-7 shadow-[0_8px_30px_rgba(16,42,67,0.04)] transition duration-300 hover:border-[#b58a3a]/50 hover:shadow-[0_16px_40px_rgba(16,42,67,0.09)]"
+				>
+					<div
+						class="mb-7 flex h-16 w-16 items-center justify-center rounded-2xl bg-[#173b57] text-[#d2b06a]"
+					>
+						<PanelsTopLeft class="h-8 w-8" stroke-width="1.25" />
+					</div>
+
+					<h3 class="text-xl font-bold text-[#102a43]">
+						Pladur
+					</h3>
+
+					<p class="mt-3 text-sm leading-relaxed text-[#687078]">
+						Tabiquería, trasdosados, techos y soluciones en
+						construcción ligera.
+					</p>
+
+					<div
+						class="mt-6 flex items-center gap-2 text-sm font-bold text-[#b58a3a]"
+					>
+						Ver servicio
+						<ArrowRight
+							class="h-4 w-4 transition-transform group-hover:translate-x-1"
+							stroke-width="1.8"
+						/>
+					</div>
+				</a>
+
+				<!-- ALICATADOS -->
+				<a
+					href="/#servicios"
+					class="group rounded-2xl border border-[#e2d8cb] bg-white p-7 shadow-[0_8px_30px_rgba(16,42,67,0.04)] transition duration-300 hover:border-[#b58a3a]/50 hover:shadow-[0_16px_40px_rgba(16,42,67,0.09)]"
+				>
+					<div
+						class="mb-7 flex h-16 w-16 items-center justify-center rounded-2xl bg-[#102a43] text-[#d2b06a]"
+					>
+						<Grid3X3 class="h-8 w-8" stroke-width="1.25" />
+					</div>
+
+					<h3 class="text-xl font-bold text-[#102a43]">
+						Alicatados
+					</h3>
+
+					<p class="mt-3 text-sm leading-relaxed text-[#687078]">
+						Colocación de revestimientos y acabados para baños,
+						cocinas y diferentes espacios.
+					</p>
+
+					<div
+						class="mt-6 flex items-center gap-2 text-sm font-bold text-[#b58a3a]"
+					>
+						Ver servicio
+						<ArrowRight
+							class="h-4 w-4 transition-transform group-hover:translate-x-1"
+							stroke-width="1.8"
+						/>
+					</div>
+				</a>
+			</div>
+		</div>
+	</section>
+
+	<!-- =====================================================
+	     GALERÍA
+	====================================================== -->
+	<section
+		id="proyectos"
+		class="border-y border-[#e8ded0] bg-[#173b57] py-20 md:py-28"
+	>
+		<div class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
+			<div class="flex flex-col justify-between gap-6 md:flex-row md:items-end">
+				<div class="max-w-3xl">
+					<span
+						class="text-xs font-bold uppercase tracking-[0.18em] text-[#d2b06a]"
+					>
+						Proyectos
+					</span>
+
+					<h2
+						class="mt-3 text-3xl font-black tracking-tight text-white md:text-5xl"
+					>
+						Trabajos realizados
+					</h2>
+
+					<p class="mt-5 max-w-2xl text-[#c9d4db]">
+						Una muestra visual de trabajos de reforma y
+						acabados.
+					</p>
+				</div>
+
+				<div
+					class="hidden items-center gap-2 text-sm font-semibold text-[#d2b06a] md:flex"
+				>
+					<Sparkles class="h-4 w-4" stroke-width="1.5" />
+					Acabados y detalle
+				</div>
+			</div>
+
+			<div class="mt-12 grid grid-cols-1 gap-6 md:grid-cols-3">
+				<!-- PROYECTO 1 -->
+				<div
+					class="group relative aspect-[4/3] overflow-hidden rounded-2xl border border-white/10 bg-[#102a43]"
+				>
+					<img
+						src="/trabajos/bano1.jpg"
+						alt="Reforma de baño realizada por STARLYN REFORMAS"
+						class="h-full w-full object-cover transition duration-700 group-hover:scale-[1.03]"
+						onerror="this.src='https://images.unsplash.com/photo-1584622650111-993a426fbf0a?auto=format&fit=crop&w=1000&q=85'"
+					/>
+
+					<div
+						class="absolute inset-0 bg-gradient-to-t from-[#102a43] via-[#102a43]/10 to-transparent opacity-90"
+					></div>
+
+					<div class="absolute bottom-0 left-0 right-0 p-6">
+						<span
+							class="text-xs font-bold uppercase tracking-wider text-[#d2b06a]"
+						>
+							Baños
+						</span>
+
+						<h3 class="mt-1 text-lg font-bold text-white">
+							Reforma y alicatado
+						</h3>
+					</div>
+				</div>
+
+				<!-- PROYECTO 2 -->
+				<div
+					class="group relative aspect-[4/3] overflow-hidden rounded-2xl border border-white/10 bg-[#102a43]"
+				>
+					<img
+						src="/trabajos/cocina1.jpg"
+						alt="Reforma de cocina realizada por STARLYN REFORMAS"
+						class="h-full w-full object-cover transition duration-700 group-hover:scale-[1.03]"
+						onerror="this.src='https://images.unsplash.com/photo-1556911220-e15b29be8c8f?auto=format&fit=crop&w=1000&q=85'"
+					/>
+
+					<div
+						class="absolute inset-0 bg-gradient-to-t from-[#102a43] via-[#102a43]/10 to-transparent opacity-90"
+					></div>
+
+					<div class="absolute bottom-0 left-0 right-0 p-6">
+						<span
+							class="text-xs font-bold uppercase tracking-wider text-[#d2b06a]"
+						>
+							Cocinas
+						</span>
+
+						<h3 class="mt-1 text-lg font-bold text-white">
+							Reforma integral de cocina
+						</h3>
+					</div>
+				</div>
+
+				<!-- PROYECTO 3 -->
+				<div
+					class="group relative aspect-[4/3] overflow-hidden rounded-2xl border border-white/10 bg-[#102a43]"
+				>
+					<img
+						src="/trabajos/pladur1.jpg"
+						alt="Trabajo de pladur realizado por STARLYN REFORMAS"
+						class="h-full w-full object-cover transition duration-700 group-hover:scale-[1.03]"
+						onerror="this.src='https://images.unsplash.com/photo-1600585154340-be6161a56a0c?auto=format&fit=crop&w=1000&q=85'"
+					/>
+
+					<div
+						class="absolute inset-0 bg-gradient-to-t from-[#102a43] via-[#102a43]/10 to-transparent opacity-90"
+					></div>
+
+					<div class="absolute bottom-0 left-0 right-0 p-6">
+						<span
+							class="text-xs font-bold uppercase tracking-wider text-[#d2b06a]"
+						>
+							Pladur
+						</span>
+
+						<h3 class="mt-1 text-lg font-bold text-white">
+							Soluciones en construcción ligera
+						</h3>
+					</div>
+				</div>
+			</div>
+		</div>
+	</section>
+
+	<!-- =====================================================
+	     OPINIONES
+	====================================================== -->
+	<section class="bg-[#f7f4ee] py-20 md:py-28">
+		<div class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
+			<div class="max-w-3xl">
+				<span
+					class="text-xs font-bold uppercase tracking-[0.18em] text-[#b58a3a]"
+				>
+					Opiniones
+				</span>
+
+				<h2
+					class="mt-3 text-3xl font-black tracking-tight text-[#102a43] md:text-5xl"
+				>
+					Lo que dicen nuestros clientes
+				</h2>
+
+				<p class="mt-5 text-[#687078]">
+					Experiencias de clientes de diferentes zonas de
+					Zaragoza.
+				</p>
+			</div>
+
+			<div class="mt-12 grid grid-cols-1 gap-5 md:grid-cols-3">
+				<div
+					class="rounded-2xl border border-[#e2d8cb] bg-white p-7 shadow-[0_8px_30px_rgba(16,42,67,0.04)]"
+				>
+					<div class="mb-6 flex items-center justify-between">
+						<div class="flex gap-1 text-[#b58a3a]">
+							★★★★★
+						</div>
+
+						<Quote
+							class="h-7 w-7 text-[#e8ded0]"
+							stroke-width="1.4"
+						/>
+					</div>
+
+					<p class="text-sm leading-relaxed text-[#687078]">
+						"Cambiamos la bañera por ducha en nuestro piso del
+						Actur. Impecables en limpieza y terminaron en los
+						días pactados. 100% recomendables."
+					</p>
+
+					<div class="mt-7 border-t border-[#eee7de] pt-5">
+						<p class="text-sm font-bold text-[#102a43]">
+							Miguel Ángel R.
+						</p>
+						<p class="mt-1 text-xs text-[#8a9298]">
+							Zaragoza · Actur
+						</p>
+					</div>
+				</div>
+
+				<div
+					class="rounded-2xl border border-[#e2d8cb] bg-white p-7 shadow-[0_8px_30px_rgba(16,42,67,0.04)]"
+				>
+					<div class="mb-6 flex items-center justify-between">
+						<div class="flex gap-1 text-[#b58a3a]">
+							★★★★★
+						</div>
+
+						<Quote
+							class="h-7 w-7 text-[#e8ded0]"
+							stroke-width="1.4"
+						/>
+					</div>
+
+					<p class="text-sm leading-relaxed text-[#687078]">
+						"Hicieron la reforma de la cocina completa y el
+						alisado de paredes de pladur. Grandes profesionales
+						con gremios muy coordinados."
+					</p>
+
+					<div class="mt-7 border-t border-[#eee7de] pt-5">
+						<p class="text-sm font-bold text-[#102a43]">
+							Sonia G.
+						</p>
+						<p class="mt-1 text-xs text-[#8a9298]">
+							Zaragoza · Romareda
+						</p>
+					</div>
+				</div>
+
+				<div
+					class="rounded-2xl border border-[#e2d8cb] bg-white p-7 shadow-[0_8px_30px_rgba(16,42,67,0.04)]"
+				>
+					<div class="mb-6 flex items-center justify-between">
+						<div class="flex gap-1 text-[#b58a3a]">
+							★★★★★
+						</div>
+
+						<Quote
+							class="h-7 w-7 text-[#e8ded0]"
+							stroke-width="1.4"
+						/>
+					</div>
+
+					<p class="text-sm leading-relaxed text-[#687078]">
+						"Muy atentos al detalle en la fontanería y alicatado
+						del baño principal. Presupuesto ajustado y directo."
+					</p>
+
+					<div class="mt-7 border-t border-[#eee7de] pt-5">
+						<p class="text-sm font-bold text-[#102a43]">
+							Javier L.
+						</p>
+						<p class="mt-1 text-xs text-[#8a9298]">
+							Zaragoza · Centro
+						</p>
+					</div>
+				</div>
+			</div>
+		</div>
+	</section>
+
+	<!-- =====================================================
+	     CONTACTO
+	====================================================== -->
+	<section
+		id="contacto"
+		class="relative overflow-visible bg-[#102a43] py-20 text-white md:py-28"
+	>
+		<div
+			class="pointer-events-none absolute right-0 top-0 h-80 w-80 rounded-full bg-[#b58a3a]/10 blur-3xl"
+		></div>
+
+		<div
+			class="relative mx-auto max-w-5xl px-4 sm:px-6 lg:px-8"
+		>
+			<div class="mx-auto max-w-3xl text-center">
+				<span
+					class="text-xs font-bold uppercase tracking-[0.18em] text-[#d2b06a]"
+				>
+					Contacto
+				</span>
+
+				<h2
+					class="mt-3 text-3xl font-black tracking-tight md:text-5xl"
+				>
+					Cuéntanos qué necesitas reformar
+				</h2>
+
+				<p class="mt-5 text-[#c9d4db]">
+					Completa los datos básicos del proyecto y nos pondremos
+					en contacto contigo.
+				</p>
+			</div>
+
+			<form
+				action="https://formspree.io/f/tu-endpoint-aqui"
+				method="POST"
+				class="relative z-20 mx-auto mt-12 max-w-4xl rounded-3xl border border-white/10 bg-[#173b57] p-6 shadow-[0_25px_70px_rgba(0,0,0,0.22)] sm:p-8 md:p-10"
+			>
+				<div class="grid grid-cols-1 gap-6 md:grid-cols-2">
+					<div>
+						<label
+							for="nombre"
+							class="mb-2 block text-xs font-bold uppercase tracking-wider text-[#d8e0e5]"
+						>
+							Nombre completo *
+						</label>
+
+						<input
+							type="text"
+							id="nombre"
+							name="nombre"
+							required
+							placeholder="Ej. Carlos Martínez"
+							class="w-full rounded-xl border border-white/10 bg-[#102a43] px-4 py-3.5 text-white placeholder-[#71808a] outline-none transition focus:border-[#d2b06a]"
+						/>
+					</div>
+
+					<div>
+						<label
+							for="telefono"
+							class="mb-2 block text-xs font-bold uppercase tracking-wider text-[#d8e0e5]"
+						>
+							Teléfono *
+						</label>
+
+						<input
+							type="tel"
+							id="telefono"
+							name="telefono"
+							required
+							placeholder="Ej. 614 78 30 04"
+							class="w-full rounded-xl border border-white/10 bg-[#102a43] px-4 py-3.5 text-white placeholder-[#71808a] outline-none transition focus:border-[#d2b06a]"
+						/>
+					</div>
+				</div>
+
+				<!-- AUTOCOMPLETADO -->
+				<div
+					class="relative z-50 mt-6 overflow-visible"
+					id="autocomplete-wrapper"
+				>
+					<label
+						for="barrio-input"
+						class="mb-2 block text-xs font-bold uppercase tracking-wider text-[#d8e0e5]"
+					>
+						Zona o ubicación del proyecto *
+					</label>
+
+					<div class="relative">
+						<MapPin
+							class="pointer-events-none absolute left-4 top-1/2 h-5 w-5 -translate-y-1/2 text-[#b58a3a]"
+							stroke-width="1.5"
+						/>
+
+						<input
+							type="text"
+							id="barrio-input"
+							name="barrio"
+							autocomplete="off"
+							required
+							placeholder="Ej. Actur, Centro, Delicias..."
+							class="w-full rounded-xl border border-white/10 bg-[#102a43] py-3.5 pl-12 pr-4 text-white placeholder-[#71808a] outline-none transition focus:border-[#d2b06a]"
+						/>
+					</div>
+
+					<ul
+						id="direccion-results"
+						class="absolute left-0 right-0 top-full z-[9999] mt-2 hidden max-h-60 overflow-y-auto rounded-xl border border-[#d2b06a]/40 bg-[#102a43] shadow-2xl divide-y divide-white/5"
+						role="listbox"
+					></ul>
+				</div>
+
+				<div class="mt-6">
+					<label
+						for="mensaje"
+						class="mb-2 block text-xs font-bold uppercase tracking-wider text-[#d8e0e5]"
+					>
+						Detalles del proyecto
+					</label>
+
+					<textarea
+						id="mensaje"
+						name="mensaje"
+						rows="5"
+						placeholder="Cuéntanos brevemente qué necesitas reformar..."
+						class="w-full resize-none rounded-xl border border-white/10 bg-[#102a43] px-4 py-3.5 text-white placeholder-[#71808a] outline-none transition focus:border-[#d2b06a]"
+					></textarea>
+				</div>
+
+				<button
+					type="submit"
+					class="group mt-7 flex w-full items-center justify-center gap-2 rounded-xl bg-[#d2b06a] px-6 py-4 text-base font-black text-[#102a43] transition hover:bg-[#e0c384]"
+				>
+					Solicitar presupuesto
+					<ArrowRight
+						class="h-5 w-5 transition-transform group-hover:translate-x-1"
+						stroke-width="1.8"
+					/>
+				</button>
+			</form>
+		</div>
+	</section>
+
+	<!-- =====================================================
+	     AUTOCOMPLETADO
+	====================================================== -->
+	<script is:inline>
+		(function () {
+			function initAutocomplete() {
+				var input = document.getElementById("barrio-input");
+				var resultsList =
+					document.getElementById("direccion-results");
+				var wrapper =
+					document.getElementById("autocomplete-wrapper");
+
+				if (!input || !resultsList || !wrapper) return;
+
+				var zonasZaragoza = [
+					"Actur",
+					"Centro / Paseo Sagasta",
+					"Delicias",
+					"Romareda",
+					"San José",
+					"Las Fuentes",
+					"Santa Isabel",
+					"Valdespartera",
+					"Montecanal",
+					"Miralbueno",
+					"El Oliver",
+					"Torrero / La Paz",
+					"Almozara",
+					"Calle Antonio Bravo, Zaragoza",
+					"Calle Antonio Cánovas, Zaragoza",
+					"Paseo Independencia, Zaragoza",
+					"Gran Vía, Zaragoza",
+					"Calle Alfonso I, Zaragoza",
+					"Calle Don Jaime I, Zaragoza",
+					"Avenida de Madrid, Zaragoza",
+					"Avenida Navarra, Zaragoza",
+				];
+
+				function filterAndShow(query) {
+					var cleanQuery = query.toLowerCase().trim();
+
+					resultsList.innerHTML = "";
+
+					if (!cleanQuery) {
+						resultsList.classList.add("hidden");
+						return;
+					}
+
+					var matches = zonasZaragoza.filter(function (item) {
+						return (
+							item.toLowerCase().indexOf(cleanQuery) !== -1
+						);
+					});
+
+					if (matches.length > 0) {
+						matches.forEach(function (zona) {
+							var li = document.createElement("li");
+
+							li.className =
+								"cursor-pointer px-4 py-3 text-sm text-[#d8e0e5] transition hover:bg-[#173b57] hover:text-white";
+
+							li.setAttribute("role", "option");
+							li.textContent = zona;
+
+							li.addEventListener(
+								"mousedown",
+								function (event) {
+									event.preventDefault();
+
+									input.value = zona;
+									resultsList.classList.add("hidden");
+								}
+							);
+
+							resultsList.appendChild(li);
+						});
+
+						resultsList.classList.remove("hidden");
+					} else {
+						resultsList.classList.add("hidden");
+					}
+				}
+
+				input.addEventListener("input", function (event) {
+					var target = event.target;
+
+					if (target instanceof HTMLInputElement) {
+						filterAndShow(target.value);
+					}
+				});
+
+				input.addEventListener("focus", function () {
+					if (input.value.trim()) {
+						filterAndShow(input.value);
+					}
+				});
+
+				document.addEventListener("click", function (event) {
+					var target = event.target;
+
+					if (
+						target instanceof Node &&
+						!wrapper.contains(target)
+					) {
+						resultsList.classList.add("hidden");
+					}
+				});
+			}
+
+			if (document.readyState === "loading") {
+				document.addEventListener(
+					"DOMContentLoaded",
+					initAutocomplete
+				);
+			} else {
+				initAutocomplete();
+			}
+		})();
+	</script>
+</Layout>

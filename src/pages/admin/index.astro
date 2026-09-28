@@ -1,0 +1,3660 @@
+---
+---
+
+<!doctype html>
+<html lang="es">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="robots" content="noindex, nofollow" />
+    <title>Administración | STARLYN REFORMAS</title>
+  </head>
+
+  <body>
+    <div class="admin-layout">
+
+      <!-- =====================================================
+           SIDEBAR
+      ====================================================== -->
+
+      <aside class="sidebar">
+
+        <div class="sidebar-brand">
+          <img
+            src="/images/logo-starlyn-reformas.png"
+            alt="STARLYN REFORMAS"
+          />
+
+          <div class="brand-divider"></div>
+
+          <span>ADMINISTRACIÓN</span>
+        </div>
+
+        <nav class="sidebar-nav">
+
+          <a href="/admin" class="nav-item active">
+
+            <span class="nav-icon">
+              <svg
+                viewBox="0 0 24 24"
+                fill="none"
+                stroke="currentColor"
+                stroke-width="1.7"
+              >
+                <rect x="3" y="3" width="7" height="7" rx="1" />
+                <rect x="14" y="3" width="7" height="7" rx="1" />
+                <rect x="3" y="14" width="7" height="7" rx="1" />
+                <rect x="14" y="14" width="7" height="7" rx="1" />
+              </svg>
+            </span>
+
+            <span>Proyectos / Trabajos</span>
+
+          </a>
+
+        </nav>
+
+        <div class="sidebar-bottom">
+
+          <a href="/" class="view-site">
+
+            <svg
+              viewBox="0 0 24 24"
+              fill="none"
+              stroke="currentColor"
+              stroke-width="1.8"
+            >
+              <path d="M3 11.5 12 4l9 7.5" />
+              <path d="M5 10.5V20h14v-9.5" />
+              <path d="M9 20v-5h6v5" />
+            </svg>
+
+            <span>Ver sitio web</span>
+
+          </a>
+
+          <button id="logout-button" class="logout-button" type="button">
+
+            <svg
+              viewBox="0 0 24 24"
+              fill="none"
+              stroke="currentColor"
+              stroke-width="1.8"
+            >
+              <path d="M10 17l5-5-5-5" />
+              <path d="M15 12H3" />
+              <path d="M21 19V5a2 2 0 0 0-2-2h-6" />
+            </svg>
+
+            <span>Cerrar sesión</span>
+
+          </button>
+
+        </div>
+
+      </aside>
+
+
+      <!-- =====================================================
+           CONTENIDO PRINCIPAL
+      ====================================================== -->
+
+      <main class="main-content">
+
+        <header class="topbar">
+
+          <div>
+            <p class="eyebrow">PANEL DE ADMINISTRACIÓN</p>
+
+            <h1>Proyectos / Trabajos</h1>
+          </div>
+
+          <div class="topbar-actions">
+
+            <span class="secure-status">
+
+              <span class="status-dot"></span>
+
+              Sesión segura
+
+            </span>
+
+            <button
+              id="mobile-logout"
+              class="mobile-logout"
+              type="button"
+            >
+              Cerrar sesión
+            </button>
+
+          </div>
+
+        </header>
+
+
+        <!-- =====================================================
+             CONTENIDO
+        ====================================================== -->
+
+        <section class="content">
+
+          <div class="section-header">
+
+            <div>
+
+              <p class="section-kicker">
+                PORTFOLIO
+              </p>
+
+              <h2>
+                Trabajos realizados
+              </h2>
+
+              <p>
+                Gestiona los proyectos que aparecen en la sección
+                de trabajos de STARLYN REFORMAS.
+              </p>
+
+            </div>
+
+            <button
+              class="new-project-button"
+              id="new-project"
+              type="button"
+            >
+
+              <span>+</span>
+
+              Nuevo proyecto
+
+            </button>
+
+          </div>
+
+
+          <!-- =================================================
+               ESTADÍSTICAS
+          ================================================== -->
+
+          <div class="stats-grid">
+
+            <div class="stat-card">
+
+              <div class="stat-icon">
+
+                <svg
+                  viewBox="0 0 24 24"
+                  fill="none"
+                  stroke="currentColor"
+                  stroke-width="1.7"
+                >
+                  <rect x="3" y="3" width="18" height="18" rx="2" />
+                  <path d="M8 9h8M8 13h5M8 17h8" />
+                </svg>
+
+              </div>
+
+              <div>
+                <span class="stat-label">
+                  Proyectos
+                </span>
+
+                <strong id="stat-total">
+                  0
+                </strong>
+              </div>
+
+            </div>
+
+
+            <div class="stat-card">
+
+              <div class="stat-icon">
+
+                <svg
+                  viewBox="0 0 24 24"
+                  fill="none"
+                  stroke="currentColor"
+                  stroke-width="1.7"
+                >
+                  <path d="M12 3v18M3 12h18" />
+                </svg>
+
+              </div>
+
+              <div>
+                <span class="stat-label">
+                  Publicados
+                </span>
+
+                <strong id="stat-published">
+                  0
+                </strong>
+              </div>
+
+            </div>
+
+
+            <div class="stat-card">
+
+              <div class="stat-icon">
+
+                <svg
+                  viewBox="0 0 24 24"
+                  fill="none"
+                  stroke="currentColor"
+                  stroke-width="1.7"
+                >
+                  <path d="M4 19V5" />
+                  <path d="M4 5c4-2 8 2 16 0v10c-8 2-12-2-16 0" />
+                </svg>
+
+              </div>
+
+              <div>
+                <span class="stat-label">
+                  Categorías
+                </span>
+
+                <strong id="stat-categories">
+                  0
+                </strong>
+              </div>
+
+            </div>
+
+          </div>
+
+
+          <!-- =================================================
+               LISTA DE PROYECTOS
+          ================================================== -->
+
+          <div class="projects-card">
+
+            <div class="projects-card-header">
+
+              <div>
+
+                <h3>
+                  Proyectos
+                </h3>
+
+                <span>
+                  Contenido de la galería pública
+                </span>
+
+              </div>
+
+              <div
+                id="project-count"
+                class="project-count"
+              >
+                0 proyectos
+              </div>
+
+            </div>
+
+
+            <!-- Aquí JavaScript genera TODOS los proyectos -->
+
+            <div
+              id="projects-list"
+              class="projects-list"
+            ></div>
+
+
+            <!-- Estado vacío -->
+
+            <div
+              id="empty-state"
+              class="empty-state"
+              hidden
+            >
+
+              <div class="empty-icon">
+
+                <svg
+                  viewBox="0 0 24 24"
+                  fill="none"
+                  stroke="currentColor"
+                  stroke-width="1.5"
+                >
+                  <rect x="3" y="4" width="18" height="16" rx="2" />
+                  <path d="m3 15 5-5 4 4 3-3 6 6" />
+                  <circle cx="8" cy="9" r="1.5" />
+                </svg>
+
+              </div>
+
+              <h3>
+                Todavía no hay proyectos
+              </h3>
+
+              <p>
+                Añade tu primer trabajo para comenzar a crear
+                la galería de STARLYN REFORMAS.
+              </p>
+
+              <button
+                id="empty-new-project"
+                type="button"
+                class="empty-button"
+              >
+                Añadir primer proyecto
+              </button>
+
+            </div>
+
+          </div>
+
+        </section>
+
+      </main>
+
+    </div>
+
+
+    <!-- =======================================================
+         MODAL NUEVO / EDITAR PROYECTO
+    ======================================================== -->
+
+    <div
+      id="project-modal"
+      class="modal-backdrop"
+      hidden
+    >
+
+      <div
+        class="modal"
+        role="dialog"
+        aria-modal="true"
+        aria-labelledby="modal-title"
+      >
+
+        <div class="modal-header">
+
+          <div>
+
+            <p class="modal-kicker">
+              GESTIÓN DE PROYECTOS
+            </p>
+
+            <h2 id="modal-title">
+              Nuevo proyecto
+            </h2>
+
+          </div>
+
+          <button
+            id="close-modal"
+            class="close-modal"
+            type="button"
+            aria-label="Cerrar"
+          >
+            ×
+          </button>
+
+        </div>
+
+
+        <form id="project-form">
+
+          <input
+            type="hidden"
+            id="project-id"
+          />
+
+
+          <!-- IMAGEN -->
+
+          <div class="form-section">
+
+            <label class="form-label">
+              Imagen del proyecto
+            </label>
+
+            <div
+              id="image-dropzone"
+              class="image-dropzone"
+            >
+
+              <div
+                id="image-preview"
+                class="image-preview"
+                hidden
+              >
+                <img
+                  id="preview-image"
+                  src=""
+                  alt="Vista previa"
+                />
+
+                <button
+                  id="remove-image"
+                  class="remove-image"
+                  type="button"
+                  aria-label="Eliminar imagen seleccionada"
+                >
+                  ×
+                </button>
+              </div>
+
+
+              <div
+                id="upload-placeholder"
+                class="upload-placeholder"
+              >
+
+                <div class="upload-icon">
+
+                  <svg
+                    viewBox="0 0 24 24"
+                    fill="none"
+                    stroke="currentColor"
+                    stroke-width="1.5"
+                  >
+                    <path d="M12 16V4" />
+                    <path d="m7 9 5-5 5 5" />
+                    <path d="M5 20h14" />
+                  </svg>
+
+                </div>
+
+                <strong>
+                  Selecciona una imagen
+                </strong>
+
+                <span>
+                  JPG, PNG o WEBP
+                </span>
+
+                <button
+                  id="choose-image"
+                  type="button"
+                  class="choose-image"
+                >
+                  Elegir imagen
+                </button>
+
+              </div>
+
+              <input
+                id="image-file"
+                type="file"
+                accept="image/jpeg,image/png,image/webp"
+                hidden
+              />
+
+            </div>
+
+            <p class="field-help">
+              En un proyecto nuevo la imagen es obligatoria.
+              Al editar, puedes mantener la imagen actual.
+            </p>
+
+          </div>
+
+
+          <!-- DATOS -->
+
+          <div class="form-grid">
+
+            <div class="form-field full">
+
+              <label for="project-title">
+                Título del proyecto *
+              </label>
+
+              <input
+                id="project-title"
+                type="text"
+                maxlength="120"
+                placeholder="Ej. Reforma integral de baño"
+                required
+              />
+
+            </div>
+
+
+            <div class="form-field">
+
+              <label for="project-category">
+                Categoría *
+              </label>
+
+              <select
+                id="project-category"
+                required
+              >
+
+                <option value="">
+                  Seleccionar categoría
+                </option>
+
+                <option value="Reformas integrales">
+                  Reformas integrales
+                </option>
+
+                <option value="Baños">
+                  Baños
+                </option>
+
+                <option value="Cocinas">
+                  Cocinas
+                </option>
+
+                <option value="Fontanería">
+                  Fontanería
+                </option>
+
+                <option value="Electricidad">
+                  Electricidad
+                </option>
+
+                <option value="Pladur">
+                  Pladur
+                </option>
+
+                <option value="Alicatados">
+                  Alicatados
+                </option>
+
+              </select>
+
+            </div>
+
+
+            <div class="form-field">
+
+              <label for="project-order">
+                Orden
+              </label>
+
+              <input
+                id="project-order"
+                type="number"
+                min="0"
+                step="1"
+                value="0"
+              />
+
+            </div>
+
+
+            <div class="form-field full">
+
+              <label for="project-description">
+                Descripción
+              </label>
+
+              <textarea
+                id="project-description"
+                maxlength="500"
+                rows="4"
+                placeholder="Describe brevemente el trabajo realizado..."
+              ></textarea>
+
+            </div>
+
+
+            <div class="form-field full">
+
+              <label class="publish-option">
+
+                <input
+                  id="project-published"
+                  type="checkbox"
+                  checked
+                />
+
+                <span class="custom-checkbox">
+
+                  <svg
+                    viewBox="0 0 24 24"
+                    fill="none"
+                    stroke="currentColor"
+                    stroke-width="2"
+                  >
+                    <path d="m5 12 4 4L19 6" />
+                  </svg>
+
+                </span>
+
+                <span>
+                  Publicar este proyecto en la web
+                </span>
+
+              </label>
+
+            </div>
+
+          </div>
+
+
+          <!-- MENSAJE -->
+
+          <div
+            id="form-message"
+            class="form-message"
+            hidden
+          ></div>
+
+
+          <!-- ACCIONES -->
+
+          <div class="modal-actions">
+
+            <button
+              id="cancel-modal"
+              type="button"
+              class="cancel-button"
+            >
+              Cancelar
+            </button>
+
+            <button
+              id="save-project"
+              type="submit"
+              class="save-button"
+            >
+              <span id="save-text">
+                Guardar proyecto
+              </span>
+
+              <span
+                id="save-spinner"
+                class="spinner"
+                hidden
+              ></span>
+            </button>
+
+          </div>
+
+        </form>
+
+      </div>
+
+    </div>
+
+
+    <!-- =======================================================
+         CONFIRMACIÓN ELIMINAR
+    ======================================================== -->
+
+    <div
+      id="delete-modal"
+      class="modal-backdrop"
+      hidden
+    >
+
+      <div class="confirm-modal">
+
+        <div class="confirm-icon">
+
+          <svg
+            viewBox="0 0 24 24"
+            fill="none"
+            stroke="currentColor"
+            stroke-width="1.6"
+          >
+            <path d="M12 3 2.8 20h18.4L12 3Z" />
+            <path d="M12 9v5" />
+            <path d="M12 17h.01" />
+          </svg>
+
+        </div>
+
+        <h2>
+          ¿Eliminar proyecto?
+        </h2>
+
+        <p id="delete-description">
+          Esta acción eliminará el proyecto de la galería.
+        </p>
+
+        <div class="confirm-actions">
+
+          <button
+            id="cancel-delete"
+            type="button"
+            class="cancel-button"
+          >
+            Cancelar
+          </button>
+
+          <button
+            id="confirm-delete"
+            type="button"
+            class="delete-confirm-button"
+          >
+            Eliminar
+          </button>
+
+        </div>
+
+      </div>
+
+    </div>
+
+
+    <!-- =======================================================
+         JAVASCRIPT
+    ======================================================== -->
+
+    <script>
+      import { supabase } from '../../lib/supabase/client';
+
+
+      /* =========================================================
+         REFERENCIAS
+      ========================================================== */
+
+      const projectsList =
+        document.querySelector('#projects-list');
+
+      const emptyState =
+        document.querySelector('#empty-state');
+
+      const projectModal =
+        document.querySelector('#project-modal');
+
+      const deleteModal =
+        document.querySelector('#delete-modal');
+
+      const projectForm =
+        document.querySelector('#project-form');
+
+      const imageFile =
+        document.querySelector('#image-file');
+
+      const imagePreview =
+        document.querySelector('#image-preview');
+
+      const previewImage =
+        document.querySelector('#preview-image');
+
+      const uploadPlaceholder =
+        document.querySelector('#upload-placeholder');
+
+      const formMessage =
+        document.querySelector('#form-message');
+
+      const saveButton =
+        document.querySelector('#save-project');
+
+      const saveText =
+        document.querySelector('#save-text');
+
+      const saveSpinner =
+        document.querySelector('#save-spinner');
+
+      let projects = [];
+
+      let selectedFile = null;
+
+      let editingProject = null;
+
+      let projectToDelete = null;
+
+
+      /* =========================================================
+         UTILIDADES
+      ========================================================== */
+
+      const escapeHtml = (value) => {
+
+        return String(value ?? '')
+          .replace(/&/g, '&amp;')
+          .replace(/</g, '&lt;')
+          .replace(/>/g, '&gt;')
+          .replace(/"/g, '&quot;')
+          .replace(/'/g, '&#039;');
+
+      };
+
+
+      const getImagePathFromStorageUrl = (url) => {
+
+        if (!url) return null;
+
+        const marker =
+          '/storage/v1/object/public/proyectos/';
+
+        const index =
+          url.indexOf(marker);
+
+        if (index === -1) {
+          return null;
+        }
+
+        return decodeURIComponent(
+          url.slice(index + marker.length)
+        );
+
+      };
+
+
+      const showFormMessage = (
+        message,
+        type = 'error'
+      ) => {
+
+        if (!formMessage) return;
+
+        formMessage.hidden = false;
+
+        formMessage.className =
+          `form-message ${type}`;
+
+        formMessage.textContent =
+          message;
+
+      };
+
+
+      const hideFormMessage = () => {
+
+        if (!formMessage) return;
+
+        formMessage.hidden = true;
+
+        formMessage.textContent = '';
+
+      };
+
+
+      const setSaving = (saving) => {
+
+        if (!saveButton) return;
+
+        saveButton.disabled = saving;
+
+        if (saveText) {
+
+          saveText.textContent =
+            saving
+              ? 'Guardando...'
+              : (
+                editingProject
+                  ? 'Guardar cambios'
+                  : 'Guardar proyecto'
+              );
+
+        }
+
+        if (saveSpinner) {
+          saveSpinner.hidden = !saving;
+        }
+
+      };
+
+
+      /* =========================================================
+         CERRAR SESIÓN
+      ========================================================== */
+
+      const logout = async () => {
+
+        await supabase.auth.signOut();
+
+        window.location.href =
+          '/admin/login';
+
+      };
+
+
+      document
+        .querySelector('#logout-button')
+        ?.addEventListener(
+          'click',
+          logout
+        );
+
+
+      document
+        .querySelector('#mobile-logout')
+        ?.addEventListener(
+          'click',
+          logout
+        );
+
+
+      /* =========================================================
+         RENDERIZAR PROYECTOS
+      ========================================================== */
+
+      const renderProjects = () => {
+
+        if (!projectsList) return;
+
+        projectsList.innerHTML = '';
+
+
+        if (projects.length === 0) {
+
+          projectsList.hidden = true;
+
+          if (emptyState) {
+            emptyState.hidden = false;
+          }
+
+          return;
+
+        }
+
+
+        projectsList.hidden = false;
+
+        if (emptyState) {
+          emptyState.hidden = true;
+        }
+
+
+        projects.forEach((project) => {
+
+          const row =
+            document.createElement('article');
+
+          row.className =
+            'project-row';
+
+
+          const image =
+            escapeHtml(
+              project.imagen ||
+              '/images/og-default.jpg'
+            );
+
+
+          const title =
+            escapeHtml(
+              project.titulo ||
+              'Proyecto sin título'
+            );
+
+
+          const description =
+            escapeHtml(
+              project.descripcion ||
+              'Sin descripción'
+            );
+
+
+          const category =
+            escapeHtml(
+              project.categoria ||
+              'Sin categoría'
+            );
+
+
+          const isPublished =
+            project.publicado === true;
+
+
+          row.innerHTML = `
+
+            <div class="project-image">
+
+              <img
+                src="${image}"
+                alt="${title}"
+                loading="lazy"
+              />
+
+              <div class="image-badge">
+                ${isPublished ? 'Publicado' : 'No publicado'}
+              </div>
+
+            </div>
+
+
+            <div class="project-info">
+
+              <span class="project-small-label">
+                PROYECTO
+              </span>
+
+              <h4>
+                ${title}
+              </h4>
+
+              <p>
+                ${description}
+              </p>
+
+              <div class="project-meta">
+
+                <span class="category">
+                  ${category}
+                </span>
+
+                <span
+                  class="published ${
+                    isPublished
+                      ? ''
+                      : 'not-published'
+                  }"
+                >
+
+                  <span class="published-dot"></span>
+
+                  ${
+                    isPublished
+                      ? 'Publicado'
+                      : 'No publicado'
+                  }
+
+                </span>
+
+              </div>
+
+            </div>
+
+
+            <div class="project-actions">
+
+              <button
+                type="button"
+                class="action-button edit-project"
+                data-id="${project.id}"
+              >
+
+                <svg
+                  viewBox="0 0 24 24"
+                  fill="none"
+                  stroke="currentColor"
+                  stroke-width="1.7"
+                >
+                  <path d="M12 20h9" />
+                  <path
+                    d="M16.5 3.5a2.1 2.1 0 0 1 3 3L8 18l-4 1 1-4Z"
+                  />
+                </svg>
+
+                <span>
+                  Editar
+                </span>
+
+              </button>
+
+
+              <button
+                type="button"
+                class="action-button toggle-project"
+                data-id="${project.id}"
+              >
+
+                <svg
+                  viewBox="0 0 24 24"
+                  fill="none"
+                  stroke="currentColor"
+                  stroke-width="1.7"
+                >
+                  ${
+                    isPublished
+                      ? `
+                        <path d="M2 12s3.5-6 10-6 10 6 10 6-3.5 6-10 6S2 12 2 12Z" />
+                        <circle cx="12" cy="12" r="2.5" />
+                      `
+                      : `
+                        <path d="M3 3l18 18" />
+                        <path d="M10.6 6.2A10.8 10.8 0 0 1 12 6c6.5 0 10 6 10 6a18 18 0 0 1-3.2 3.7" />
+                        <path d="M6.7 6.8C3.6 8.6 2 12 2 12s3.5 6 10 6c1.1 0 2.1-.2 3-.5" />
+                      `
+                  }
+                </svg>
+
+                <span>
+                  ${
+                    isPublished
+                      ? 'Ocultar'
+                      : 'Publicar'
+                  }
+                </span>
+
+              </button>
+
+
+              <button
+                type="button"
+                class="action-button delete delete-project"
+                data-id="${project.id}"
+              >
+
+                <svg
+                  viewBox="0 0 24 24"
+                  fill="none"
+                  stroke="currentColor"
+                  stroke-width="1.7"
+                >
+                  <path d="M3 6h18" />
+                  <path d="M8 6V4h8v2" />
+                  <path d="m19 6-1 15H6L5 6" />
+                  <path d="M10 11v6M14 11v6" />
+                </svg>
+
+                <span>
+                  Eliminar
+                </span>
+
+              </button>
+
+            </div>
+
+          `;
+
+
+          projectsList.appendChild(row);
+
+        });
+
+
+        attachProjectActions();
+
+      };
+
+
+      /* =========================================================
+         ESTADÍSTICAS
+      ========================================================== */
+
+      const updateStats = () => {
+
+        const total =
+          projects.length;
+
+
+        const published =
+          projects.filter(
+            (project) =>
+              project.publicado === true
+          ).length;
+
+
+        const categories =
+          new Set(
+            projects
+              .map(
+                (project) =>
+                  project.categoria
+              )
+              .filter(Boolean)
+          ).size;
+
+
+        const totalElement =
+          document.querySelector(
+            '#stat-total'
+          );
+
+
+        const publishedElement =
+          document.querySelector(
+            '#stat-published'
+          );
+
+
+        const categoriesElement =
+          document.querySelector(
+            '#stat-categories'
+          );
+
+
+        if (totalElement) {
+          totalElement.textContent =
+            String(total);
+        }
+
+
+        if (publishedElement) {
+          publishedElement.textContent =
+            String(published);
+        }
+
+
+        if (categoriesElement) {
+          categoriesElement.textContent =
+            String(categories);
+        }
+
+
+        const projectCount =
+          document.querySelector(
+            '#project-count'
+          );
+
+
+        if (projectCount) {
+
+          projectCount.textContent =
+            `${total} ${
+              total === 1
+                ? 'proyecto'
+                : 'proyectos'
+            }`;
+
+        }
+
+      };
+
+
+      /* =========================================================
+         CARGAR PROYECTOS
+      ========================================================== */
+
+      const loadProjects = async () => {
+
+        try {
+
+          if (projectsList) {
+
+            projectsList.innerHTML = `
+              <div class="loading-state">
+                <span class="loading-spinner"></span>
+                Cargando proyectos...
+              </div>
+            `;
+
+          }
+
+
+          const {
+            data,
+            error
+          } = await supabase
+            .from('proyectos')
+            .select('*')
+            .order(
+              'orden',
+              {
+                ascending: true
+              }
+            )
+            .order(
+              'created_at',
+              {
+                ascending: false
+              }
+            );
+
+
+          if (error) {
+
+            console.error(
+              'Error cargando proyectos:',
+              error
+            );
+
+            if (projectsList) {
+
+              projectsList.innerHTML = `
+                <div class="error-state">
+                  No se pudieron cargar los proyectos.
+                  Revisa la conexión con Supabase.
+                </div>
+              `;
+
+            }
+
+            return;
+
+          }
+
+
+          projects =
+            data ?? [];
+
+
+          updateStats();
+
+          renderProjects();
+
+        } catch (error) {
+
+          console.error(
+            'Error inesperado cargando proyectos:',
+            error
+          );
+
+        }
+
+      };
+
+
+      /* =========================================================
+         ABRIR MODAL NUEVO
+      ========================================================== */
+
+      const openNewProjectModal = () => {
+
+        editingProject = null;
+
+        selectedFile = null;
+
+        if (projectForm) {
+          projectForm.reset();
+        }
+
+
+        const idInput =
+          document.querySelector(
+            '#project-id'
+          );
+
+        const orderInput =
+          document.querySelector(
+            '#project-order'
+          );
+
+
+        if (idInput) {
+          idInput.value = '';
+        }
+
+
+        if (orderInput) {
+          orderInput.value =
+            String(projects.length + 1);
+        }
+
+
+        const published =
+          document.querySelector(
+            '#project-published'
+          );
+
+
+        if (published) {
+          published.checked = true;
+        }
+
+
+        const modalTitle =
+          document.querySelector(
+            '#modal-title'
+          );
+
+
+        if (modalTitle) {
+          modalTitle.textContent =
+            'Nuevo proyecto';
+        }
+
+
+        if (saveText) {
+          saveText.textContent =
+            'Guardar proyecto';
+        }
+
+
+        hideFormMessage();
+
+        clearImagePreview();
+
+        projectModal.hidden = false;
+
+        document.body.classList.add(
+          'modal-open'
+        );
+
+
+        setTimeout(() => {
+
+          document
+            .querySelector(
+              '#project-title'
+            )
+            ?.focus();
+
+        }, 50);
+
+      };
+
+
+      /* =========================================================
+         ABRIR MODAL EDITAR
+      ========================================================== */
+
+      const openEditProjectModal = (
+        project
+      ) => {
+
+        editingProject =
+          project;
+
+
+        selectedFile =
+          null;
+
+
+        const idInput =
+          document.querySelector(
+            '#project-id'
+          );
+
+        const titleInput =
+          document.querySelector(
+            '#project-title'
+          );
+
+        const categoryInput =
+          document.querySelector(
+            '#project-category'
+          );
+
+        const descriptionInput =
+          document.querySelector(
+            '#project-description'
+          );
+
+        const orderInput =
+          document.querySelector(
+            '#project-order'
+          );
+
+        const publishedInput =
+          document.querySelector(
+            '#project-published'
+          );
+
+
+        if (idInput) {
+          idInput.value =
+            String(project.id);
+        }
+
+
+        if (titleInput) {
+          titleInput.value =
+            project.titulo || '';
+        }
+
+
+        if (categoryInput) {
+          categoryInput.value =
+            project.categoria || '';
+        }
+
+
+        if (descriptionInput) {
+          descriptionInput.value =
+            project.descripcion || '';
+        }
+
+
+        if (orderInput) {
+          orderInput.value =
+            String(project.orden ?? 0);
+        }
+
+
+        if (publishedInput) {
+          publishedInput.checked =
+            project.publicado === true;
+        }
+
+
+        const modalTitle =
+          document.querySelector(
+            '#modal-title'
+          );
+
+
+        if (modalTitle) {
+          modalTitle.textContent =
+            'Editar proyecto';
+        }
+
+
+        if (saveText) {
+          saveText.textContent =
+            'Guardar cambios';
+        }
+
+
+        hideFormMessage();
+
+
+        if (project.imagen) {
+
+          previewImage.src =
+            project.imagen;
+
+          previewImage.alt =
+            project.titulo ||
+            'Imagen del proyecto';
+
+          imagePreview.hidden = false;
+
+          uploadPlaceholder.hidden = true;
+
+        } else {
+
+          clearImagePreview();
+
+        }
+
+
+        projectModal.hidden = false;
+
+        document.body.classList.add(
+          'modal-open'
+        );
+
+      };
+
+
+      /* =========================================================
+         CERRAR MODAL
+      ========================================================== */
+
+      const closeProjectModal = () => {
+
+        projectModal.hidden = true;
+
+        document.body.classList.remove(
+          'modal-open'
+        );
+
+        editingProject = null;
+
+        selectedFile = null;
+
+        hideFormMessage();
+
+      };
+
+
+      document
+        .querySelector('#new-project')
+        ?.addEventListener(
+          'click',
+          openNewProjectModal
+        );
+
+
+      document
+        .querySelector('#empty-new-project')
+        ?.addEventListener(
+          'click',
+          openNewProjectModal
+        );
+
+
+      document
+        .querySelector('#close-modal')
+        ?.addEventListener(
+          'click',
+          closeProjectModal
+        );
+
+
+      document
+        .querySelector('#cancel-modal')
+        ?.addEventListener(
+          'click',
+          closeProjectModal
+        );
+
+
+      projectModal
+        ?.addEventListener(
+          'click',
+          (event) => {
+
+            if (
+              event.target === projectModal
+            ) {
+              closeProjectModal();
+            }
+
+          }
+        );
+
+
+      /* =========================================================
+         SELECCIÓN DE IMAGEN
+      ========================================================== */
+
+      const chooseImage = () => {
+
+        imageFile?.click();
+
+      };
+
+
+      document
+        .querySelector('#choose-image')
+        ?.addEventListener(
+          'click',
+          chooseImage
+        );
+
+
+      document
+        .querySelector('#image-dropzone')
+        ?.addEventListener(
+          'click',
+          (event) => {
+
+            const target =
+              event.target;
+
+            if (
+              target instanceof HTMLElement &&
+              (
+                target.closest(
+                  '#remove-image'
+                ) ||
+                target.closest(
+                  '#choose-image'
+                )
+              )
+            ) {
+              return;
+            }
+
+
+            imageFile?.click();
+
+          }
+        );
+
+
+      imageFile
+        ?.addEventListener(
+          'change',
+          () => {
+
+            const file =
+              imageFile.files?.[0];
+
+
+            if (!file) {
+              return;
+            }
+
+
+            const allowedTypes = [
+              'image/jpeg',
+              'image/png',
+              'image/webp'
+            ];
+
+
+            if (
+              !allowedTypes.includes(
+                file.type
+              )
+            ) {
+
+              showFormMessage(
+                'Selecciona una imagen JPG, PNG o WEBP.',
+                'error'
+              );
+
+              imageFile.value = '';
+
+              return;
+
+            }
+
+
+            /*
+             * Límite razonable para evitar archivos
+             * demasiado pesados.
+             */
+
+            const maxSize =
+              10 * 1024 * 1024;
+
+
+            if (
+              file.size > maxSize
+            ) {
+
+              showFormMessage(
+                'La imagen no puede superar los 10 MB.',
+                'error'
+              );
+
+              imageFile.value = '';
+
+              return;
+
+            }
+
+
+            selectedFile =
+              file;
+
+
+            const reader =
+              new FileReader();
+
+
+            reader.onload = () => {
+
+              if (
+                typeof reader.result ===
+                'string'
+              ) {
+
+                previewImage.src =
+                  reader.result;
+
+                previewImage.alt =
+                  file.name;
+
+                imagePreview.hidden =
+                  false;
+
+                uploadPlaceholder.hidden =
+                  true;
+
+              }
+
+            };
+
+
+            reader.readAsDataURL(file);
+
+            hideFormMessage();
+
+          }
+        );
+
+
+      const clearImagePreview = () => {
+
+        selectedFile = null;
+
+        if (imageFile) {
+          imageFile.value = '';
+        }
+
+
+        if (imagePreview) {
+          imagePreview.hidden = true;
+        }
+
+
+        if (uploadPlaceholder) {
+          uploadPlaceholder.hidden = false;
+        }
+
+
+        if (previewImage) {
+          previewImage.src = '';
+        }
+
+      };
+
+
+      document
+        .querySelector('#remove-image')
+        ?.addEventListener(
+          'click',
+          (event) => {
+
+            event.stopPropagation();
+
+            clearImagePreview();
+
+          }
+        );
+
+
+      /* =========================================================
+         SUBIR IMAGEN A STORAGE
+      ========================================================== */
+
+      const uploadProjectImage = async (
+        file
+      ) => {
+
+        const originalName =
+          file.name
+            .toLowerCase()
+            .normalize('NFD')
+            .replace(
+              /[\u0300-\u036f]/g,
+              ''
+            )
+            .replace(
+              /[^a-z0-9._-]+/g,
+              '-'
+            )
+            .replace(
+              /^-+|-+$/g,
+              ''
+            );
+
+
+        const extension =
+          originalName.includes('.')
+            ? originalName
+                .split('.')
+                .pop()
+            : 'jpg';
+
+
+        const baseName =
+          originalName
+            .replace(
+              /\.[^/.]+$/,
+              ''
+            )
+            .slice(0, 80) ||
+          'proyecto';
+
+
+        const filePath =
+          `proyectos/${crypto.randomUUID()}-${baseName}.${extension}`;
+
+
+        const {
+          error
+        } = await supabase.storage
+          .from('proyectos')
+          .upload(
+            filePath,
+            file,
+            {
+              cacheControl: '3600',
+              upsert: false,
+              contentType: file.type
+            }
+          );
+
+
+        if (error) {
+
+          throw new Error(
+            `No se pudo subir la imagen: ${error.message}`
+          );
+
+        }
+
+
+        const {
+          data
+        } = supabase.storage
+          .from('proyectos')
+          .getPublicUrl(
+            filePath
+          );
+
+
+        if (!data?.publicUrl) {
+
+          throw new Error(
+            'La imagen se subió, pero no se pudo obtener su URL pública.'
+          );
+
+        }
+
+
+        return data.publicUrl;
+
+      };
+
+
+      /* =========================================================
+         GUARDAR PROYECTO
+      ========================================================== */
+
+      projectForm
+        ?.addEventListener(
+          'submit',
+          async (event) => {
+
+            event.preventDefault();
+
+            hideFormMessage();
+
+            setSaving(true);
+
+
+            try {
+
+              const titleInput =
+                document.querySelector(
+                  '#project-title'
+                );
+
+              const categoryInput =
+                document.querySelector(
+                  '#project-category'
+                );
+
+              const descriptionInput =
+                document.querySelector(
+                  '#project-description'
+                );
+
+              const orderInput =
+                document.querySelector(
+                  '#project-order'
+                );
+
+              const publishedInput =
+                document.querySelector(
+                  '#project-published'
+                );
+
+
+              const titulo =
+                titleInput?.value.trim() || '';
+
+
+              const categoria =
+                categoryInput?.value || '';
+
+
+              const descripcion =
+                descriptionInput?.value.trim() || '';
+
+
+              const orden =
+                Number(
+                  orderInput?.value || 0
+                );
+
+
+              const publicado =
+                publishedInput?.checked === true;
+
+
+              if (!titulo) {
+
+                showFormMessage(
+                  'Escribe un título para el proyecto.',
+                  'error'
+                );
+
+                setSaving(false);
+
+                return;
+
+              }
+
+
+              if (!categoria) {
+
+                showFormMessage(
+                  'Selecciona una categoría.',
+                  'error'
+                );
+
+                setSaving(false);
+
+                return;
+
+              }
+
+
+              /*
+               * PROYECTO NUEVO
+               */
+
+              if (!editingProject) {
+
+                if (!selectedFile) {
+
+                  showFormMessage(
+                    'Selecciona una imagen para el proyecto.',
+                    'error'
+                  );
+
+                  setSaving(false);
+
+                  return;
+
+                }
+
+
+                const imageUrl =
+                  await uploadProjectImage(
+                    selectedFile
+                  );
+
+
+                const {
+                  error
+                } = await supabase
+                  .from('proyectos')
+                  .insert({
+                    titulo,
+                    descripcion,
+                    imagen: imageUrl,
+                    categoria,
+                    publicado,
+                    orden: Number.isFinite(orden)
+                      ? orden
+                      : 0
+                  });
+
+
+                if (error) {
+
+                  /*
+                   * Si falla el registro, intentamos
+                   * eliminar la imagen recién subida.
+                   */
+
+                  const uploadedPath =
+                    getImagePathFromStorageUrl(
+                      imageUrl
+                    );
+
+
+                  if (uploadedPath) {
+
+                    await supabase.storage
+                      .from('proyectos')
+                      .remove([
+                        uploadedPath
+                      ]);
+
+                  }
+
+
+                  throw new Error(
+                    `No se pudo guardar el proyecto: ${error.message}`
+                  );
+
+                }
+
+
+                showFormMessage(
+                  'Proyecto creado correctamente.',
+                  'success'
+                );
+
+              }
+
+
+              /*
+               * EDITAR PROYECTO EXISTENTE
+               */
+
+              else {
+
+                let imageUrl =
+                  editingProject.imagen;
+
+
+                /*
+                 * Si seleccionamos una imagen nueva,
+                 * primero la subimos.
+                 */
+
+                if (selectedFile) {
+
+                  imageUrl =
+                    await uploadProjectImage(
+                      selectedFile
+                    );
+
+                }
+
+
+                const {
+                  error
+                } = await supabase
+                  .from('proyectos')
+                  .update({
+                    titulo,
+                    descripcion,
+                    imagen: imageUrl,
+                    categoria,
+                    publicado,
+                    orden: Number.isFinite(orden)
+                      ? orden
+                      : 0
+                  })
+                  .eq(
+                    'id',
+                    editingProject.id
+                  );
+
+
+                if (error) {
+
+                  /*
+                   * Si falló el update y habíamos subido
+                   * una nueva imagen, la eliminamos para
+                   * no dejar archivos huérfanos.
+                   */
+
+                  if (
+                    selectedFile &&
+                    imageUrl &&
+                    imageUrl !==
+                      editingProject.imagen
+                  ) {
+
+                    const uploadedPath =
+                      getImagePathFromStorageUrl(
+                        imageUrl
+                      );
+
+
+                    if (uploadedPath) {
+
+                      await supabase.storage
+                        .from('proyectos')
+                        .remove([
+                          uploadedPath
+                        ]);
+
+                    }
+
+                  }
+
+
+                  throw new Error(
+                    `No se pudieron guardar los cambios: ${error.message}`
+                  );
+
+                }
+
+
+                /*
+                 * Si todo salió bien y había una imagen
+                 * anterior almacenada en nuestro bucket,
+                 * la eliminamos.
+                 *
+                 * Las imágenes antiguas tipo
+                 * /trabajos/bano1.jpg NO se tocan.
+                 */
+
+                if (
+                  selectedFile &&
+                  editingProject.imagen &&
+                  imageUrl !==
+                    editingProject.imagen
+                ) {
+
+                  const oldPath =
+                    getImagePathFromStorageUrl(
+                      editingProject.imagen
+                    );
+
+
+                  if (oldPath) {
+
+                    await supabase.storage
+                      .from('proyectos')
+                      .remove([
+                        oldPath
+                      ]);
+
+                  }
+
+                }
+
+
+                showFormMessage(
+                  'Proyecto actualizado correctamente.',
+                  'success'
+                );
+
+              }
+
+
+              /*
+               * Esperamos un momento para que el usuario
+               * pueda ver el mensaje de confirmación.
+               */
+
+              await new Promise(
+                (resolve) =>
+                  setTimeout(
+                    resolve,
+                    500
+                  )
+              );
+
+
+              closeProjectModal();
+
+              await loadProjects();
+
+            } catch (error) {
+
+              console.error(
+                'Error guardando proyecto:',
+                error
+              );
+
+
+              showFormMessage(
+                error instanceof Error
+                  ? error.message
+                  : 'Ha ocurrido un error al guardar el proyecto.',
+                'error'
+              );
+
+            } finally {
+
+              setSaving(false);
+
+            }
+
+          }
+        );
+
+
+      /* =========================================================
+         ACCIONES DE PROYECTOS
+      ========================================================== */
+
+      const attachProjectActions = () => {
+
+        document
+          .querySelectorAll(
+            '.edit-project'
+          )
+          .forEach((button) => {
+
+            button.addEventListener(
+              'click',
+              () => {
+
+                const id =
+                  Number(
+                    button.getAttribute(
+                      'data-id'
+                    )
+                  );
+
+
+                const project =
+                  projects.find(
+                    (item) =>
+                      Number(item.id) === id
+                  );
+
+
+                if (project) {
+                  openEditProjectModal(
+                    project
+                  );
+                }
+
+              }
+            );
+
+          });
+
+
+        document
+          .querySelectorAll(
+            '.toggle-project'
+          )
+          .forEach((button) => {
+
+            button.addEventListener(
+              'click',
+              async () => {
+
+                const id =
+                  Number(
+                    button.getAttribute(
+                      'data-id'
+                    )
+                  );
+
+
+                const project =
+                  projects.find(
+                    (item) =>
+                      Number(item.id) === id
+                  );
+
+
+                if (!project) return;
+
+
+                button.disabled = true;
+
+
+                try {
+
+                  const {
+                    error
+                  } = await supabase
+                    .from('proyectos')
+                    .update({
+                      publicado:
+                        !project.publicado
+                    })
+                    .eq(
+                      'id',
+                      project.id
+                    );
+
+
+                  if (error) {
+                    throw error;
+                  }
+
+
+                  await loadProjects();
+
+                } catch (error) {
+
+                  console.error(
+                    'Error cambiando publicación:',
+                    error
+                  );
+
+
+                  alert(
+                    'No se pudo cambiar el estado de publicación.'
+                  );
+
+
+                  button.disabled =
+                    false;
+
+                }
+
+              }
+            );
+
+          });
+
+
+        document
+          .querySelectorAll(
+            '.delete-project'
+          )
+          .forEach((button) => {
+
+            button.addEventListener(
+              'click',
+              () => {
+
+                const id =
+                  Number(
+                    button.getAttribute(
+                      'data-id'
+                    )
+                  );
+
+
+                const project =
+                  projects.find(
+                    (item) =>
+                      Number(item.id) === id
+                  );
+
+
+                if (!project) return;
+
+
+                projectToDelete =
+                  project;
+
+
+                const deleteDescription =
+                  document.querySelector(
+                    '#delete-description'
+                  );
+
+
+                if (deleteDescription) {
+
+                  deleteDescription.textContent =
+                    `Se eliminará "${project.titulo}" de la galería. Esta acción no se puede deshacer.`;
+
+                }
+
+
+                deleteModal.hidden =
+                  false;
+
+
+                document.body.classList.add(
+                  'modal-open'
+                );
+
+              }
+            );
+
+          });
+
+      };
+
+
+      /* =========================================================
+         ELIMINAR PROYECTO
+      ========================================================== */
+
+      const closeDeleteModal = () => {
+
+        deleteModal.hidden =
+          true;
+
+        document.body.classList.remove(
+          'modal-open'
+        );
+
+        projectToDelete =
+          null;
+
+      };
+
+
+      document
+        .querySelector('#cancel-delete')
+        ?.addEventListener(
+          'click',
+          closeDeleteModal
+        );
+
+
+      deleteModal
+        ?.addEventListener(
+          'click',
+          (event) => {
+
+            if (
+              event.target === deleteModal
+            ) {
+              closeDeleteModal();
+            }
+
+          }
+        );
+
+
+      document
+        .querySelector('#confirm-delete')
+        ?.addEventListener(
+          'click',
+          async () => {
+
+            if (!projectToDelete) {
+              return;
+            }
+
+
+            const project =
+              projectToDelete;
+
+
+            const confirmButton =
+              document.querySelector(
+                '#confirm-delete'
+              );
+
+
+            if (confirmButton) {
+
+              confirmButton.disabled =
+                true;
+
+              confirmButton.textContent =
+                'Eliminando...';
+
+            }
+
+
+            try {
+
+              /*
+               * Primero eliminamos el registro
+               * de la tabla.
+               */
+
+              const {
+                error
+              } = await supabase
+                .from('proyectos')
+                .delete()
+                .eq(
+                  'id',
+                  project.id
+                );
+
+
+              if (error) {
+                throw error;
+              }
+
+
+              /*
+               * Si la imagen pertenece al bucket
+               * proyectos, eliminamos también
+               * el archivo.
+               *
+               * Las imágenes antiguas como
+               * /trabajos/bano1.jpg no se tocan.
+               */
+
+              const storagePath =
+                getImagePathFromStorageUrl(
+                  project.imagen
+                );
+
+
+              if (storagePath) {
+
+                const {
+                  error:
+                    storageError
+                } = await supabase.storage
+                  .from('proyectos')
+                  .remove([
+                    storagePath
+                  ]);
+
+
+                if (storageError) {
+
+                  console.warn(
+                    'El proyecto fue eliminado, pero no se pudo eliminar la imagen de Storage:',
+                    storageError
+                  );
+
+                }
+
+              }
+
+
+              closeDeleteModal();
+
+              await loadProjects();
+
+            } catch (error) {
+
+              console.error(
+                'Error eliminando proyecto:',
+                error
+              );
+
+
+              alert(
+                error instanceof Error
+                  ? error.message
+                  : 'No se pudo eliminar el proyecto.'
+              );
+
+
+              if (confirmButton) {
+
+                confirmButton.disabled =
+                  false;
+
+                confirmButton.textContent =
+                  'Eliminar';
+
+              }
+
+            }
+
+          }
+        );
+
+
+      /* =========================================================
+         ESC PARA CERRAR MODALES
+      ========================================================== */
+
+      document.addEventListener(
+        'keydown',
+        (event) => {
+
+          if (
+            event.key !== 'Escape'
+          ) {
+            return;
+          }
+
+
+          if (
+            projectModal &&
+            !projectModal.hidden
+          ) {
+
+            closeProjectModal();
+
+          }
+
+
+          if (
+            deleteModal &&
+            !deleteModal.hidden
+          ) {
+
+            closeDeleteModal();
+
+          }
+
+        }
+      );
+
+
+      /* =========================================================
+         INICIAR
+      ========================================================== */
+
+      loadProjects();
+
+    </script>
+
+
+    <!-- =======================================================
+         ESTILOS
+    ======================================================== -->
+
+    <style>
+      :global(*) { box-sizing: border-box; }
+
+      :global(html), :global(body) {
+        margin: 0;
+        min-height: 100%;
+      }
+
+      :global(body) {
+        font-family: Inter, ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+        background: #f7f4ee;
+        color: #3f4548;
+        -webkit-font-smoothing: antialiased;
+      }
+
+      :global(body.modal-open) { overflow: hidden; }
+
+      .admin-layout {
+        min-height: 100vh;
+        display: flex;
+        background: #f7f4ee;
+      }
+
+      /* ========================= SIDEBAR ========================= */
+      .sidebar {
+        width: 272px;
+        min-height: 100vh;
+        display: flex;
+        flex-direction: column;
+        flex-shrink: 0;
+        padding: 30px 20px 20px;
+        background: #102a43;
+        color: #fff;
+        border-right: 1px solid rgba(255,255,255,.08);
+        position: sticky;
+        top: 0;
+        align-self: flex-start;
+        box-shadow: 8px 0 30px rgba(16,42,67,.08);
+      }
+
+      .sidebar-brand {
+        text-align: center;
+        padding: 4px 14px 28px;
+        border-bottom: 1px solid rgba(255,255,255,.12);
+      }
+
+      .sidebar-brand img {
+        display: block;
+        width: 182px;
+        max-width: 100%;
+        height: auto;
+        max-height: 72px;
+        object-fit: contain;
+        margin: 0 auto;
+        filter: brightness(0) invert(1);
+        opacity: .98;
+      }
+
+      .brand-divider {
+        width: 42px;
+        height: 1px;
+        margin: 18px auto 12px;
+        background: #d2b06a;
+      }
+
+      .sidebar-brand span {
+        font-size: 9px;
+        font-weight: 700;
+        letter-spacing: .24em;
+        color: rgba(255,255,255,.58);
+      }
+
+      .sidebar-nav { padding-top: 28px; }
+
+      .nav-item {
+        display: flex;
+        align-items: center;
+        gap: 13px;
+        min-height: 50px;
+        padding: 0 15px;
+        margin-bottom: 6px;
+        border: 1px solid transparent;
+        border-radius: 10px;
+        color: rgba(255,255,255,.64);
+        text-decoration: none;
+        font-size: 13px;
+        font-weight: 600;
+        letter-spacing: .01em;
+        transition: background .25s ease, color .25s ease, border-color .25s ease;
+      }
+
+      .nav-item:hover {
+        color: #fff;
+        background: rgba(255,255,255,.06);
+        border-color: rgba(210,176,106,.16);
+      }
+
+      .nav-item.active {
+        color: #fff;
+        background: linear-gradient(90deg, rgba(181,138,58,.22), rgba(255,255,255,.055));
+        border-color: rgba(210,176,106,.24);
+        box-shadow: inset 3px 0 0 #b58a3a;
+      }
+
+      .nav-icon {
+        display: flex;
+        width: 20px;
+        height: 20px;
+        align-items: center;
+        justify-content: center;
+        color: #d2b06a;
+        flex-shrink: 0;
+      }
+
+      .nav-icon svg { width: 19px; height: 19px; }
+
+      .sidebar-bottom {
+        margin-top: auto;
+        padding-top: 20px;
+        border-top: 1px solid rgba(255,255,255,.1);
+      }
+
+      .view-site, .logout-button {
+        width: 100%;
+        min-height: 46px;
+        display: flex;
+        align-items: center;
+        gap: 12px;
+        padding: 0 14px;
+        border-radius: 9px;
+        color: rgba(255,255,255,.62);
+        background: transparent;
+        border: 1px solid transparent;
+        text-decoration: none;
+        font: inherit;
+        font-size: 12px;
+        font-weight: 600;
+        cursor: pointer;
+        text-align: left;
+        transition: background .25s ease, color .25s ease, border-color .25s ease;
+      }
+
+      .view-site svg, .logout-button svg { width: 19px; height: 19px; flex-shrink: 0; }
+
+      .view-site:hover, .logout-button:hover {
+        color: #fff;
+        background: rgba(255,255,255,.055);
+        border-color: rgba(255,255,255,.08);
+      }
+
+      .logout-button { margin-top: 4px; }
+
+      /* ========================= MAIN ========================= */
+      .main-content {
+        min-width: 0;
+        flex: 1;
+        background: #f7f4ee;
+      }
+
+      .topbar {
+        min-height: 108px;
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        gap: 24px;
+        padding: 25px 48px;
+        background: rgba(255,255,255,.78);
+        border-bottom: 1px solid #e8ded0;
+        backdrop-filter: blur(12px);
+        position: sticky;
+        top: 0;
+        z-index: 20;
+      }
+
+      .eyebrow, .section-kicker, .modal-kicker {
+        margin: 0 0 7px;
+        font-size: 9px;
+        line-height: 1.3;
+        font-weight: 800;
+        letter-spacing: .2em;
+        color: #b58a3a;
+      }
+
+      .topbar h1 {
+        margin: 0;
+        color: #102a43;
+        font-size: clamp(23px, 2.2vw, 30px);
+        line-height: 1.15;
+        letter-spacing: -.025em;
+        font-weight: 700;
+      }
+
+      .topbar-actions {
+        display: flex;
+        align-items: center;
+        gap: 15px;
+      }
+
+      .secure-status {
+        display: inline-flex;
+        align-items: center;
+        gap: 8px;
+        min-height: 34px;
+        padding: 0 12px;
+        border: 1px solid #e3dacd;
+        border-radius: 999px;
+        background: #fff;
+        color: #687078;
+        font-size: 11px;
+        font-weight: 600;
+      }
+
+      .status-dot, .published-dot {
+        width: 7px;
+        height: 7px;
+        border-radius: 50%;
+        background: #b58a3a;
+        box-shadow: 0 0 0 3px rgba(181,138,58,.12);
+      }
+
+      .mobile-logout { display: none; }
+
+      .content {
+        width: 100%;
+        max-width: 1380px;
+        margin: 0 auto;
+        padding: 42px 48px 70px;
+      }
+
+      .section-header {
+        display: flex;
+        align-items: flex-end;
+        justify-content: space-between;
+        gap: 28px;
+        margin-bottom: 30px;
+      }
+
+      .section-header h2 {
+        margin: 0;
+        color: #102a43;
+        font-size: 28px;
+        line-height: 1.15;
+        letter-spacing: -.025em;
+      }
+
+      .section-header p:not(.section-kicker) {
+        max-width: 650px;
+        margin: 9px 0 0;
+        color: #687078;
+        font-size: 13px;
+        line-height: 1.65;
+      }
+
+      .new-project-button {
+        display: inline-flex;
+        align-items: center;
+        justify-content: center;
+        gap: 9px;
+        min-height: 46px;
+        padding: 0 18px;
+        border: 1px solid #102a43;
+        border-radius: 9px;
+        background: #102a43;
+        color: #fff;
+        font: inherit;
+        font-size: 12px;
+        font-weight: 700;
+        cursor: pointer;
+        white-space: nowrap;
+        box-shadow: 0 8px 20px rgba(16,42,67,.12);
+        transition: background .25s ease, border-color .25s ease, box-shadow .25s ease;
+      }
+
+      .new-project-button span {
+        color: #d2b06a;
+        font-size: 19px;
+        line-height: 1;
+        font-weight: 400;
+      }
+
+      .new-project-button:hover {
+        background: #173b57;
+        border-color: #173b57;
+        box-shadow: 0 10px 25px rgba(16,42,67,.17);
+      }
+
+      /* ========================= STATS ========================= */
+      .stats-grid {
+        display: grid;
+        grid-template-columns: repeat(3, minmax(0, 1fr));
+        gap: 16px;
+        margin-bottom: 22px;
+      }
+
+      .stat-card {
+        min-height: 118px;
+        display: flex;
+        align-items: center;
+        gap: 17px;
+        padding: 22px;
+        border: 1px solid #e6ddd1;
+        border-radius: 13px;
+        background: #fff;
+        box-shadow: 0 5px 22px rgba(16,42,67,.045);
+        transition: border-color .25s ease, box-shadow .25s ease;
+      }
+
+      .stat-card:hover {
+        border-color: #d8c7ad;
+        box-shadow: 0 8px 28px rgba(16,42,67,.07);
+      }
+
+      .stat-icon {
+        width: 48px;
+        height: 48px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        flex-shrink: 0;
+        border: 1px solid #e8ded0;
+        border-radius: 11px;
+        background: #f7f4ee;
+        color: #b58a3a;
+      }
+
+      .stat-icon svg { width: 24px; height: 24px; }
+
+      .stat-label {
+        display: block;
+        margin-bottom: 4px;
+        color: #687078;
+        font-size: 10px;
+        font-weight: 700;
+        letter-spacing: .1em;
+        text-transform: uppercase;
+      }
+
+      .stat-card strong {
+        color: #102a43;
+        font-size: 29px;
+        line-height: 1;
+        font-weight: 750;
+      }
+
+      /* ========================= PROJECTS ========================= */
+      .projects-card {
+        overflow: hidden;
+        border: 1px solid #e6ddd1;
+        border-radius: 15px;
+        background: #fff;
+        box-shadow: 0 6px 26px rgba(16,42,67,.05);
+      }
+
+      .projects-card-header {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        gap: 15px;
+        padding: 18px 22px;
+        border-bottom: 1px solid #eee7de;
+        background: #fffdfa;
+      }
+
+      .projects-card-header h3 {
+        margin: 0;
+        color: #102a43;
+        font-size: 14px;
+        font-weight: 750;
+      }
+
+      .project-count {
+        color: #687078;
+        font-size: 11px;
+        font-weight: 600;
+      }
+
+      .project-row {
+        display: grid;
+        grid-template-columns: 190px minmax(0, 1fr) auto;
+        align-items: center;
+        gap: 24px;
+        padding: 19px 22px;
+        border-bottom: 1px solid #eee7de;
+        transition: background .2s ease;
+      }
+
+      .project-row:last-child { border-bottom: 0; }
+      .project-row:hover { background: #fcfaf6; }
+
+      .project-image {
+        width: 190px;
+        height: 132px;
+        position: relative;
+        overflow: hidden;
+        border-radius: 10px;
+        background: #e8ded0;
+      }
+
+      .project-image img {
+        width: 100%;
+        height: 100%;
+        display: block;
+        object-fit: cover;
+        transition: transform .45s ease;
+      }
+
+      .project-row:hover .project-image img { transform: scale(1.025); }
+
+      .image-badge {
+        position: absolute;
+        left: 9px;
+        top: 9px;
+        padding: 5px 8px;
+        border-radius: 999px;
+        background: rgba(16,42,67,.9);
+        color: #fff;
+        font-size: 8px;
+        font-weight: 800;
+        letter-spacing: .1em;
+        text-transform: uppercase;
+      }
+
+      .project-info { min-width: 0; }
+
+      .project-small-label {
+        display: block;
+        margin-bottom: 6px;
+        color: #b58a3a;
+        font-size: 9px;
+        font-weight: 800;
+        letter-spacing: .16em;
+        text-transform: uppercase;
+      }
+
+      .project-info h4 {
+        margin: 0 0 7px;
+        color: #102a43;
+        font-size: 18px;
+        line-height: 1.25;
+        font-weight: 750;
+        letter-spacing: -.015em;
+      }
+
+      .project-info p {
+        margin: 0 0 10px;
+        max-width: 700px;
+        color: #687078;
+        font-size: 12px;
+        line-height: 1.6;
+      }
+
+      .project-meta {
+        display: flex;
+        flex-wrap: wrap;
+        align-items: center;
+        gap: 8px;
+      }
+
+      .category, .published, .not-published {
+        display: inline-flex;
+        align-items: center;
+        gap: 6px;
+        min-height: 25px;
+        padding: 0 9px;
+        border-radius: 999px;
+        font-size: 9px;
+        font-weight: 750;
+        letter-spacing: .06em;
+        text-transform: uppercase;
+      }
+
+      .category {
+        color: #294d67;
+        background: #edf2f4;
+        border: 1px solid #dce6ea;
+      }
+
+      .published {
+        color: #315c48;
+        background: #eef6f0;
+        border: 1px solid #d5e8db;
+      }
+
+      .published .published-dot { width: 6px; height: 6px; background: #4c8a67; box-shadow: none; }
+
+      .not-published {
+        color: #77705f;
+        background: #f5f1e9;
+        border: 1px solid #e8ded0;
+      }
+
+      .project-actions {
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: flex-end;
+        gap: 7px;
+        min-width: 205px;
+      }
+
+      .action-button {
+        min-height: 35px;
+        display: inline-flex;
+        align-items: center;
+        justify-content: center;
+        gap: 6px;
+        padding: 0 10px;
+        border: 1px solid #ddd4c8;
+        border-radius: 8px;
+        background: #fff;
+        color: #53606a;
+        font: inherit;
+        font-size: 10px;
+        font-weight: 700;
+        cursor: pointer;
+        transition: color .2s ease, border-color .2s ease, background .2s ease;
+      }
+
+      .action-button:hover {
+        color: #102a43;
+        border-color: #b9a88e;
+        background: #f7f4ee;
+      }
+
+      .action-button.publish:hover { color: #315c48; border-color: #a8cbb3; background: #f2f8f3; }
+      .action-button.delete, .delete-project { color: #9b4d48; }
+      .action-button.delete:hover, .delete-project:hover { color: #8b3430; border-color: #ddb3af; background: #fff6f5; }
+
+      /* ========================= EMPTY / STATUS ========================= */
+      .empty-state, .loading-state, .error-state {
+        padding: 58px 25px;
+        text-align: center;
+      }
+
+      .empty-icon, .confirm-icon {
+        width: 54px;
+        height: 54px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        margin: 0 auto 14px;
+        border-radius: 50%;
+        background: #f7f4ee;
+        border: 1px solid #e8ded0;
+        color: #b58a3a;
+      }
+
+      .empty-icon svg, .confirm-icon svg { width: 25px; height: 25px; }
+
+      .empty-state h3, .error-state h3 {
+        margin: 0 0 7px;
+        color: #102a43;
+        font-size: 17px;
+      }
+
+      .empty-state p, .error-state p, .loading-state p {
+        max-width: 480px;
+        margin: 0 auto 17px;
+        color: #687078;
+        font-size: 12px;
+        line-height: 1.6;
+      }
+
+      .empty-button {
+        min-height: 40px;
+        padding: 0 15px;
+        border: 1px solid #102a43;
+        border-radius: 8px;
+        background: #102a43;
+        color: #fff;
+        font: inherit;
+        font-size: 11px;
+        font-weight: 700;
+        cursor: pointer;
+      }
+
+      .empty-button:hover { background: #173b57; }
+      .error-state { color: #9b4d48; }
+
+      .loading-spinner, .spinner {
+        width: 30px;
+        height: 30px;
+        margin: 0 auto 12px;
+        border: 2px solid #e8ded0;
+        border-top-color: #b58a3a;
+        border-radius: 50%;
+        animation: spin .8s linear infinite;
+      }
+
+      @keyframes spin { to { transform: rotate(360deg); } }
+
+      /* ========================= MODAL ========================= */
+      
+      [hidden] {
+  display: none !important;
+}
+      .modal-backdrop {
+        position: fixed;
+        inset: 0;
+        z-index: 100;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        padding: 22px;
+        background: rgba(8,22,34,.62);
+        backdrop-filter: blur(6px);
+      }
+
+      .modal {
+        width: min(720px, 100%);
+        max-height: calc(100vh - 44px);
+        overflow-y: auto;
+        border: 1px solid #e8ded0;
+        border-radius: 16px;
+        background: #fff;
+        box-shadow: 0 28px 80px rgba(5,20,32,.28);
+      }
+
+      .modal-header {
+        display: flex;
+        align-items: flex-start;
+        justify-content: space-between;
+        gap: 18px;
+        padding: 23px 25px 19px;
+        border-bottom: 1px solid #eee7de;
+      }
+
+      .modal-header h2 {
+        margin: 0;
+        color: #102a43;
+        font-size: 23px;
+        line-height: 1.2;
+      }
+
+      .modal-kicker { margin-bottom: 6px; }
+
+      .close-modal {
+        width: 36px;
+        height: 36px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        flex-shrink: 0;
+        border: 1px solid #e1d8cc;
+        border-radius: 8px;
+        background: #fff;
+        color: #687078;
+        font: inherit;
+        font-size: 21px;
+        line-height: 1;
+        cursor: pointer;
+      }
+
+      .close-modal:hover { color: #102a43; background: #f7f4ee; border-color: #cbbba4; }
+
+      .modal form { padding: 24px 25px 25px; }
+
+      .form-section {
+        margin-bottom: 24px;
+        padding-bottom: 23px;
+        border-bottom: 1px solid #eee7de;
+      }
+
+      .form-section:last-of-type { margin-bottom: 0; border-bottom: 0; }
+
+      .form-grid {
+        display: grid;
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+        gap: 17px;
+      }
+
+      .form-field.full { grid-column: 1 / -1; }
+
+      .form-label {
+        display: block;
+        margin-bottom: 7px;
+        color: #294d67;
+        font-size: 10px;
+        font-weight: 800;
+        letter-spacing: .08em;
+        text-transform: uppercase;
+      }
+
+      .form-field input:not([type="checkbox"]), .form-field textarea, .form-field select {
+        width: 100%;
+        border: 1px solid #ddd4c8;
+        border-radius: 8px;
+        background: #fffdfa;
+        color: #3f4548;
+        font: inherit;
+        font-size: 12px;
+        outline: none;
+        transition: border-color .2s ease, box-shadow .2s ease, background .2s ease;
+      }
+
+      .form-field input:not([type="checkbox"]), .form-field select {
+        min-height: 43px;
+        padding: 0 12px;
+      }
+
+      .form-field textarea { min-height: 108px; padding: 11px 12px; resize: vertical; }
+
+      .form-field input:not([type="checkbox"]):focus, .form-field textarea:focus, .form-field select:focus {
+        border-color: #b58a3a;
+        background: #fff;
+        box-shadow: 0 0 0 3px rgba(181,138,58,.1);
+      }
+
+      .field-help {
+        margin: 6px 0 0;
+        color: #8a8e91;
+        font-size: 10px;
+        line-height: 1.5;
+      }
+
+      .custom-checkbox, .publish-option {
+        display: flex;
+        align-items: center;
+        gap: 9px;
+        color: #53606a;
+        font-size: 11px;
+        font-weight: 600;
+      }
+
+      .custom-checkbox input, .publish-option input { accent-color: #b58a3a; }
+
+      .image-dropzone {
+        min-height: 210px;
+        position: relative;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        overflow: hidden;
+        border: 1.5px dashed #cfc2b0;
+        border-radius: 11px;
+        background: #faf7f2;
+        cursor: pointer;
+        transition: border-color .2s ease, background .2s ease;
+      }
+
+      .image-dropzone:hover {
+        border-color: #b58a3a;
+        background: #fffaf2;
+      }
+
+      .upload-placeholder { padding: 28px; text-align: center; }
+
+      .upload-icon {
+        width: 44px;
+        height: 44px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        margin: 0 auto 10px;
+        border-radius: 50%;
+        background: #fff;
+        border: 1px solid #e8ded0;
+        color: #b58a3a;
+      }
+
+      .upload-icon svg { width: 21px; height: 21px; }
+      .upload-placeholder strong { display: block; margin-bottom: 4px; color: #102a43; font-size: 12px; }
+      .upload-placeholder span { color: #8a8e91; font-size: 10px; }
+
+      .image-preview {
+        position: absolute;
+        inset: 0;
+        display: none;
+        background: #e8ded0;
+      }
+
+      .image-preview img { width: 100%; height: 100%; display: block; object-fit: cover; }
+
+      .remove-image {
+        position: absolute;
+        top: 10px;
+        right: 10px;
+        width: 34px;
+        height: 34px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        border: 1px solid rgba(255,255,255,.55);
+        border-radius: 50%;
+        background: rgba(16,42,67,.88);
+        color: #fff;
+        cursor: pointer;
+      }
+
+      .remove-image:hover { background: #9b4d48; }
+
+      .modal-actions {
+        display: flex;
+        align-items: center;
+        justify-content: flex-end;
+        gap: 9px;
+        margin-top: 24px;
+        padding-top: 20px;
+        border-top: 1px solid #eee7de;
+      }
+
+      .cancel-button, .save-button, .delete-confirm-button {
+        min-height: 42px;
+        padding: 0 17px;
+        border-radius: 8px;
+        font: inherit;
+        font-size: 11px;
+        font-weight: 750;
+        cursor: pointer;
+      }
+
+      .cancel-button {
+        border: 1px solid #ddd4c8;
+        background: #fff;
+        color: #53606a;
+      }
+
+      .cancel-button:hover { background: #f7f4ee; color: #102a43; }
+
+      .save-button {
+        border: 1px solid #102a43;
+        background: #102a43;
+        color: #fff;
+        box-shadow: 0 7px 18px rgba(16,42,67,.12);
+      }
+
+      .save-button:hover { background: #173b57; }
+
+      .form-message {
+        margin-top: 12px;
+        padding: 10px 12px;
+        border-radius: 8px;
+        font-size: 11px;
+        line-height: 1.5;
+      }
+
+      .form-message.success { color: #315c48; background: #eef6f0; border: 1px solid #d5e8db; }
+      .form-message.error { color: #8b3430; background: #fff6f5; border: 1px solid #e4c4c1; }
+
+      /* ========================= DELETE MODAL ========================= */
+      .confirm-modal {
+        width: min(430px, 100%);
+        padding: 30px;
+        text-align: center;
+        border: 1px solid #e8ded0;
+        border-radius: 16px;
+        background: #fff;
+        box-shadow: 0 28px 80px rgba(5,20,32,.28);
+      }
+
+      .confirm-icon {
+        margin-bottom: 16px;
+        color: #9b4d48;
+        background: #fff6f5;
+        border-color: #ead0cd;
+      }
+
+      .confirm-modal h2 { margin: 0 0 8px; color: #102a43; font-size: 21px; }
+      .confirm-modal p { margin: 0 auto; color: #687078; font-size: 12px; line-height: 1.6; }
+
+.confirm-actions {
+  display: flex;
+  align-items: stretch;
+  justify-content: center;
+  gap: 12px;
+  width: 100%;
+  margin-top: 24px;
+}
+
+.confirm-actions button {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  flex: 1 1 0;
+  min-width: 120px;
+  min-height: 44px;
+  padding: 0 18px;
+  border-radius: 9px;
+  font: inherit;
+  font-size: 12px;
+  font-weight: 750;
+  line-height: 1;
+  white-space: nowrap;
+  cursor: pointer;
+  box-sizing: border-box;
+}
+
+.confirm-actions .cancel-button {
+  border: 1px solid #d8cec0;
+  background: #ffffff;
+  color: #3f4548;
+}
+
+.confirm-actions .cancel-button:hover {
+  background: #f7f4ee;
+  border-color: #b58a3a;
+  color: #102a43;
+}
+
+.confirm-actions .delete-confirm-button {
+  border: 1px solid #9b4d48;
+  background: #9b4d48;
+  color: #ffffff;
+}
+
+.confirm-actions .delete-confirm-button:hover {
+  background: #8b3430;
+  border-color: #8b3430;
+}
+      /* ========================= RESPONSIVE ========================= */
+      @media (max-width: 1100px) {
+        .sidebar { width: 235px; }
+        .topbar, .content { padding-left: 32px; padding-right: 32px; }
+        .project-row { grid-template-columns: 155px minmax(0, 1fr); }
+        .project-image { width: 155px; height: 112px; }
+        .project-actions { grid-column: 2; justify-content: flex-start; min-width: 0; }
+      }
+
+      @media (max-width: 900px) {
+        .sidebar {
+          width: 100%;
+          min-height: auto;
+          position: static;
+          padding: 14px 16px;
+          flex-direction: row;
+          align-items: center;
+          gap: 14px;
+        }
+
+        .admin-layout { display: block; }
+        .sidebar-brand { width: auto; padding: 0 12px 0 0; border-bottom: 0; border-right: 1px solid rgba(255,255,255,.12); }
+        .sidebar-brand img { width: 130px; max-height: 48px; }
+        .brand-divider, .sidebar-brand span, .sidebar-bottom { display: none; }
+        .sidebar-nav { padding: 0; flex: 1; }
+        .nav-item { width: fit-content; margin: 0; min-height: 43px; padding: 0 12px; }
+        .topbar { position: static; }
+        .mobile-logout {
+          display: inline-flex;
+          min-height: 34px;
+          align-items: center;
+          padding: 0 11px;
+          border: 1px solid #ddd4c8;
+          border-radius: 999px;
+          background: #fff;
+          color: #687078;
+          font: inherit;
+          font-size: 10px;
+          font-weight: 700;
+          cursor: pointer;
+        }
+        .stats-grid { grid-template-columns: 1fr; }
+      }
+
+      @media (max-width: 700px) {
+        .topbar { min-height: 92px; padding: 20px 22px; }
+        .secure-status { display: none; }
+        .content { padding: 30px 22px 55px; }
+        .section-header { align-items: stretch; flex-direction: column; margin-bottom: 24px; }
+        .section-header h2 { font-size: 24px; }
+        .new-project-button { width: 100%; }
+        .project-row { grid-template-columns: 1fr; gap: 15px; padding: 17px; }
+        .project-image { width: 100%; height: 185px; }
+        .project-actions { grid-column: auto; display: grid; grid-template-columns: repeat(2, minmax(0,1fr)); width: 100%; }
+        .action-button { width: 100%; }
+        .delete-project { grid-column: 1 / -1; }
+        .projects-card-header { padding: 16px 17px; }
+        .form-grid { grid-template-columns: 1fr; }
+        .form-field.full { grid-column: auto; }
+        .modal-backdrop { padding: 12px; }
+        .modal { max-height: calc(100vh - 24px); border-radius: 13px; }
+        .modal-header, .modal form { padding-left: 19px; padding-right: 19px; }
+      }
+
+      @media (max-width: 430px) {
+        .sidebar { padding: 11px 12px; }
+        .sidebar-brand img { width: 112px; }
+        .nav-item span:last-child { display: none; }
+        .nav-item { padding: 0 10px; }
+        .topbar { padding: 18px 17px; }
+        .content { padding: 25px 17px 48px; }
+        .stat-card { padding: 18px; }
+        .project-image { height: 175px; }
+        .project-actions { grid-template-columns: 1fr 1fr; }
+        .modal-header h2 { font-size: 20px; }
+        .modal-actions {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+}
+
+.confirm-actions {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 10px;
+}
+
+.confirm-actions button {
+  width: 100%;
+  min-width: 0;
+}
+        .cancel-button, .save-button, .delete-confirm-button { width: 100%; }
+        .confirm-modal { padding: 24px 20px; }
+      }
+    </style>
+
+  </body>
+</html>

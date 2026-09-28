@@ -1,0 +1,1034 @@
+---
+import Layout from "../../layouts/Layout.astro";
+import { createClient } from "@supabase/supabase-js";
+
+
+import {
+	House,
+	Ruler,
+	Hammer,
+	BrickWall,
+	Droplets,
+	Plug,
+	PanelTop,
+	Grid3X3,
+	ClipboardCheck,
+	ArrowRight,
+	Phone,
+	MessageCircle,
+	MapPin,
+	Check,
+	Sparkles,
+	Home,
+	Layers3,
+} from "@lucide/astro";
+const supabase = createClient(
+        import.meta.env.PUBLIC_SUPABASE_URL,
+        import.meta.env.PUBLIC_SUPABASE_PUBLISHABLE_KEY
+);
+
+const {
+        data: proyectosReformas,
+        error: proyectosReformasError,
+} = await supabase
+        .from("proyectos")
+        .select(
+                "id, titulo, descripcion, categoria, imagen, orden, created_at"
+        )
+        .eq("categoria", "Reformas integrales")
+        .eq("publicado", true)
+        .not("imagen", "is", null)
+        .order("orden", { ascending: true })
+        .order("created_at", { ascending: false })
+        .limit(6);
+
+const trabajosReformas = proyectosReformas ?? [];
+
+if (proyectosReformasError) {
+        console.error(
+                "Error cargando proyectos de reformas integrales:",
+                proyectosReformasError
+        );
+}
+---
+
+<Layout
+	title="Reformas Integrales en Zaragoza | Pisos y Viviendas | STARLYN REFORMAS"
+	description="Reformas integrales de pisos y viviendas en Zaragoza. Coordinamos demolición, distribución, pladur, alicatados, fontanería, electricidad y acabados."
+>
+	<!-- =====================================================
+	     HERO
+	====================================================== -->
+	<section
+		class="relative overflow-hidden bg-[#102a43] text-white"
+	>
+		<!-- Decoración -->
+		<div
+			class="pointer-events-none absolute -right-40 -top-40 h-[32rem] w-[32rem] rounded-full bg-[#b58a3a]/10 blur-3xl"
+		></div>
+
+		<div
+			class="pointer-events-none absolute -bottom-48 -left-40 h-[30rem] w-[30rem] rounded-full bg-[#294d67]/30 blur-3xl"
+		></div>
+
+		<div
+			class="relative mx-auto max-w-7xl px-4 py-20 sm:px-6 md:py-28 lg:px-8 lg:py-32"
+		>
+			<div
+				class="grid items-center gap-14 lg:grid-cols-[1.05fr_0.95fr]"
+			>
+				<!-- TEXTO PRINCIPAL -->
+				<div class="max-w-3xl">
+					<div
+						class="mb-7 inline-flex items-center gap-2 rounded-full border border-[#d2b06a]/30 bg-white/[0.04] px-4 py-2"
+					>
+						<House
+							class="h-4 w-4 text-[#d2b06a]"
+							stroke-width="1.5"
+						/>
+
+						<span
+							class="text-xs font-semibold uppercase tracking-[0.16em] text-[#e7d5ae]"
+						>
+							Reformas integrales · Zaragoza y alrededores
+						</span>
+					</div>
+
+					<h1
+						class="text-4xl font-black leading-[1.06] tracking-tight sm:text-5xl md:text-6xl lg:text-7xl"
+					>
+						Transformamos tu vivienda
+						<span class="block text-[#d2b06a]">
+							de principio a fin.
+						</span>
+					</h1>
+
+					<p
+						class="mt-7 max-w-2xl text-base leading-relaxed text-[#d8e0e5] sm:text-lg md:text-xl"
+					>
+						Reformas integrales de pisos y viviendas,
+						coordinando los diferentes trabajos necesarios para
+						transformar el espacio y adaptarlo a tu forma de
+						vivir.
+					</p>
+
+					<!-- CTA -->
+					<div class="mt-9 flex flex-col gap-3 sm:flex-row">
+						<a
+							href="#contacto"
+							class="group inline-flex items-center justify-center gap-2 rounded-xl bg-[#d2b06a] px-7 py-4 text-base font-bold text-[#102a43] shadow-lg shadow-black/10 transition hover:bg-[#e0c384]"
+						>
+							Solicitar presupuesto
+
+							<ArrowRight
+								class="h-5 w-5 transition-transform group-hover:translate-x-1"
+								stroke-width="1.8"
+							/>
+						</a>
+
+						<a
+							href="tel:+34614783004"
+							class="inline-flex items-center justify-center gap-2 rounded-xl border border-white/15 bg-white/[0.05] px-7 py-4 text-base font-semibold text-white transition hover:border-white/30 hover:bg-white/[0.1]"
+						>
+							<Phone
+								class="h-5 w-5 text-[#d2b06a]"
+								stroke-width="1.7"
+							/>
+
+							Hablar con STARLYN
+						</a>
+					</div>
+
+					<!-- DATOS -->
+					<div
+						class="mt-10 flex flex-wrap gap-x-7 gap-y-3 border-t border-white/10 pt-7 text-sm text-[#c6d0d7]"
+					>
+						<div class="flex items-center gap-2">
+							<Check
+								class="h-4 w-4 text-[#d2b06a]"
+								stroke-width="2"
+							/>
+							12+ años de experiencia
+						</div>
+
+						<div class="flex items-center gap-2">
+							<Check
+								class="h-4 w-4 text-[#d2b06a]"
+								stroke-width="2"
+							/>
+							Proyecto global
+						</div>
+
+						<div class="flex items-center gap-2">
+							<Check
+								class="h-4 w-4 text-[#d2b06a]"
+								stroke-width="2"
+							/>
+							Zaragoza y alrededores
+						</div>
+					</div>
+				</div>
+
+				<!-- BLOQUE VISUAL -->
+				<div class="relative">
+					<div
+						class="relative overflow-hidden rounded-3xl border border-white/10 bg-[#173b57] shadow-[0_30px_80px_rgba(0,0,0,0.3)]"
+					>
+						<img
+							src="/trabajos/reforma-integral1.jpg"
+							alt="Reforma integral de vivienda realizada por STARLYN REFORMAS"
+							class="aspect-[4/3] h-full w-full object-cover"
+							onerror="this.src='https://images.unsplash.com/photo-1600607687939-ce8a6c25118c?auto=format&fit=crop&w=1200&q=85'"
+						/>
+
+						<div
+							class="absolute inset-0 bg-gradient-to-t from-[#102a43]/95 via-[#102a43]/10 to-transparent"
+						></div>
+
+						<div
+							class="absolute bottom-0 left-0 right-0 p-6 sm:p-8"
+						>
+							<span
+								class="text-xs font-bold uppercase tracking-[0.16em] text-[#d2b06a]"
+							>
+								Reforma integral
+							</span>
+
+							<h2
+								class="mt-2 max-w-lg text-2xl font-bold text-white sm:text-3xl"
+							>
+								Un solo proyecto para transformar toda la vivienda.
+							</h2>
+						</div>
+					</div>
+
+					<div
+						class="pointer-events-none absolute -bottom-5 -right-5 h-24 w-24 rounded-2xl border border-[#d2b06a]/30"
+					></div>
+				</div>
+			</div>
+		</div>
+	</section>
+
+	<!-- =====================================================
+	     QUÉ ES UNA REFORMA INTEGRAL
+	====================================================== -->
+	<section class="bg-[#f7f4ee] py-20 md:py-28">
+		<div class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
+			<div
+				class="grid items-center gap-14 lg:grid-cols-[0.9fr_1.1fr]"
+			>
+				<div>
+					<span
+						class="text-xs font-bold uppercase tracking-[0.18em] text-[#b58a3a]"
+					>
+						Reforma integral
+					</span>
+
+					<h2
+						class="mt-3 text-3xl font-black leading-tight tracking-tight text-[#102a43] md:text-5xl"
+					>
+						No se trata solo de cambiar una habitación.
+					</h2>
+
+					<p
+						class="mt-6 text-base leading-relaxed text-[#687078] md:text-lg"
+					>
+						Una reforma integral permite replantear diferentes
+						espacios de una vivienda y coordinar los trabajos
+						necesarios para conseguir un resultado conjunto.
+					</p>
+
+					<p
+						class="mt-4 text-base leading-relaxed text-[#687078]"
+					>
+						Desde la distribución y la tabiquería hasta las
+						instalaciones, revestimientos y acabados finales.
+					</p>
+
+					<a
+						href="#contacto"
+						class="group mt-8 inline-flex items-center gap-2 text-sm font-bold text-[#b58a3a]"
+					>
+						Quiero estudiar mi vivienda
+
+						<ArrowRight
+							class="h-4 w-4 transition-transform group-hover:translate-x-1"
+							stroke-width="1.8"
+						/>
+					</a>
+				</div>
+
+				<!-- BLOQUES -->
+				<div class="grid gap-4 sm:grid-cols-2">
+					<div
+						class="rounded-2xl border border-[#e2d8cb] bg-white p-7 shadow-[0_8px_30px_rgba(16,42,67,0.04)]"
+					>
+						<div
+							class="flex h-14 w-14 items-center justify-center rounded-2xl bg-[#102a43] text-[#d2b06a]"
+						>
+							<Layers3
+								class="h-7 w-7"
+								stroke-width="1.25"
+							/>
+						</div>
+
+						<h3
+							class="mt-6 text-lg font-bold text-[#102a43]"
+						>
+							Distribución
+						</h3>
+
+						<p
+							class="mt-2 text-sm leading-relaxed text-[#687078]"
+						>
+							Replanteamiento de espacios y soluciones de
+							distribución.
+						</p>
+					</div>
+
+					<div
+						class="rounded-2xl border border-[#e2d8cb] bg-white p-7 shadow-[0_8px_30px_rgba(16,42,67,0.04)]"
+					>
+						<div
+							class="flex h-14 w-14 items-center justify-center rounded-2xl bg-[#173b57] text-[#d2b06a]"
+						>
+							<PanelTop
+								class="h-7 w-7"
+								stroke-width="1.25"
+							/>
+						</div>
+
+						<h3
+							class="mt-6 text-lg font-bold text-[#102a43]"
+						>
+							Tabiquería y Pladur
+						</h3>
+
+						<p
+							class="mt-2 text-sm leading-relaxed text-[#687078]"
+						>
+							Soluciones para modificar o crear nuevos
+							espacios interiores.
+						</p>
+					</div>
+
+					<div
+						class="rounded-2xl border border-[#e2d8cb] bg-white p-7 shadow-[0_8px_30px_rgba(16,42,67,0.04)]"
+					>
+						<div
+							class="flex h-14 w-14 items-center justify-center rounded-2xl bg-[#173b57] text-[#d2b06a]"
+						>
+							<Droplets
+								class="h-7 w-7"
+								stroke-width="1.25"
+							/>
+						</div>
+
+						<h3
+							class="mt-6 text-lg font-bold text-[#102a43]"
+						>
+							Fontanería
+						</h3>
+
+						<p
+							class="mt-2 text-sm leading-relaxed text-[#687078]"
+						>
+							Adaptación y renovación de las instalaciones de
+							agua.
+						</p>
+					</div>
+
+					<div
+						class="rounded-2xl border border-[#e2d8cb] bg-white p-7 shadow-[0_8px_30px_rgba(16,42,67,0.04)]"
+					>
+						<div
+							class="flex h-14 w-14 items-center justify-center rounded-2xl bg-[#102a43] text-[#d2b06a]"
+						>
+							<Plug
+								class="h-7 w-7"
+								stroke-width="1.25"
+							/>
+						</div>
+
+						<h3
+							class="mt-6 text-lg font-bold text-[#102a43]"
+						>
+							Electricidad
+						</h3>
+
+						<p
+							class="mt-2 text-sm leading-relaxed text-[#687078]"
+						>
+							Adaptación de instalaciones y puntos
+							eléctricos según las necesidades del proyecto.
+						</p>
+					</div>
+				</div>
+			</div>
+		</div>
+	</section>
+
+	<!-- =====================================================
+	     SERVICIOS INTEGRADOS
+	====================================================== -->
+	<section
+		class="border-y border-[#e8ded0] bg-[#e8ded0]/45 py-20 md:py-28"
+	>
+		<div class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
+			<div class="max-w-3xl">
+				<span
+					class="text-xs font-bold uppercase tracking-[0.18em] text-[#b58a3a]"
+				>
+					Qué podemos integrar
+				</span>
+
+				<h2
+					class="mt-3 text-3xl font-black tracking-tight text-[#102a43] md:text-5xl"
+				>
+					Los diferentes trabajos forman parte de un mismo proyecto.
+				</h2>
+
+				<p
+					class="mt-5 text-base leading-relaxed text-[#687078] md:text-lg"
+				>
+					Una reforma integral puede combinar diferentes
+					servicios según las características y necesidades de
+					cada vivienda.
+				</p>
+			</div>
+
+			<div
+				class="mt-12 grid grid-cols-2 gap-4 md:grid-cols-3 lg:grid-cols-4"
+			>
+				<div
+					class="rounded-2xl border border-[#dfd3c4] bg-[#f7f4ee] p-6"
+				>
+					<Hammer
+						class="h-8 w-8 text-[#b58a3a]"
+						stroke-width="1.35"
+					/>
+
+					<h3
+						class="mt-5 font-bold text-[#102a43]"
+					>
+						Demoliciones
+					</h3>
+
+					<p class="mt-2 text-sm text-[#687078]">
+						Preparación del espacio para la reforma.
+					</p>
+				</div>
+
+				<div
+					class="rounded-2xl border border-[#dfd3c4] bg-[#f7f4ee] p-6"
+				>
+					<PanelTop
+						class="h-8 w-8 text-[#b58a3a]"
+						stroke-width="1.35"
+					/>
+
+					<h3
+						class="mt-5 font-bold text-[#102a43]"
+					>
+						Pladur
+					</h3>
+
+					<p class="mt-2 text-sm text-[#687078]">
+						Tabiquería y soluciones en construcción ligera.
+					</p>
+				</div>
+
+				<div
+					class="rounded-2xl border border-[#dfd3c4] bg-[#f7f4ee] p-6"
+				>
+					<BrickWall
+						class="h-8 w-8 text-[#b58a3a]"
+						stroke-width="1.35"
+					/>
+
+					<h3
+						class="mt-5 font-bold text-[#102a43]"
+					>
+						Alicatados
+					</h3>
+
+					<p class="mt-2 text-sm text-[#687078]">
+						Revestimientos y acabados de paredes.
+					</p>
+				</div>
+
+				<div
+					class="rounded-2xl border border-[#dfd3c4] bg-[#f7f4ee] p-6"
+				>
+					<Grid3X3
+						class="h-8 w-8 text-[#b58a3a]"
+						stroke-width="1.35"
+					/>
+
+					<h3
+						class="mt-5 font-bold text-[#102a43]"
+					>
+						Solados
+					</h3>
+
+					<p class="mt-2 text-sm text-[#687078]">
+						Revestimientos y pavimentos.
+					</p>
+				</div>
+
+				<div
+					class="rounded-2xl border border-[#dfd3c4] bg-[#f7f4ee] p-6"
+				>
+					<Droplets
+						class="h-8 w-8 text-[#b58a3a]"
+						stroke-width="1.35"
+					/>
+
+					<h3
+						class="mt-5 font-bold text-[#102a43]"
+					>
+						Fontanería
+					</h3>
+
+					<p class="mt-2 text-sm text-[#687078]">
+						Instalaciones y adaptación de agua.
+					</p>
+				</div>
+
+				<div
+					class="rounded-2xl border border-[#dfd3c4] bg-[#f7f4ee] p-6"
+				>
+					<Plug
+						class="h-8 w-8 text-[#b58a3a]"
+						stroke-width="1.35"
+					/>
+
+					<h3
+						class="mt-5 font-bold text-[#102a43]"
+					>
+						Electricidad
+					</h3>
+
+					<p class="mt-2 text-sm text-[#687078]">
+						Instalaciones y puntos eléctricos.
+					</p>
+				</div>
+
+				<div
+					class="rounded-2xl border border-[#dfd3c4] bg-[#f7f4ee] p-6"
+				>
+					<Home
+						class="h-8 w-8 text-[#b58a3a]"
+						stroke-width="1.35"
+					/>
+
+					<h3
+						class="mt-5 font-bold text-[#102a43]"
+					>
+						Cocinas
+					</h3>
+
+					<p class="mt-2 text-sm text-[#687078]">
+						Reforma y renovación del espacio de cocina.
+					</p>
+				</div>
+
+				<div
+					class="rounded-2xl border border-[#dfd3c4] bg-[#f7f4ee] p-6"
+				>
+					<Sparkles
+						class="h-8 w-8 text-[#b58a3a]"
+						stroke-width="1.35"
+					/>
+
+					<h3
+						class="mt-5 font-bold text-[#102a43]"
+					>
+						Acabados
+					</h3>
+
+					<p class="mt-2 text-sm text-[#687078]">
+						Detalles finales para completar la reforma.
+					</p>
+				</div>
+			</div>
+		</div>
+	</section>
+
+	<!-- =====================================================
+	     PROCESO
+	====================================================== -->
+	<section class="bg-[#f7f4ee] py-20 md:py-28">
+		<div class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
+			<div class="mx-auto max-w-3xl text-center">
+				<span
+					class="text-xs font-bold uppercase tracking-[0.18em] text-[#b58a3a]"
+				>
+					El proceso
+				</span>
+
+				<h2
+					class="mt-3 text-3xl font-black tracking-tight text-[#102a43] md:text-5xl"
+				>
+					Una reforma integral necesita planificación.
+				</h2>
+
+				<p
+					class="mt-5 text-base leading-relaxed text-[#687078] md:text-lg"
+				>
+					Antes de empezar una reforma completa es importante
+					entender la vivienda, sus necesidades y los trabajos
+					que requiere.
+				</p>
+			</div>
+
+			<div
+				class="relative mx-auto mt-14 grid max-w-5xl gap-5 md:grid-cols-4"
+			>
+				<div
+					class="hidden h-px bg-[#d2b06a]/40 md:absolute md:left-[12%] md:right-[12%] md:top-10 md:block"
+				></div>
+
+				<div
+					class="relative rounded-2xl border border-[#e2d8cb] bg-white p-6 text-center"
+				>
+					<div
+						class="mx-auto flex h-20 w-20 items-center justify-center rounded-full bg-[#102a43] text-xl font-black text-[#d2b06a]"
+					>
+						01
+					</div>
+
+					<h3
+						class="mt-6 font-bold text-[#102a43]"
+					>
+						Conocemos la vivienda
+					</h3>
+
+					<p
+						class="mt-2 text-sm leading-relaxed text-[#687078]"
+					>
+						Analizamos el espacio y las necesidades del proyecto.
+					</p>
+				</div>
+
+				<div
+					class="relative rounded-2xl border border-[#e2d8cb] bg-white p-6 text-center"
+				>
+					<div
+						class="mx-auto flex h-20 w-20 items-center justify-center rounded-full bg-[#173b57] text-xl font-black text-[#d2b06a]"
+					>
+						02
+					</div>
+
+					<h3
+						class="mt-6 font-bold text-[#102a43]"
+					>
+						Definimos los trabajos
+					</h3>
+
+					<p
+						class="mt-2 text-sm leading-relaxed text-[#687078]"
+					>
+						Determinamos qué actuaciones necesita la vivienda.
+					</p>
+				</div>
+
+				<div
+					class="relative rounded-2xl border border-[#e2d8cb] bg-white p-6 text-center"
+				>
+					<div
+						class="mx-auto flex h-20 w-20 items-center justify-center rounded-full bg-[#102a43] text-xl font-black text-[#d2b06a]"
+					>
+						03
+					</div>
+
+					<h3
+						class="mt-6 font-bold text-[#102a43]"
+					>
+						Coordinamos la reforma
+					</h3>
+
+					<p
+						class="mt-2 text-sm leading-relaxed text-[#687078]"
+					>
+						Integramos los diferentes trabajos del proyecto.
+					</p>
+				</div>
+
+				<div
+					class="relative rounded-2xl border border-[#e2d8cb] bg-white p-6 text-center"
+				>
+					<div
+						class="mx-auto flex h-20 w-20 items-center justify-center rounded-full bg-[#173b57] text-xl font-black text-[#d2b06a]"
+					>
+						04
+					</div>
+
+					<h3
+						class="mt-6 font-bold text-[#102a43]"
+					>
+						Completamos los acabados
+					</h3>
+
+					<p
+						class="mt-2 text-sm leading-relaxed text-[#687078]"
+					>
+						Finalizamos los trabajos previstos en la reforma.
+					</p>
+				</div>
+			</div>
+		</div>
+	</section>
+
+	<!-- =====================================================
+     PROYECTOS
+====================================================== -->
+<section
+        id="proyectos"
+        class="border-y border-[#e8ded0] bg-[#173b57] py-20 md:py-28"
+>
+        <div class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
+                <div class="max-w-3xl">
+                        <span
+                                class="text-xs font-bold uppercase tracking-[0.18em] text-[#d2b06a]"
+                        >
+                                Proyectos
+                        </span>
+
+                        <h2
+                                class="mt-3 text-3xl font-black tracking-tight text-white md:text-5xl"
+                        >
+                                El resultado empieza con una buena planificación.
+                        </h2>
+
+                        <p
+                                class="mt-5 text-base leading-relaxed text-[#c9d4db] md:text-lg"
+                        >
+                                Podemos mostrar aquí diferentes trabajos reales de
+                                reformas integrales realizados por STARLYN REFORMAS.
+                        </p>
+                </div>
+
+                <div class="mt-12">
+                        {
+                                trabajosReformas.length > 0 ? (
+                                        <div class="grid grid-cols-1 gap-6 md:grid-cols-2 lg:grid-cols-3">
+                                                {trabajosReformas.map((proyecto) => (
+                                                        <article
+                                                                class="group overflow-hidden rounded-2xl border border-white/10 bg-[#102a43] shadow-[0_18px_45px_rgba(0,0,0,0.16)]"
+                                                        >
+                                                                <div class="relative aspect-[4/3] overflow-hidden bg-[#102a43]">
+                                                                        <img
+                                                                                src={proyecto.imagen}
+                                                                                alt={
+                                                                                        proyecto.titulo ||
+                                                                                        "Trabajo de reforma integral realizado por STARLYN REFORMAS"
+                                                                                }
+                                                                                class="h-full w-full object-cover transition duration-700 group-hover:scale-[1.03]"
+                                                                                loading="lazy"
+                                                                        />
+                                                                </div>
+
+                                                                <div class="p-5">
+                                                                        <span
+                                                                                class="text-xs font-bold uppercase tracking-[0.16em] text-[#d2b06a]"
+                                                                        >
+                                                                                {proyecto.categoria}
+                                                                        </span>
+
+                                                                        <h3
+                                                                                class="mt-2 text-lg font-bold text-white"
+                                                                        >
+                                                                                {proyecto.titulo}
+                                                                        </h3>
+
+                                                                        {
+                                                                                proyecto.descripcion && (
+                                                                                        <p
+                                                                                                class="mt-2 line-clamp-2 text-sm leading-relaxed text-[#c9d4db]"
+                                                                                        >
+                                                                                                {proyecto.descripcion}
+                                                                                        </p>
+                                                                                )
+                                                                        }
+                                                                </div>
+                                                        </article>
+                                                ))}
+                                        </div>
+                                ) : (
+                                        <div class="rounded-2xl border border-white/10 bg-[#102a43] px-6 py-12 text-center shadow-[0_18px_45px_rgba(0,0,0,0.12)]">
+                                                <Sparkles
+                                                        class="mx-auto h-10 w-10 text-[#d2b06a]"
+                                                        stroke-width="1.35"
+                                                />
+
+                                                <h3
+                                                        class="mt-5 text-xl font-bold text-white"
+                                                >
+                                                        Próximamente, nuevos trabajos realizados
+                                                </h3>
+
+                                                <p
+                                                        class="mx-auto mt-3 max-w-xl text-sm leading-relaxed text-[#c9d4db]"
+                                                >
+                                                        Estamos preparando nuestra selección de
+                                                        proyectos de reformas integrales realizados
+                                                        por STARLYN REFORMAS.
+                                                </p>
+                                        </div>
+                                )
+                        }
+                </div>
+        </div>
+</section>
+
+	<!-- =====================================================
+	     CONTACTO / CONVERSIÓN
+	====================================================== -->
+	<section
+		id="contacto"
+		class="relative overflow-visible bg-[#102a43] py-20 text-white md:py-28"
+	>
+		<div
+			class="pointer-events-none absolute -left-32 bottom-0 h-80 w-80 rounded-full bg-[#b58a3a]/10 blur-3xl"
+		></div>
+
+		<div
+			class="relative mx-auto max-w-7xl px-4 sm:px-6 lg:px-8"
+		>
+			<div
+				class="grid gap-12 lg:grid-cols-[0.8fr_1.2fr] lg:items-start"
+			>
+				<!-- TEXTO -->
+				<div>
+					<span
+						class="text-xs font-bold uppercase tracking-[0.18em] text-[#d2b06a]"
+					>
+						Da el primer paso
+					</span>
+
+					<h2
+						class="mt-3 text-3xl font-black tracking-tight md:text-5xl"
+					>
+						Cuéntanos qué quieres transformar.
+					</h2>
+
+					<p
+						class="mt-5 max-w-xl text-base leading-relaxed text-[#c9d4db] md:text-lg"
+					>
+						Indícanos qué tipo de reforma estás planteando,
+						dónde se encuentra la vivienda y qué necesitas
+						cambiar.
+					</p>
+
+					<div class="mt-9 space-y-5">
+						<div class="flex items-start gap-4">
+							<div
+								class="flex h-11 w-11 shrink-0 items-center justify-center rounded-xl bg-white/5 text-[#d2b06a]"
+							>
+								<MapPin
+									class="h-5 w-5"
+									stroke-width="1.5"
+								/>
+							</div>
+
+							<div>
+								<h3 class="font-bold text-white">
+									Zaragoza y alrededores
+								</h3>
+
+								<p
+									class="mt-1 text-sm leading-relaxed text-[#9eafb9]"
+								>
+									Indícanos la ubicación del proyecto
+									para conocer mejor tu caso.
+								</p>
+							</div>
+						</div>
+
+						<div class="flex items-start gap-4">
+							<div
+								class="flex h-11 w-11 shrink-0 items-center justify-center rounded-xl bg-white/5 text-[#d2b06a]"
+							>
+								<ClipboardCheck
+									class="h-5 w-5"
+									stroke-width="1.5"
+								/>
+							</div>
+
+							<div>
+								<h3 class="font-bold text-white">
+									Estudiamos el proyecto
+								</h3>
+
+								<p
+									class="mt-1 text-sm leading-relaxed text-[#9eafb9]"
+								>
+									Cuantos más detalles nos proporciones,
+									mejor podremos entender lo que necesitas.
+								</p>
+							</div>
+						</div>
+
+						<div class="flex items-start gap-4">
+							<div
+								class="flex h-11 w-11 shrink-0 items-center justify-center rounded-xl bg-white/5 text-[#d2b06a]"
+							>
+								<Phone
+									class="h-5 w-5"
+									stroke-width="1.5"
+								/>
+							</div>
+
+							<div>
+								<h3 class="font-bold text-white">
+									También puedes llamarnos
+								</h3>
+
+								<a
+									href="tel:+34614783004"
+									class="mt-1 block text-sm text-[#d2b06a] hover:text-[#e0c384]"
+								>
+									614 78 30 04
+								</a>
+							</div>
+						</div>
+					</div>
+				</div>
+
+				<!-- FORMULARIO -->
+				<form
+					action="https://formspree.io/f/tu-endpoint-aqui"
+					method="POST"
+					class="relative z-20 rounded-3xl border border-white/10 bg-[#173b57] p-6 shadow-[0_25px_70px_rgba(0,0,0,0.25)] sm:p-8 md:p-10"
+				>
+					<div class="mb-7">
+						<h3
+							class="text-2xl font-black text-white"
+						>
+							Cuéntanos tu proyecto
+						</h3>
+
+						<p
+							class="mt-2 text-sm leading-relaxed text-[#9eafb9]"
+						>
+							Los datos marcados con * son obligatorios.
+						</p>
+					</div>
+
+					<div class="grid grid-cols-1 gap-5 sm:grid-cols-2">
+						<div>
+							<label
+								for="nombre"
+								class="mb-2 block text-xs font-bold uppercase tracking-wider text-[#d8e0e5]"
+							>
+								Nombre *
+							</label>
+
+							<input
+								type="text"
+								id="nombre"
+								name="nombre"
+								placeholder="Nombre completo"
+								required
+								class="w-full rounded-xl border border-white/10 bg-[#102a43] px-4 py-3.5 text-white placeholder-[#71808a] outline-none transition focus:border-[#d2b06a]"
+							/>
+						</div>
+
+						<div>
+							<label
+								for="telefono"
+								class="mb-2 block text-xs font-bold uppercase tracking-wider text-[#d8e0e5]"
+							>
+								Teléfono *
+							</label>
+
+							<input
+								type="tel"
+								id="telefono"
+								name="telefono"
+								placeholder="Teléfono de contacto"
+								required
+								class="w-full rounded-xl border border-white/10 bg-[#102a43] px-4 py-3.5 text-white placeholder-[#71808a] outline-none transition focus:border-[#d2b06a]"
+							/>
+						</div>
+					</div>
+
+					<div class="mt-5">
+						<label
+							for="barrio"
+							class="mb-2 block text-xs font-bold uppercase tracking-wider text-[#d8e0e5]"
+						>
+							Zona o ubicación del proyecto
+						</label>
+
+						<div class="relative">
+							<MapPin
+								class="pointer-events-none absolute left-4 top-1/2 h-5 w-5 -translate-y-1/2 text-[#b58a3a]"
+								stroke-width="1.5"
+							/>
+
+							<input
+								type="text"
+								id="barrio"
+								name="barrio"
+								autocomplete="off"
+								placeholder="Ej. Actur, Centro, Delicias..."
+								class="w-full rounded-xl border border-white/10 bg-[#102a43] py-3.5 pl-12 pr-4 text-white placeholder-[#71808a] outline-none transition focus:border-[#d2b06a]"
+							/>
+						</div>
+					</div>
+
+					<div class="mt-5">
+						<label
+							for="detalles"
+							class="mb-2 block text-xs font-bold uppercase tracking-wider text-[#d8e0e5]"
+						>
+							Detalles de la reforma
+						</label>
+
+						<textarea
+							id="detalles"
+							name="detalles"
+							rows="6"
+							placeholder="Cuéntanos cuántos metros tiene aproximadamente la vivienda, qué estancias quieres reformar o qué cambios tienes pensados..."
+							class="w-full resize-none rounded-xl border border-white/10 bg-[#102a43] px-4 py-3.5 text-white placeholder-[#71808a] outline-none transition focus:border-[#d2b06a]"
+						></textarea>
+					</div>
+
+					<button
+						type="submit"
+						class="group mt-6 flex w-full items-center justify-center gap-2 rounded-xl bg-[#d2b06a] px-6 py-4 text-base font-black text-[#102a43] transition hover:bg-[#e0c384]"
+					>
+						<ClipboardCheck
+							class="h-5 w-5"
+							stroke-width="1.8"
+						/>
+
+						Solicitar presupuesto integral
+
+						<ArrowRight
+							class="h-5 w-5 transition-transform group-hover:translate-x-1"
+							stroke-width="1.8"
+						/>
+					</button>
+
+					<a
+						href="https://wa.me/34614783004?text=Hola,%20quiero%20información%20sobre%20una%20reforma%20integral"
+						target="_blank"
+						rel="noopener noreferrer"
+						class="mt-3 flex w-full items-center justify-center gap-2 rounded-xl border border-white/10 bg-white/[0.04] px-6 py-3.5 text-sm font-semibold text-white transition hover:bg-white/[0.08]"
+					>
+						<MessageCircle
+							class="h-5 w-5 text-[#d2b06a]"
+							stroke-width="1.6"
+						/>
+
+						Si prefieres, escríbenos por WhatsApp
+					</a>
+				</form>
+			</div>
+		</div>
+	</section>
+</Layout>

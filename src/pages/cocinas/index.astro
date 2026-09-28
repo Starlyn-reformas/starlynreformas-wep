@@ -1,0 +1,844 @@
+---
+import Layout from "../../layouts/Layout.astro";
+import { createClient } from "@supabase/supabase-js";
+
+import {
+	ChefHat,
+	House,
+	Droplets,
+	Plug,
+	Grid3X3,
+	PanelsTopLeft,
+	Ruler,
+	ClipboardCheck,
+	Phone,
+	MessageCircle,
+	ArrowRight,
+	Check,
+	MapPin,
+	Sparkles,
+	LayoutDashboard,
+	Lightbulb,
+} from "@lucide/astro";
+
+const supabase = createClient(
+	import.meta.env.PUBLIC_SUPABASE_URL,
+	import.meta.env.PUBLIC_SUPABASE_PUBLISHABLE_KEY
+);
+
+const {
+	data: proyectosCocinas,
+	error: proyectosCocinasError,
+} = await supabase
+	.from("proyectos")
+	.select(
+		"id, titulo, descripcion, categoria, imagen, orden, created_at"
+	)
+	.eq("categoria", "Cocinas")
+	.eq("publicado", true)
+	.not("imagen", "is", null)
+	.order("orden", { ascending: true })
+	.order("created_at", { ascending: false })
+	.limit(3);
+
+const trabajosCocinas = proyectosCocinas ?? [];
+
+if (proyectosCocinasError) {
+	console.error(
+		"Error cargando proyectos de cocinas:",
+		proyectosCocinasError
+	);
+}
+---
+
+<Layout
+	title="Reformas de Cocinas en Zaragoza | Diseños a Medida | STARLYN REFORMAS"
+	description="Especialistas en reformas de cocinas en Zaragoza. Cambio de encimeras, alicatados, mobiliario a medida e instalaciones completas. Presupuesto sin compromiso."
+>
+	<!-- =====================================================
+	     HERO
+	====================================================== -->
+	<section
+		class="relative overflow-hidden border-b border-[#e8ded0] bg-[#102a43] text-white"
+	>
+		<!-- Luces decorativas -->
+		<div
+			class="pointer-events-none absolute -right-32 -top-32 h-96 w-96 rounded-full bg-[#b58a3a]/10 blur-3xl"
+		></div>
+
+		<div
+			class="pointer-events-none absolute -bottom-40 -left-32 h-96 w-96 rounded-full bg-[#294d67]/30 blur-3xl"
+		></div>
+
+		<div
+			class="relative mx-auto max-w-7xl px-4 py-20 sm:px-6 md:py-28 lg:px-8 lg:py-32"
+		>
+			<div
+				class="grid items-center gap-14 lg:grid-cols-[1.05fr_0.95fr]"
+			>
+				<!-- TEXTO -->
+				<div class="max-w-3xl">
+					<div
+						class="mb-7 inline-flex items-center gap-2 rounded-full border border-[#d2b06a]/30 bg-white/[0.04] px-4 py-2"
+					>
+						<ChefHat
+							class="h-4 w-4 text-[#d2b06a]"
+							stroke-width="1.5"
+						/>
+
+						<span
+							class="text-xs font-semibold uppercase tracking-[0.16em] text-[#e7d5ae]"
+						>
+							Reformas de cocinas · Zaragoza y alrededores
+						</span>
+					</div>
+
+					<h1
+						class="max-w-4xl text-4xl font-black leading-[1.08] tracking-tight sm:text-5xl md:text-6xl lg:text-7xl"
+					>
+						Reformas de cocinas
+						<span class="block text-[#d2b06a]">
+							pensadas para tu día a día.
+						</span>
+					</h1>
+
+					<p
+						class="mt-7 max-w-2xl text-base leading-relaxed text-[#d8e0e5] sm:text-lg md:text-xl"
+					>
+						Renovamos cocinas optimizando cada espacio y
+						coordinando alicatados, solados, fontanería,
+						electricidad y distribución.
+					</p>
+
+					<!-- CTAs -->
+					<div class="mt-9 flex flex-col gap-3 sm:flex-row">
+						<a
+							href="tel:+34614783004"
+							class="group inline-flex items-center justify-center gap-2 rounded-xl bg-[#d2b06a] px-7 py-4 text-base font-bold text-[#102a43] shadow-lg shadow-black/10 transition hover:bg-[#e0c384]"
+						>
+							<Phone
+								class="h-5 w-5"
+								stroke-width="1.8"
+							/>
+
+							Solicitar presupuesto
+
+							<ArrowRight
+								class="h-4 w-4 transition-transform group-hover:translate-x-1"
+								stroke-width="1.8"
+							/>
+						</a>
+
+						<a
+							href="https://wa.me/34614783004?text=Hola,%20quiero%20pedir%20presupuesto%20para%20reformar%20una%20cocina"
+							target="_blank"
+							rel="noopener noreferrer"
+							class="inline-flex items-center justify-center gap-2 rounded-xl border border-white/15 bg-white/[0.06] px-7 py-4 text-base font-semibold text-white transition hover:border-white/30 hover:bg-white/[0.1]"
+						>
+							<MessageCircle
+								class="h-5 w-5 text-[#d2b06a]"
+								stroke-width="1.7"
+							/>
+
+							Hablar por WhatsApp
+						</a>
+					</div>
+
+					<!-- DATOS -->
+					<div
+						class="mt-10 flex flex-wrap gap-x-7 gap-y-3 border-t border-white/10 pt-7 text-sm text-[#c6d0d7]"
+					>
+						<div class="flex items-center gap-2">
+							<Check
+								class="h-4 w-4 text-[#d2b06a]"
+								stroke-width="2"
+							/>
+							Trabajo directo
+						</div>
+
+						<div class="flex items-center gap-2">
+							<Check
+								class="h-4 w-4 text-[#d2b06a]"
+								stroke-width="2"
+							/>
+							12+ años de experiencia
+						</div>
+
+						<div class="flex items-center gap-2">
+							<Check
+								class="h-4 w-4 text-[#d2b06a]"
+								stroke-width="2"
+							/>
+							Zaragoza y alrededores
+						</div>
+					</div>
+				</div>
+
+				<!-- BLOQUE VISUAL -->
+				<div class="relative">
+					<div
+						class="relative overflow-hidden rounded-3xl border border-white/10 bg-[#173b57] shadow-[0_30px_80px_rgba(0,0,0,0.28)]"
+					>
+						<img
+							src="/trabajos/cocina1.jpg"
+							alt="Reforma de cocina realizada por STARLYN REFORMAS"
+							class="aspect-[4/3] h-full w-full object-cover"
+							onerror="this.src='https://images.unsplash.com/photo-1556911220-e15b29be8c8f?auto=format&fit=crop&w=1200&q=85'"
+						/>
+
+						<div
+							class="absolute inset-0 bg-gradient-to-t from-[#102a43]/90 via-[#102a43]/10 to-transparent"
+						></div>
+
+						<div
+							class="absolute bottom-0 left-0 right-0 p-6 sm:p-8"
+						>
+							<div
+								class="inline-flex items-center gap-2 rounded-full border border-white/15 bg-[#102a43]/70 px-4 py-2 backdrop-blur-sm"
+							>
+								<Sparkles
+									class="h-4 w-4 text-[#d2b06a]"
+									stroke-width="1.5"
+								/>
+
+								<span
+									class="text-xs font-semibold uppercase tracking-wider text-white"
+								>
+									Diseño y funcionalidad
+								</span>
+							</div>
+
+							<h2
+								class="mt-3 text-2xl font-bold text-white sm:text-3xl"
+							>
+								Una cocina bien diseñada aprovecha mejor cada espacio.
+							</h2>
+						</div>
+					</div>
+
+					<div
+						class="pointer-events-none absolute -bottom-5 -right-5 h-24 w-24 rounded-2xl border border-[#d2b06a]/30"
+					></div>
+				</div>
+			</div>
+		</div>
+	</section>
+
+	<!-- =====================================================
+	     VENTAJAS
+	====================================================== -->
+	<section
+		class="border-b border-[#e8ded0] bg-[#f1ebe2]"
+	>
+		<div
+			class="mx-auto grid max-w-7xl grid-cols-2 md:grid-cols-4"
+		>
+			<div
+				class="flex items-center justify-center gap-3 border-b border-r border-[#e1d6c7] px-4 py-6 text-center md:border-b-0"
+			>
+				<LayoutDashboard
+					class="h-7 w-7 text-[#b58a3a]"
+					stroke-width="1.4"
+				/>
+
+				<span class="text-sm font-semibold text-[#173b57]">
+					Distribución funcional
+				</span>
+			</div>
+
+			<div
+				class="flex items-center justify-center gap-3 border-b border-[#e1d6c7] px-4 py-6 text-center md:border-b-0 md:border-r"
+			>
+				<Ruler
+					class="h-7 w-7 text-[#b58a3a]"
+					stroke-width="1.4"
+				/>
+
+				<span class="text-sm font-semibold text-[#173b57]">
+					Aprovechamiento del espacio
+				</span>
+			</div>
+
+			<div
+				class="flex items-center justify-center gap-3 border-r border-[#e1d6c7] px-4 py-6 text-center"
+			>
+				<ClipboardCheck
+					class="h-7 w-7 text-[#b58a3a]"
+					stroke-width="1.4"
+				/>
+
+				<span class="text-sm font-semibold text-[#173b57]">
+					Trabajo coordinado
+				</span>
+			</div>
+
+			<div
+				class="flex items-center justify-center gap-3 px-4 py-6 text-center"
+			>
+				<Sparkles
+					class="h-7 w-7 text-[#b58a3a]"
+					stroke-width="1.4"
+				/>
+
+				<span class="text-sm font-semibold text-[#173b57]">
+					Acabados cuidados
+				</span>
+			</div>
+		</div>
+	</section>
+
+	<!-- =====================================================
+	     SERVICIOS
+	====================================================== -->
+	<section
+		id="servicios"
+		class="bg-[#f7f4ee] py-20 md:py-28"
+	>
+		<div class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
+			<div class="max-w-3xl">
+				<span
+					class="text-xs font-bold uppercase tracking-[0.18em] text-[#b58a3a]"
+				>
+					Reforma de cocina
+				</span>
+
+				<h2
+					class="mt-3 text-3xl font-black tracking-tight text-[#102a43] md:text-5xl"
+				>
+					Una reforma pensada de principio a fin
+				</h2>
+
+				<p
+					class="mt-5 max-w-2xl text-base leading-relaxed text-[#687078] md:text-lg"
+				>
+					La cocina reúne instalaciones, revestimientos,
+					distribución y diferentes trabajos. Coordinamos cada
+					parte para conseguir un resultado coherente.
+				</p>
+			</div>
+
+			<div
+				class="mt-12 grid grid-cols-1 gap-5 md:grid-cols-2 lg:grid-cols-3"
+			>
+				<!-- DISTRIBUCIÓN -->
+				<div
+					class="rounded-2xl border border-[#e2d8cb] bg-white p-7 shadow-[0_8px_30px_rgba(16,42,67,0.04)] transition duration-300 hover:border-[#b58a3a]/50 hover:shadow-[0_16px_40px_rgba(16,42,67,0.09)]"
+				>
+					<div
+						class="mb-7 flex h-16 w-16 items-center justify-center rounded-2xl bg-[#102a43] text-[#d2b06a]"
+					>
+						<LayoutDashboard
+							class="h-8 w-8"
+							stroke-width="1.25"
+						/>
+					</div>
+
+					<h3 class="text-xl font-bold text-[#102a43]">
+						Distribución
+					</h3>
+
+					<p class="mt-3 text-sm leading-relaxed text-[#687078]">
+						Organización del espacio para conseguir una cocina
+						práctica y adaptada a sus necesidades.
+					</p>
+				</div>
+
+				<!-- ALICATADOS -->
+				<div
+					class="rounded-2xl border border-[#e2d8cb] bg-white p-7 shadow-[0_8px_30px_rgba(16,42,67,0.04)] transition duration-300 hover:border-[#b58a3a]/50 hover:shadow-[0_16px_40px_rgba(16,42,67,0.09)]"
+				>
+					<div
+						class="mb-7 flex h-16 w-16 items-center justify-center rounded-2xl bg-[#173b57] text-[#d2b06a]"
+					>
+						<Grid3X3
+							class="h-8 w-8"
+							stroke-width="1.25"
+						/>
+					</div>
+
+					<h3 class="text-xl font-bold text-[#102a43]">
+						Alicatados y revestimientos
+					</h3>
+
+					<p class="mt-3 text-sm leading-relaxed text-[#687078]">
+						Colocación de revestimientos y acabados para
+						renovar la imagen de la cocina.
+					</p>
+				</div>
+
+				<!-- FONTANERÍA -->
+				<div
+					class="rounded-2xl border border-[#e2d8cb] bg-white p-7 shadow-[0_8px_30px_rgba(16,42,67,0.04)] transition duration-300 hover:border-[#b58a3a]/50 hover:shadow-[0_16px_40px_rgba(16,42,67,0.09)]"
+				>
+					<div
+						class="mb-7 flex h-16 w-16 items-center justify-center rounded-2xl bg-[#102a43] text-[#d2b06a]"
+					>
+						<Droplets
+							class="h-8 w-8"
+							stroke-width="1.25"
+						/>
+					</div>
+
+					<h3 class="text-xl font-bold text-[#102a43]">
+						Fontanería
+					</h3>
+
+					<p class="mt-3 text-sm leading-relaxed text-[#687078]">
+						Adaptación y renovación de las instalaciones de
+						agua necesarias para la reforma.
+					</p>
+				</div>
+
+				<!-- ELECTRICIDAD -->
+				<div
+					class="rounded-2xl border border-[#e2d8cb] bg-white p-7 shadow-[0_8px_30px_rgba(16,42,67,0.04)] transition duration-300 hover:border-[#b58a3a]/50 hover:shadow-[0_16px_40px_rgba(16,42,67,0.09)]"
+				>
+					<div
+						class="mb-7 flex h-16 w-16 items-center justify-center rounded-2xl bg-[#173b57] text-[#d2b06a]"
+					>
+						<Plug
+							class="h-8 w-8"
+							stroke-width="1.25"
+						/>
+					</div>
+
+					<h3 class="text-xl font-bold text-[#102a43]">
+						Electricidad
+					</h3>
+
+					<p class="mt-3 text-sm leading-relaxed text-[#687078]">
+						Adaptación de puntos eléctricos e instalaciones
+						para las necesidades de la nueva cocina.
+					</p>
+				</div>
+
+				<!-- SOLADOS -->
+				<div
+					class="rounded-2xl border border-[#e2d8cb] bg-white p-7 shadow-[0_8px_30px_rgba(16,42,67,0.04)] transition duration-300 hover:border-[#b58a3a]/50 hover:shadow-[0_16px_40px_rgba(16,42,67,0.09)]"
+				>
+					<div
+						class="mb-7 flex h-16 w-16 items-center justify-center rounded-2xl bg-[#102a43] text-[#d2b06a]"
+					>
+						<House
+							class="h-8 w-8"
+							stroke-width="1.25"
+						/>
+					</div>
+
+					<h3 class="text-xl font-bold text-[#102a43]">
+						Solados
+					</h3>
+
+					<p class="mt-3 text-sm leading-relaxed text-[#687078]">
+						Renovación del pavimento para completar la
+						transformación del espacio.
+					</p>
+				</div>
+
+				<!-- PLADUR -->
+				<div
+					class="rounded-2xl border border-[#e2d8cb] bg-white p-7 shadow-[0_8px_30px_rgba(16,42,67,0.04)] transition duration-300 hover:border-[#b58a3a]/50 hover:shadow-[0_16px_40px_rgba(16,42,67,0.09)]"
+				>
+					<div
+						class="mb-7 flex h-16 w-16 items-center justify-center rounded-2xl bg-[#173b57] text-[#d2b06a]"
+					>
+						<PanelsTopLeft
+							class="h-8 w-8"
+							stroke-width="1.25"
+						/>
+					</div>
+
+					<h3 class="text-xl font-bold text-[#102a43]">
+						Pladur
+					</h3>
+
+					<p class="mt-3 text-sm leading-relaxed text-[#687078]">
+						Techos, trasdosados y otras soluciones en
+						construcción ligera cuando el proyecto lo requiere.
+					</p>
+				</div>
+			</div>
+		</div>
+	</section>
+
+	<!-- =====================================================
+	     PROCESO
+	====================================================== -->
+	<section
+		class="border-y border-[#e8ded0] bg-[#e8ded0]/45 py-20 md:py-24"
+	>
+		<div class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
+			<div
+				class="grid gap-12 lg:grid-cols-[0.8fr_1.2fr] lg:items-center"
+			>
+				<div>
+					<span
+						class="text-xs font-bold uppercase tracking-[0.18em] text-[#b58a3a]"
+					>
+						El proyecto
+					</span>
+
+					<h2
+						class="mt-3 text-3xl font-black tracking-tight text-[#102a43] md:text-5xl"
+					>
+						De la primera idea a una cocina renovada.
+					</h2>
+
+					<p
+						class="mt-5 max-w-xl text-base leading-relaxed text-[#687078] md:text-lg"
+					>
+						La reforma de una cocina requiere coordinar
+						diferentes trabajos. Por eso planteamos el proyecto
+						con una visión global.
+					</p>
+
+					<a
+						href="#contacto"
+						class="group mt-8 inline-flex items-center gap-2 text-sm font-bold text-[#b58a3a]"
+					>
+						Hablar sobre mi cocina
+
+						<ArrowRight
+							class="h-4 w-4 transition-transform group-hover:translate-x-1"
+							stroke-width="1.8"
+						/>
+					</a>
+				</div>
+
+				<div class="grid gap-4 sm:grid-cols-2">
+					<div
+						class="rounded-2xl border border-[#dfd3c4] bg-[#f7f4ee] p-6"
+					>
+						<div
+							class="flex h-11 w-11 items-center justify-center rounded-xl bg-[#102a43] text-[#d2b06a]"
+						>
+							<Ruler
+								class="h-5 w-5"
+								stroke-width="1.5"
+							/>
+						</div>
+
+						<h3 class="mt-5 font-bold text-[#102a43]">
+							01. Analizamos el espacio
+						</h3>
+
+						<p class="mt-2 text-sm leading-relaxed text-[#687078]">
+							Valoramos la distribución y los trabajos
+							necesarios para realizar la reforma.
+						</p>
+					</div>
+
+					<div
+						class="rounded-2xl border border-[#dfd3c4] bg-[#f7f4ee] p-6"
+					>
+						<div
+							class="flex h-11 w-11 items-center justify-center rounded-xl bg-[#173b57] text-[#d2b06a]"
+						>
+							<LayoutDashboard
+								class="h-5 w-5"
+								stroke-width="1.5"
+							/>
+						</div>
+
+						<h3 class="mt-5 font-bold text-[#102a43]">
+							02. Definimos la reforma
+						</h3>
+
+						<p class="mt-2 text-sm leading-relaxed text-[#687078]">
+							Organizamos los trabajos y las diferentes
+							necesidades del proyecto.
+						</p>
+					</div>
+
+					<div
+						class="rounded-2xl border border-[#dfd3c4] bg-[#f7f4ee] p-6"
+					>
+						<div
+							class="flex h-11 w-11 items-center justify-center rounded-xl bg-[#173b57] text-[#d2b06a]"
+						>
+							<ClipboardCheck
+								class="h-5 w-5"
+								stroke-width="1.5"
+							/>
+						</div>
+
+						<h3 class="mt-5 font-bold text-[#102a43]">
+							03. Coordinamos los trabajos
+						</h3>
+
+						<p class="mt-2 text-sm leading-relaxed text-[#687078]">
+							Fontanería, electricidad, revestimientos y
+							demás trabajos se integran en el proyecto.
+						</p>
+					</div>
+
+					<div
+						class="rounded-2xl border border-[#dfd3c4] bg-[#f7f4ee] p-6"
+					>
+						<div
+							class="flex h-11 w-11 items-center justify-center rounded-xl bg-[#102a43] text-[#d2b06a]"
+						>
+							<Sparkles
+								class="h-5 w-5"
+								stroke-width="1.5"
+							/>
+						</div>
+
+						<h3 class="mt-5 font-bold text-[#102a43]">
+							04. Cuidamos los acabados
+						</h3>
+
+						<p class="mt-2 text-sm leading-relaxed text-[#687078]">
+							Buscamos que el resultado final sea coherente
+							con el proyecto planteado.
+						</p>
+					</div>
+				</div>
+			</div>
+		</div>
+	</section>
+
+	<!-- =====================================================
+	      PROYECTOS 
+	====================================================== -->
+<section
+	id="proyectos"
+	class="border-y border-[#e8ded0] bg-[#173b57] py-20 md:py-28"
+>
+	<div class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
+		<div class="max-w-3xl">
+			<span
+				class="text-xs font-bold uppercase tracking-[0.18em] text-[#d2b06a]"
+			>
+				Proyectos
+			</span>
+
+			<h2
+				class="mt-3 text-3xl font-black tracking-tight text-white md:text-5xl"
+			>
+				Cocinas reales, resultados reales.
+			</h2>
+
+			<p
+				class="mt-5 text-base leading-relaxed text-[#c9d4db] md:text-lg"
+			>
+				Descubre algunos de los proyectos de cocinas realizados por
+				STARLYN REFORMAS.
+			</p>
+		</div>
+
+		<div class="mt-12">
+			{
+				trabajosCocinas.length > 0 ? (
+					<div class="grid grid-cols-1 gap-6 md:grid-cols-2 lg:grid-cols-3">
+						{trabajosCocinas.map((proyecto) => (
+							<article
+								class="group overflow-hidden rounded-2xl border border-white/10 bg-[#102a43] shadow-[0_18px_45px_rgba(0,0,0,0.16)]"
+							>
+								<div class="relative aspect-[4/3] overflow-hidden bg-[#102a43]">
+									<img
+										src={proyecto.imagen}
+										alt={
+											proyecto.titulo ||
+											"Cocina reformada por STARLYN REFORMAS"
+										}
+										class="h-full w-full object-cover transition duration-700 group-hover:scale-[1.03]"
+										loading="lazy"
+									/>
+								</div>
+
+								<div class="p-5">
+									<span
+										class="text-xs font-bold uppercase tracking-[0.16em] text-[#d2b06a]"
+									>
+										{proyecto.categoria}
+									</span>
+
+									<h3
+										class="mt-2 text-lg font-bold text-white"
+									>
+										{proyecto.titulo}
+									</h3>
+
+									{
+										proyecto.descripcion && (
+											<p
+												class="mt-2 line-clamp-2 text-sm leading-relaxed text-[#c9d4db]"
+											>
+												{proyecto.descripcion}
+											</p>
+										)
+									}
+								</div>
+							</article>
+						))}
+					</div>
+				) : (
+					<div
+						class="rounded-2xl border border-white/10 bg-[#102a43] px-6 py-12 text-center shadow-[0_18px_45px_rgba(0,0,0,0.12)]"
+					>
+						<Sparkles
+							class="mx-auto h-10 w-10 text-[#d2b06a]"
+							stroke-width="1.35"
+						/>
+
+						<h3
+							class="mt-5 text-xl font-bold text-white"
+						>
+							Próximamente, nuevos trabajos realizados
+						</h3>
+
+						<p
+							class="mx-auto mt-3 max-w-xl text-sm leading-relaxed text-[#c9d4db]"
+						>
+							Estamos preparando nuestra selección de
+							proyectos de cocinas realizados por
+							STARLYN REFORMAS.
+						</p>
+					</div>
+				)
+			}
+		</div>
+	</div>
+</section>
+
+	<!-- =====================================================
+	     CONTACTO
+	====================================================== -->
+	<section
+		id="contacto"
+		class="relative overflow-visible bg-[#102a43] py-20 text-white md:py-28"
+	>
+		<div
+			class="pointer-events-none absolute right-0 top-0 h-80 w-80 rounded-full bg-[#b58a3a]/10 blur-3xl"
+		></div>
+
+		<div
+			class="relative mx-auto max-w-5xl px-4 sm:px-6 lg:px-8"
+		>
+			<div class="mx-auto max-w-3xl text-center">
+				<span
+					class="text-xs font-bold uppercase tracking-[0.18em] text-[#d2b06a]"
+				>
+					Contacto
+				</span>
+
+				<h2
+					class="mt-3 text-3xl font-black tracking-tight md:text-5xl"
+				>
+					¿Quieres reformar tu cocina?
+				</h2>
+
+				<p class="mt-5 text-[#c9d4db]">
+					Cuéntanos qué necesitas y nos pondremos en contacto
+					contigo para conocer tu proyecto.
+				</p>
+			</div>
+
+			<form
+				action="https://formspree.io/f/tu-endpoint-aqui"
+				method="POST"
+				class="relative z-20 mx-auto mt-12 max-w-4xl rounded-3xl border border-white/10 bg-[#173b57] p-6 shadow-[0_25px_70px_rgba(0,0,0,0.22)] sm:p-8 md:p-10"
+			>
+				<div class="grid grid-cols-1 gap-6 md:grid-cols-2">
+					<div>
+						<label
+							for="nombre"
+							class="mb-2 block text-xs font-bold uppercase tracking-wider text-[#d8e0e5]"
+						>
+							Nombre completo *
+						</label>
+
+						<input
+							type="text"
+							id="nombre"
+							name="nombre"
+							placeholder="Ej. Carlos Martínez"
+							required
+							class="w-full rounded-xl border border-white/10 bg-[#102a43] px-4 py-3.5 text-white placeholder-[#71808a] outline-none transition focus:border-[#d2b06a]"
+						/>
+					</div>
+
+					<div>
+						<label
+							for="telefono"
+							class="mb-2 block text-xs font-bold uppercase tracking-wider text-[#d8e0e5]"
+						>
+							Teléfono *
+						</label>
+
+						<input
+							type="tel"
+							id="telefono"
+							name="telefono"
+							placeholder="Ej. 614 78 30 04"
+							required
+							class="w-full rounded-xl border border-white/10 bg-[#102a43] px-4 py-3.5 text-white placeholder-[#71808a] outline-none transition focus:border-[#d2b06a]"
+						/>
+					</div>
+				</div>
+
+				<!-- UBICACIÓN -->
+				<div class="mt-6">
+					<label
+						for="barrio"
+						class="mb-2 block text-xs font-bold uppercase tracking-wider text-[#d8e0e5]"
+					>
+						Zona o ubicación del proyecto
+					</label>
+
+					<div class="relative">
+						<MapPin
+							class="pointer-events-none absolute left-4 top-1/2 h-5 w-5 -translate-y-1/2 text-[#b58a3a]"
+							stroke-width="1.5"
+						/>
+
+						<input
+							type="text"
+							id="barrio"
+							name="barrio"
+							autocomplete="off"
+							placeholder="Ej. Actur, Centro, Delicias..."
+							class="w-full rounded-xl border border-white/10 bg-[#102a43] py-3.5 pl-12 pr-4 text-white placeholder-[#71808a] outline-none transition focus:border-[#d2b06a]"
+						/>
+					</div>
+				</div>
+
+				<!-- DETALLES -->
+				<div class="mt-6">
+					<label
+						for="detalles"
+						class="mb-2 block text-xs font-bold uppercase tracking-wider text-[#d8e0e5]"
+					>
+						Detalles del proyecto
+					</label>
+
+					<textarea
+						id="detalles"
+						name="detalles"
+						rows="5"
+						placeholder="Indícanos si quieres cambiar azulejos, suelo, fontanería, distribución o realizar una reforma completa..."
+						class="w-full resize-none rounded-xl border border-white/10 bg-[#102a43] px-4 py-3.5 text-white placeholder-[#71808a] outline-none transition focus:border-[#d2b06a]"
+					></textarea>
+				</div>
+
+				<button
+					type="submit"
+					class="group mt-7 flex w-full items-center justify-center gap-2 rounded-xl bg-[#d2b06a] px-6 py-4 text-base font-black text-[#102a43] transition hover:bg-[#e0c384]"
+				>
+					<ChefHat
+						class="h-5 w-5"
+						stroke-width="1.8"
+					/>
+
+					Solicitar presupuesto de cocina
+
+					<ArrowRight
+						class="h-5 w-5 transition-transform group-hover:translate-x-1"
+						stroke-width="1.8"
+					/>
+				</button>
+			</form>
+		</div>
+	</section>
+</Layout>

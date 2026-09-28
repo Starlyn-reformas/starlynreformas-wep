@@ -1,0 +1,613 @@
+---
+---
+
+<!doctype html>
+<html lang="es">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="robots" content="noindex, nofollow" />
+    <title>Acceso Administrador | STARLYN REFORMAS</title>
+  </head>
+
+  <body>
+    <main class="login-page">
+      <section class="login-card" aria-labelledby="login-title">
+
+        <div class="brand">
+          <img
+            src="/images/logo-starlyn-reformas.png"
+            alt="STARLYN REFORMAS"
+            class="brand-logo"
+          />
+
+          <div class="brand-line"></div>
+
+          <p class="brand-subtitle">ADMINISTRACIÓN</p>
+        </div>
+
+        <div class="login-heading">
+          <h1 id="login-title">Bienvenido</h1>
+          <p>Accede al panel de administración de STARLYN REFORMAS.</p>
+        </div>
+
+        <form id="login-form" class="login-form">
+
+          <div class="field">
+            <label for="email">Correo electrónico</label>
+
+            <div class="input-wrapper">
+              <svg
+                class="input-icon"
+                viewBox="0 0 24 24"
+                fill="none"
+                stroke="currentColor"
+                stroke-width="1.8"
+                aria-hidden="true"
+              >
+                <path
+                  d="M4 5h16a2 2 0 0 1 2 2v10a2 2 0 0 1-2 2H4a2 2 0 0 1-2-2V7a2 2 0 0 1 2-2Z"
+                />
+                <path d="m3 7 9 6 9-6" />
+              </svg>
+
+              <input
+                id="email"
+                name="email"
+                type="email"
+                autocomplete="email"
+                placeholder="tu correo electrónico"
+                required
+              />
+            </div>
+          </div>
+
+          <div class="field">
+            <label for="password">Contraseña</label>
+
+            <div class="input-wrapper">
+              <svg
+                class="input-icon"
+                viewBox="0 0 24 24"
+                fill="none"
+                stroke="currentColor"
+                stroke-width="1.8"
+                aria-hidden="true"
+              >
+                <rect x="3" y="10" width="18" height="11" rx="2" />
+                <path d="M7 10V7a5 5 0 0 1 10 0v3" />
+              </svg>
+
+              <input
+                id="password"
+                name="password"
+                type="password"
+                autocomplete="current-password"
+                placeholder="Tu contraseña"
+                required
+              />
+
+              <button
+                type="button"
+                id="toggle-password"
+                class="password-toggle"
+                aria-label="Mostrar contraseña"
+              >
+                <svg
+                  id="eye-open"
+                  viewBox="0 0 24 24"
+                  fill="none"
+                  stroke="currentColor"
+                  stroke-width="1.8"
+                  aria-hidden="true"
+                >
+                  <path d="M2 12s3.5-6 10-6 10 6 10 6-3.5 6-10 6S2 12 2 12Z" />
+                  <circle cx="12" cy="12" r="2.5" />
+                </svg>
+
+                <svg
+                  id="eye-closed"
+                  viewBox="0 0 24 24"
+                  fill="none"
+                  stroke="currentColor"
+                  stroke-width="1.8"
+                  aria-hidden="true"
+                  class="hidden"
+                >
+                  <path d="m3 3 18 18" />
+                  <path d="M10.6 6.2A9.7 9.7 0 0 1 12 6c6.5 0 10 6 10 6a17.6 17.6 0 0 1-3.2 3.9" />
+                  <path d="M6.6 6.7C3.7 8.5 2 12 2 12s3.5 6 10 6c1.8 0 3.4-.5 4.8-1.2" />
+                  <path d="M9.9 9.9a3 3 0 0 0 4.2 4.2" />
+                </svg>
+              </button>
+            </div>
+          </div>
+
+          <button type="submit" class="login-button">
+            <span id="button-text">Iniciar sesión</span>
+
+            <svg
+              id="button-spinner"
+              class="spinner hidden"
+              viewBox="0 0 24 24"
+              aria-hidden="true"
+            >
+              <circle
+                cx="12"
+                cy="12"
+                r="9"
+                fill="none"
+                stroke="currentColor"
+                stroke-width="2.5"
+                stroke-linecap="round"
+              />
+            </svg>
+          </button>
+
+          <p id="message" class="message" role="alert"></p>
+        </form>
+
+        <div class="login-footer">
+          <span class="footer-dot"></span>
+          <span>Acceso seguro</span>
+        </div>
+
+      </section>
+    </main>
+
+    <script>
+      import { supabase } from '../../lib/supabase/client';
+
+      const form = document.querySelector('#login-form');
+      const message = document.querySelector('#message');
+      const button = document.querySelector('.login-button');
+      const buttonText = document.querySelector('#button-text');
+      const spinner = document.querySelector('#button-spinner');
+
+      const passwordInput = document.querySelector('#password');
+      const togglePassword = document.querySelector('#toggle-password');
+      const eyeOpen = document.querySelector('#eye-open');
+      const eyeClosed = document.querySelector('#eye-closed');
+
+      togglePassword?.addEventListener('click', () => {
+        if (!passwordInput) return;
+
+        const showing = passwordInput.getAttribute('type') === 'text';
+
+        passwordInput.setAttribute('type', showing ? 'password' : 'text');
+
+        eyeOpen?.classList.toggle('hidden', !showing);
+        eyeClosed?.classList.toggle('hidden', showing);
+
+        togglePassword.setAttribute(
+          'aria-label',
+          showing ? 'Mostrar contraseña' : 'Ocultar contraseña'
+        );
+      });
+
+      form?.addEventListener('submit', async (event) => {
+        event.preventDefault();
+
+        const emailInput = document.querySelector('#email');
+
+        const email =
+          emailInput instanceof HTMLInputElement
+            ? emailInput.value.trim()
+            : '';
+
+        const password =
+          passwordInput instanceof HTMLInputElement
+            ? passwordInput.value
+            : '';
+
+        if (!email || !password) {
+          if (message) {
+            message.textContent = 'Introduce tu correo y contraseña.';
+            message.className = 'message error';
+          }
+
+          return;
+        }
+
+        if (button instanceof HTMLButtonElement) {
+          button.disabled = true;
+        }
+
+        if (buttonText) {
+          buttonText.textContent = 'Iniciando sesión...';
+        }
+
+        spinner?.classList.remove('hidden');
+
+        if (message) {
+          message.textContent = '';
+          message.className = 'message';
+        }
+
+        const { error } = await supabase.auth.signInWithPassword({
+          email,
+          password,
+        });
+
+        if (error) {
+          if (button instanceof HTMLButtonElement) {
+            button.disabled = false;
+          }
+
+          if (buttonText) {
+            buttonText.textContent = 'Iniciar sesión';
+          }
+
+          spinner?.classList.add('hidden');
+
+          if (message) {
+            message.textContent =
+              'Correo o contraseña incorrectos.';
+            message.className = 'message error';
+          }
+
+          return;
+        }
+
+        if (message) {
+          message.textContent = 'Acceso correcto. Entrando...';
+          message.className = 'message success';
+        }
+
+        window.location.href = '/admin';
+      });
+    </script>
+
+    <style>
+      :global(*) {
+        box-sizing: border-box;
+      }
+
+      :global(html),
+      :global(body) {
+        margin: 0;
+        min-height: 100%;
+      }
+
+      :global(body) {
+        font-family:
+          Inter,
+          ui-sans-serif,
+          system-ui,
+          -apple-system,
+          BlinkMacSystemFont,
+          "Segoe UI",
+          sans-serif;
+        background: #f5f4f1;
+        color: #222;
+      }
+
+      .login-page {
+        min-height: 100vh;
+        min-height: 100svh;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        padding: 32px 20px;
+        position: relative;
+        overflow: hidden;
+        background:
+          radial-gradient(
+            circle at 15% 15%,
+            rgba(0, 0, 0, 0.035),
+            transparent 30%
+          ),
+          radial-gradient(
+            circle at 85% 85%,
+            rgba(0, 0, 0, 0.045),
+            transparent 32%
+          ),
+          #f5f4f1;
+      }
+
+      .login-page::before {
+        content: "";
+        position: absolute;
+        inset: 0;
+        pointer-events: none;
+        background:
+          linear-gradient(
+            90deg,
+            transparent 49.9%,
+            rgba(0, 0, 0, 0.025) 50%,
+            transparent 50.1%
+          );
+        opacity: 0.35;
+      }
+
+      .login-card {
+        position: relative;
+        width: 100%;
+        max-width: 455px;
+        padding: 46px 46px 32px;
+        border: 1px solid rgba(0, 0, 0, 0.08);
+        border-radius: 4px;
+        background: rgba(255, 255, 255, 0.97);
+        box-shadow:
+          0 22px 60px rgba(0, 0, 0, 0.09),
+          0 3px 12px rgba(0, 0, 0, 0.035);
+      }
+
+      .brand {
+        text-align: center;
+        margin-bottom: 38px;
+      }
+
+      .brand-logo {
+        display: block;
+        width: min(245px, 78%);
+        height: auto;
+        max-height: 82px;
+        object-fit: contain;
+        margin: 0 auto;
+      }
+
+      .brand-line {
+        width: 48px;
+        height: 2px;
+        margin: 21px auto 13px;
+        background: #222;
+      }
+
+      .brand-subtitle {
+        margin: 0;
+        font-size: 10px;
+        font-weight: 600;
+        letter-spacing: 0.28em;
+        color: #777;
+      }
+
+      .login-heading {
+        margin-bottom: 27px;
+      }
+
+      .login-heading h1 {
+        margin: 0 0 8px;
+        font-family:
+          Georgia,
+          "Times New Roman",
+          serif;
+        font-size: 31px;
+        line-height: 1.15;
+        font-weight: 500;
+        letter-spacing: -0.02em;
+        color: #202020;
+      }
+
+      .login-heading p {
+        margin: 0;
+        max-width: 340px;
+        font-size: 13px;
+        line-height: 1.65;
+        color: #777;
+      }
+
+      .login-form {
+        display: flex;
+        flex-direction: column;
+        gap: 19px;
+      }
+
+      .field {
+        display: flex;
+        flex-direction: column;
+        gap: 8px;
+      }
+
+      .field label {
+        font-size: 11px;
+        font-weight: 700;
+        letter-spacing: 0.06em;
+        text-transform: uppercase;
+        color: #484848;
+      }
+
+      .input-wrapper {
+        position: relative;
+        display: flex;
+        align-items: center;
+      }
+
+      .input-icon {
+        position: absolute;
+        left: 15px;
+        width: 18px;
+        height: 18px;
+        color: #929292;
+        pointer-events: none;
+        transition: color 0.2s ease;
+      }
+
+      .input-wrapper:focus-within .input-icon {
+        color: #222;
+      }
+
+      .input-wrapper input {
+        width: 100%;
+        height: 51px;
+        border: 1px solid #d9d9d9;
+        border-radius: 3px;
+        outline: none;
+        background: #fff;
+        padding: 0 45px;
+        font: inherit;
+        font-size: 14px;
+        color: #222;
+        transition:
+          border-color 0.2s ease,
+          box-shadow 0.2s ease,
+          background 0.2s ease;
+      }
+
+      .input-wrapper input::placeholder {
+        color: #aaa;
+      }
+
+      .input-wrapper input:hover {
+        border-color: #bdbdbd;
+      }
+
+      .input-wrapper input:focus {
+        border-color: #444;
+        box-shadow: 0 0 0 3px rgba(0, 0, 0, 0.055);
+      }
+
+      .password-toggle {
+        position: absolute;
+        right: 10px;
+        width: 32px;
+        height: 32px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        padding: 0;
+        border: 0;
+        background: transparent;
+        color: #888;
+        cursor: pointer;
+        border-radius: 3px;
+      }
+
+      .password-toggle:hover {
+        color: #222;
+        background: #f4f4f4;
+      }
+
+      .password-toggle svg {
+        width: 18px;
+        height: 18px;
+      }
+
+      .hidden {
+        display: none !important;
+      }
+
+      .login-button {
+        position: relative;
+        width: 100%;
+        height: 53px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        gap: 10px;
+        margin-top: 5px;
+        border: 0;
+        border-radius: 3px;
+        background: #202020;
+        color: #fff;
+        font: inherit;
+        font-size: 12px;
+        font-weight: 700;
+        letter-spacing: 0.12em;
+        text-transform: uppercase;
+        cursor: pointer;
+        transition:
+          transform 0.18s ease,
+          background 0.18s ease,
+          box-shadow 0.18s ease;
+      }
+
+      .login-button:hover:not(:disabled) {
+        background: #363636;
+        transform: translateY(-1px);
+        box-shadow: 0 8px 18px rgba(0, 0, 0, 0.12);
+      }
+
+      .login-button:active:not(:disabled) {
+        transform: translateY(0);
+      }
+
+      .login-button:disabled {
+        cursor: wait;
+        opacity: 0.72;
+      }
+
+      .spinner {
+        width: 18px;
+        height: 18px;
+        animation: spin 0.8s linear infinite;
+      }
+
+      .message {
+        min-height: 20px;
+        margin: -3px 0 0;
+        text-align: center;
+        font-size: 12px;
+        line-height: 1.5;
+      }
+
+      .message.error {
+        color: #b42318;
+      }
+
+      .message.success {
+        color: #237a43;
+      }
+
+      .login-footer {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        gap: 7px;
+        margin-top: 30px;
+        padding-top: 22px;
+        border-top: 1px solid #ededed;
+        color: #999;
+        font-size: 10px;
+        letter-spacing: 0.08em;
+        text-transform: uppercase;
+      }
+
+      .footer-dot {
+        width: 5px;
+        height: 5px;
+        border-radius: 50%;
+        background: #777;
+      }
+
+      @keyframes spin {
+        to {
+          transform: rotate(360deg);
+        }
+      }
+
+      @media (max-width: 520px) {
+        .login-page {
+          padding: 20px 14px;
+        }
+
+        .login-card {
+          padding: 36px 25px 27px;
+        }
+
+        .brand {
+          margin-bottom: 31px;
+        }
+
+        .brand-logo {
+          width: min(225px, 82%);
+        }
+
+        .login-heading h1 {
+          font-size: 28px;
+        }
+      }
+
+      @media (max-width: 360px) {
+        .login-card {
+          padding-left: 20px;
+          padding-right: 20px;
+        }
+
+        .login-heading h1 {
+          font-size: 26px;
+        }
+      }
+    </style>
+  </body>
+</html>

@@ -1,0 +1,745 @@
+---
+import Layout from "../../layouts/Layout.astro";
+import { createClient } from "@supabase/supabase-js";
+
+import {
+	PanelsTopLeft,
+	Layers3,
+	SquareStack,
+	Ruler,
+	ShieldCheck,
+	ClipboardCheck,
+	ArrowRight,
+	Phone,
+	MessageCircle,
+	MapPin,
+	Check,
+	Home,
+	Building2,
+	Wrench,
+	Sparkles,
+} from "@lucide/astro";
+
+const supabase = createClient(
+	import.meta.env.PUBLIC_SUPABASE_URL,
+	import.meta.env.PUBLIC_SUPABASE_PUBLISHABLE_KEY
+);
+
+const {
+	data: proyectosPladur,
+	error: proyectosPladurError,
+} = await supabase
+	.from("proyectos")
+	.select(
+		"id, titulo, descripcion, categoria, imagen, orden, created_at"
+	)
+	.eq("categoria", "Pladur")
+	.eq("publicado", true)
+	.not("imagen", "is", null)
+	.order("orden", { ascending: true })
+	.order("created_at", { ascending: false })
+	.limit(3);
+
+const trabajosPladur = proyectosPladur ?? [];
+
+if (proyectosPladurError) {
+	console.error(
+		"Error cargando proyectos de Pladur:",
+		proyectosPladurError
+	);
+}
+---
+<Layout
+  title="Trabajos de Pladur en Zaragoza | STARLYN REFORMAS"
+  description="Trabajos de Pladur en Zaragoza y alrededores. Tabiques, falsos techos, trasdosados y distribución de espacios con STARLYN REFORMAS."
+  canonical="/pladur"
+
+  <!-- =====================================================
+       HERO
+       ===================================================== -->
+
+  <section class="relative overflow-hidden bg-[#102a43] text-white">
+    <div class="absolute inset-0 opacity-20">
+      <div class="absolute -top-24 -right-24 h-80 w-80 rounded-full bg-[#b58a3a] blur-3xl"></div>
+      <div class="absolute -bottom-32 -left-20 h-72 w-72 rounded-full bg-[#294d67] blur-3xl"></div>
+    </div>
+
+    <div class="relative mx-auto max-w-7xl px-4 py-16 sm:px-6 md:py-24 lg:px-8">
+      <div class="grid items-center gap-12 lg:grid-cols-[1.1fr_0.9fr]">
+
+        <div class="max-w-3xl">
+
+          <div class="mb-5 flex items-center gap-3">
+            <span class="h-px w-10 bg-[#d2b06a]"></span>
+            <span class="text-xs font-bold uppercase tracking-[0.22em] text-[#d2b06a]">
+              Soluciones en Pladur
+            </span>
+          </div>
+
+          <h1 class="text-4xl font-black leading-tight tracking-tight sm:text-5xl lg:text-6xl">
+            Trabajos de
+            <span class="text-[#d2b06a]">
+              Pladur
+            </span>
+            en Zaragoza
+          </h1>
+
+          <p class="mt-6 max-w-2xl text-lg leading-relaxed text-[#dbe4ea] sm:text-xl">
+            Creamos y transformamos espacios con soluciones de Pladur para
+            viviendas y proyectos de reforma, cuidando la distribución,
+            los acabados y cada detalle de la ejecución.
+          </p>
+
+          <div class="mt-8 flex flex-col gap-3 sm:flex-row">
+
+            <a
+              href="#contacto"
+              class="inline-flex items-center justify-center gap-2 rounded-xl bg-[#b58a3a] px-6 py-3.5 font-bold text-white shadow-lg shadow-black/10 hover:bg-[#d2b06a]"
+            >
+              Solicitar presupuesto
+              <ArrowRight class="h-5 w-5" strokeWidth={1.8} />
+            </a>
+
+            <a
+              href="/#contacto"
+              class="inline-flex items-center justify-center gap-2 rounded-xl border border-white/20 bg-white/5 px-6 py-3.5 font-semibold text-white hover:border-[#d2b06a] hover:bg-white/10"
+            >
+              Ver contacto
+            </a>
+
+          </div>
+
+          <div class="mt-8 flex flex-wrap gap-x-6 gap-y-3 text-sm text-[#dbe4ea]">
+
+            <div class="flex items-center gap-2">
+              <Check class="h-4 w-4 text-[#d2b06a]" strokeWidth={2} />
+              12+ años de experiencia
+            </div>
+
+            <div class="flex items-center gap-2">
+              <Check class="h-4 w-4 text-[#d2b06a]" strokeWidth={2} />
+              Zaragoza y alrededores
+            </div>
+
+          </div>
+
+        </div>
+
+        <!-- BLOQUE VISUAL -->
+        <div class="relative">
+
+          <div class="overflow-hidden rounded-3xl border border-white/10 bg-white/5 shadow-2xl">
+
+            <div class="flex min-h-[360px] items-center justify-center bg-gradient-to-br from-[#173b57] to-[#102a43] p-8">
+
+              <div class="text-center">
+
+                <PanelsTopLeft
+                  class="mx-auto h-24 w-24 text-[#d2b06a]"
+                  strokeWidth={1.1}
+                />
+
+                <p class="mt-6 text-xl font-bold text-white">
+                  Soluciones en Pladur
+                </p>
+
+                <p class="mt-2 text-sm leading-relaxed text-[#cbd7df]">
+                  Distribución y transformación de espacios
+                </p>
+
+              </div>
+
+            </div>
+
+          </div>
+
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+
+  <!-- =====================================================
+       SERVICIOS
+       ===================================================== -->
+
+  <section class="bg-[#f7f4ee] py-16 md:py-20">
+    <div class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
+
+      <div class="mx-auto max-w-2xl text-center">
+
+        <span class="text-xs font-bold uppercase tracking-[0.2em] text-[#b58a3a]">
+          Servicios
+        </span>
+
+        <h2 class="mt-3 text-3xl font-black tracking-tight text-[#102a43] sm:text-4xl">
+          Soluciones de Pladur para tu proyecto
+        </h2>
+
+        <p class="mt-4 text-base leading-relaxed text-[#687078]">
+          Adaptamos las soluciones de Pladur a las necesidades de cada espacio
+          y al resultado que buscas conseguir.
+        </p>
+
+      </div>
+
+
+      <div class="mt-12 grid gap-5 md:grid-cols-2 lg:grid-cols-4">
+
+        <!-- TABIQUES -->
+        <article class="group rounded-2xl border border-[#e8ded0] bg-white p-7 shadow-sm hover:border-[#d2b06a]">
+
+          <div class="flex h-14 w-14 items-center justify-center rounded-xl bg-[#f1ebe2] text-[#b58a3a]">
+            <PanelsTopLeft class="h-8 w-8" strokeWidth={1.35} />
+          </div>
+
+          <h3 class="mt-6 text-xl font-bold text-[#102a43]">
+            Tabiques de Pladur
+          </h3>
+
+          <p class="mt-3 text-sm leading-relaxed text-[#687078]">
+            Creación de nuevas divisiones interiores para reorganizar y
+            aprovechar mejor los espacios.
+          </p>
+
+        </article>
+
+
+        <!-- FALSOS TECHOS -->
+        <article class="group rounded-2xl border border-[#e8ded0] bg-white p-7 shadow-sm hover:border-[#d2b06a]">
+
+          <div class="flex h-14 w-14 items-center justify-center rounded-xl bg-[#f1ebe2] text-[#b58a3a]">
+            <Layers3 class="h-8 w-8" strokeWidth={1.35} />
+          </div>
+
+          <h3 class="mt-6 text-xl font-bold text-[#102a43]">
+            Falsos techos
+          </h3>
+
+          <p class="mt-3 text-sm leading-relaxed text-[#687078]">
+            Soluciones para crear nuevos planos de techo y preparar espacios
+            para iluminación y diferentes instalaciones.
+          </p>
+
+        </article>
+
+
+        <!-- TRASDOSADOS -->
+        <article class="group rounded-2xl border border-[#e8ded0] bg-white p-7 shadow-sm hover:border-[#d2b06a]">
+
+          <div class="flex h-14 w-14 items-center justify-center rounded-xl bg-[#f1ebe2] text-[#b58a3a]">
+            <SquareStack class="h-8 w-8" strokeWidth={1.35} />
+          </div>
+
+          <h3 class="mt-6 text-xl font-bold text-[#102a43]">
+            Trasdosados
+          </h3>
+
+          <p class="mt-3 text-sm leading-relaxed text-[#687078]">
+            Revestimientos interiores con Pladur para renovar paredes y
+            conseguir una superficie preparada para el acabado.
+          </p>
+
+        </article>
+
+
+        <!-- DISTRIBUCIÓN -->
+        <article class="group rounded-2xl border border-[#e8ded0] bg-white p-7 shadow-sm hover:border-[#d2b06a]">
+
+          <div class="flex h-14 w-14 items-center justify-center rounded-xl bg-[#f1ebe2] text-[#b58a3a]">
+            <Ruler class="h-8 w-8" strokeWidth={1.35} />
+          </div>
+
+          <h3 class="mt-6 text-xl font-bold text-[#102a43]">
+            Distribución de espacios
+          </h3>
+
+          <p class="mt-3 text-sm leading-relaxed text-[#687078]">
+            Modificación de distribuciones interiores para adaptar la vivienda
+            o el local a nuevas necesidades.
+          </p>
+
+        </article>
+
+      </div>
+
+    </div>
+  </section>
+
+
+  <!-- =====================================================
+       VENTAJAS
+       ===================================================== -->
+
+  <section class="bg-[#e8ded0] py-16 md:py-20">
+    <div class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
+
+      <div class="grid gap-12 lg:grid-cols-[0.85fr_1.15fr] lg:items-center">
+
+        <div>
+
+          <span class="text-xs font-bold uppercase tracking-[0.2em] text-[#b58a3a]">
+            STARLYN REFORMAS
+          </span>
+
+          <h2 class="mt-3 text-3xl font-black tracking-tight text-[#102a43] sm:text-4xl">
+            Una solución pensada para tu espacio
+          </h2>
+
+          <p class="mt-5 leading-relaxed text-[#687078]">
+            El Pladur permite crear nuevas distribuciones y transformar
+            diferentes zonas de una vivienda o local. Estudiamos cada proyecto
+            según sus características y necesidades.
+          </p>
+
+          <a
+            href="#contacto"
+            class="mt-7 inline-flex items-center gap-2 font-bold text-[#102a43] hover:text-[#b58a3a]"
+          >
+            Cuéntanos tu proyecto
+            <ArrowRight class="h-5 w-5" strokeWidth={1.8} />
+          </a>
+
+        </div>
+
+
+        <div class="grid gap-4 sm:grid-cols-2">
+
+          <div class="rounded-2xl border border-white/60 bg-white/70 p-6">
+
+            <ShieldCheck
+              class="h-9 w-9 text-[#b58a3a]"
+              strokeWidth={1.3}
+            />
+
+            <h3 class="mt-5 font-bold text-[#102a43]">
+              Trabajo cuidado
+            </h3>
+
+            <p class="mt-2 text-sm leading-relaxed text-[#687078]">
+              Atención a la ejecución y a los acabados de cada trabajo.
+            </p>
+
+          </div>
+
+
+          <div class="rounded-2xl border border-white/60 bg-white/70 p-6">
+
+            <Ruler
+              class="h-9 w-9 text-[#b58a3a]"
+              strokeWidth={1.3}
+            />
+
+            <h3 class="mt-5 font-bold text-[#102a43]">
+              Adaptado al espacio
+            </h3>
+
+            <p class="mt-2 text-sm leading-relaxed text-[#687078]">
+              Soluciones adaptadas a la distribución y características del
+              proyecto.
+            </p>
+
+          </div>
+
+
+          <div class="rounded-2xl border border-white/60 bg-white/70 p-6">
+
+            <Home
+              class="h-9 w-9 text-[#b58a3a]"
+              strokeWidth={1.3}
+            />
+
+            <h3 class="mt-5 font-bold text-[#102a43]">
+              Viviendas y espacios
+            </h3>
+
+            <p class="mt-2 text-sm leading-relaxed text-[#687078]">
+              Trabajos orientados a diferentes tipos de espacios interiores.
+            </p>
+
+          </div>
+
+
+          <div class="rounded-2xl border border-white/60 bg-white/70 p-6">
+
+            <Wrench
+              class="h-9 w-9 text-[#b58a3a]"
+              strokeWidth={1.3}
+            />
+
+            <h3 class="mt-5 font-bold text-[#102a43]">
+              Reforma y transformación
+            </h3>
+
+            <p class="mt-2 text-sm leading-relaxed text-[#687078]">
+              Integración del Pladur dentro de proyectos de reforma.
+            </p>
+
+          </div>
+
+        </div>
+
+      </div>
+
+    </div>
+  </section>
+
+
+  <!-- =====================================================
+       PROCESO
+       ===================================================== -->
+
+  <section class="bg-white py-16 md:py-20">
+    <div class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
+
+      <div class="mx-auto max-w-2xl text-center">
+
+        <span class="text-xs font-bold uppercase tracking-[0.2em] text-[#b58a3a]">
+          Proceso
+        </span>
+
+        <h2 class="mt-3 text-3xl font-black text-[#102a43] sm:text-4xl">
+          Así comenzamos tu proyecto
+        </h2>
+
+      </div>
+
+
+      <div class="mt-12 grid gap-6 md:grid-cols-4">
+
+        <div class="relative rounded-2xl border border-[#e8ded0] bg-[#f7f4ee] p-6">
+
+          <span class="text-4xl font-black text-[#d2b06a]/50">
+            01
+          </span>
+
+          <ClipboardCheck
+            class="mt-5 h-8 w-8 text-[#b58a3a]"
+            strokeWidth={1.3}
+          />
+
+          <h3 class="mt-4 font-bold text-[#102a43]">
+            Contacto
+          </h3>
+
+          <p class="mt-2 text-sm leading-relaxed text-[#687078]">
+            Nos explicas qué necesitas y las características del espacio.
+          </p>
+
+        </div>
+
+
+        <div class="rounded-2xl border border-[#e8ded0] bg-[#f7f4ee] p-6">
+
+          <span class="text-4xl font-black text-[#d2b06a]/50">
+            02
+          </span>
+
+          <MapPin
+            class="mt-5 h-8 w-8 text-[#b58a3a]"
+            strokeWidth={1.3}
+          />
+
+          <h3 class="mt-4 font-bold text-[#102a43]">
+            Valoración
+          </h3>
+
+          <p class="mt-2 text-sm leading-relaxed text-[#687078]">
+            Analizamos el espacio y el trabajo que requiere el proyecto.
+          </p>
+
+        </div>
+
+
+        <div class="rounded-2xl border border-[#e8ded0] bg-[#f7f4ee] p-6">
+
+          <span class="text-4xl font-black text-[#d2b06a]/50">
+            03
+          </span>
+
+          <Ruler
+            class="mt-5 h-8 w-8 text-[#b58a3a]"
+            strokeWidth={1.3}
+          />
+
+          <h3 class="mt-4 font-bold text-[#102a43]">
+            Propuesta
+          </h3>
+
+          <p class="mt-2 text-sm leading-relaxed text-[#687078]">
+            Definimos contigo la solución más adecuada para el proyecto.
+          </p>
+
+        </div>
+
+
+        <div class="rounded-2xl border border-[#e8ded0] bg-[#f7f4ee] p-6">
+
+          <span class="text-4xl font-black text-[#d2b06a]/50">
+            04
+          </span>
+
+          <Wrench
+            class="mt-5 h-8 w-8 text-[#b58a3a]"
+            strokeWidth={1.3}
+          />
+
+          <h3 class="mt-4 font-bold text-[#102a43]">
+            Ejecución
+          </h3>
+
+          <p class="mt-2 text-sm leading-relaxed text-[#687078]">
+            Ejecutamos el trabajo siguiendo la solución acordada.
+          </p>
+
+        </div>
+
+      </div>
+
+    </div>
+  </section>
+
+<!-- =====================================================
+     PROYECTOS
+====================================================== -->
+
+<section
+	id="proyectos"
+	class="border-y border-[#e8ded0] bg-[#173b57] py-20 md:py-28"
+>
+	<div class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
+
+		<div class="max-w-3xl">
+
+			<span
+				class="text-xs font-bold uppercase tracking-[0.18em] text-[#d2b06a]"
+			>
+				Proyectos
+			</span>
+
+			<h2
+				class="mt-3 text-3xl font-black tracking-tight text-white md:text-5xl"
+			>
+				Trabajos reales de Pladur.
+			</h2>
+
+			<p
+				class="mt-5 text-base leading-relaxed text-[#c9d4db] md:text-lg"
+			>
+				Una selección de trabajos de Pladur realizados por
+				STARLYN REFORMAS.
+			</p>
+
+		</div>
+
+		<div class="mt-12">
+			{
+				trabajosPladur.length > 0 ? (
+					<div class="grid grid-cols-1 gap-6 md:grid-cols-2 lg:grid-cols-3">
+
+						{trabajosPladur.map((proyecto) => (
+							<article
+								class="group overflow-hidden rounded-2xl border border-white/10 bg-[#102a43] shadow-[0_18px_45px_rgba(0,0,0,0.16)]"
+							>
+
+								<div
+									class="relative aspect-[4/3] overflow-hidden bg-[#102a43]"
+								>
+
+									<img
+										src={proyecto.imagen}
+										alt={
+											proyecto.titulo ||
+											"Trabajo de Pladur realizado por STARLYN REFORMAS"
+										}
+										class="h-full w-full object-cover transition duration-700 group-hover:scale-[1.03]"
+										loading="lazy"
+									/>
+
+								</div>
+
+								<div class="p-5">
+
+									<span
+										class="text-xs font-bold uppercase tracking-[0.16em] text-[#d2b06a]"
+									>
+										{proyecto.categoria}
+									</span>
+
+									<h3
+										class="mt-2 text-lg font-bold text-white"
+									>
+										{proyecto.titulo}
+									</h3>
+
+									{
+										proyecto.descripcion && (
+											<p
+												class="mt-2 line-clamp-2 text-sm leading-relaxed text-[#c9d4db]"
+											>
+												{proyecto.descripcion}
+											</p>
+										)
+									}
+
+								</div>
+
+							</article>
+						))}
+
+					</div>
+				) : (
+					<div
+						class="rounded-2xl border border-white/10 bg-[#102a43] px-6 py-12 text-center shadow-[0_18px_45px_rgba(0,0,0,0.12)]"
+					>
+
+						<Sparkles
+							class="mx-auto h-10 w-10 text-[#d2b06a]"
+							stroke-width="1.35"
+						/>
+
+						<h3
+							class="mt-5 text-xl font-bold text-white"
+						>
+							Próximamente, nuevos trabajos realizados
+						</h3>
+
+						<p
+							class="mx-auto mt-3 max-w-xl text-sm leading-relaxed text-[#c9d4db]"
+						>
+							Estamos preparando nuestra selección de
+							proyectos de Pladur realizados por STARLYN
+							REFORMAS.
+						</p>
+
+					</div>
+				)
+			}
+		</div>
+
+	</div>
+</section>
+
+  <!-- =====================================================
+       CONTACTO
+       ===================================================== -->
+
+  <section id="contacto" class="bg-[#102a43] py-16 text-white md:py-20">
+
+    <div class="mx-auto max-w-5xl px-4 sm:px-6 lg:px-8">
+
+      <div class="grid gap-10 lg:grid-cols-[0.8fr_1.2fr] lg:items-center">
+
+        <div>
+
+          <span class="text-xs font-bold uppercase tracking-[0.2em] text-[#d2b06a]">
+            Hablemos de tu proyecto
+          </span>
+
+          <h2 class="mt-3 text-3xl font-black sm:text-4xl">
+            ¿Necesitas un trabajo de Pladur?
+          </h2>
+
+          <p class="mt-5 leading-relaxed text-[#dbe4ea]">
+            Cuéntanos qué necesitas y la zona donde se encuentra el proyecto.
+            Podemos valorar contigo el trabajo que necesitas realizar.
+          </p>
+
+          <div class="mt-7 space-y-4">
+
+            <a
+              href="/#contacto"
+              class="flex items-center gap-3 text-[#dbe4ea] hover:text-[#d2b06a]"
+            >
+              <Phone class="h-5 w-5 text-[#d2b06a]" strokeWidth={1.6} />
+              Contactar con STARLYN REFORMAS
+            </a>
+
+            <div class="flex items-center gap-3 text-[#dbe4ea]">
+              <MapPin class="h-5 w-5 text-[#d2b06a]" strokeWidth={1.6} />
+              Zaragoza y alrededores
+            </div>
+
+          </div>
+
+        </div>
+
+
+        <div class="rounded-2xl border border-white/10 bg-white/5 p-6 shadow-2xl sm:p-8">
+
+          <h3 class="text-xl font-bold text-[#d2b06a]">
+            Solicita información
+          </h3>
+
+          <form
+            action="https://formspree.io/f/tu-endpoint-aqui"
+            method="POST"
+            class="mt-6 space-y-4"
+          >
+
+            <div class="grid gap-4 sm:grid-cols-2">
+
+              <input
+                type="text"
+                name="nombre"
+                placeholder="Nombre completo *"
+                required
+                class="w-full rounded-xl border border-white/10 bg-[#173b57] px-4 py-3 text-white placeholder:text-[#b8c6cf] outline-none focus:border-[#d2b06a]"
+              />
+
+              <input
+                type="tel"
+                name="telefono"
+                placeholder="Teléfono de contacto *"
+                required
+                class="w-full rounded-xl border border-white/10 bg-[#173b57] px-4 py-3 text-white placeholder:text-[#b8c6cf] outline-none focus:border-[#d2b06a]"
+              />
+
+            </div>
+
+<div
+  class="relative z-50 overflow-visible"
+  id="autocomplete-wrapper"
+>
+  <input
+    type="text"
+    id="barrio-input"
+    name="barrio"
+    autocomplete="off"
+    placeholder="Zona o barrio donde está el proyecto"
+    class="w-full rounded-xl border border-white/10 bg-[#173b57] px-4 py-3 text-white placeholder:text-[#b8c6cf] outline-none focus:border-[#d2b06a]"
+  />
+
+  <ul
+    id="direccion-results"
+    class="absolute left-0 right-0 top-full z-[9999] mt-2 hidden max-h-60 overflow-y-auto rounded-xl border border-[#e8ded0] bg-white shadow-xl"
+    role="listbox"
+  ></ul>
+</div>
+            <textarea
+              name="detalles"
+              rows="4"
+              placeholder="Cuéntanos qué trabajo de Pladur necesitas..."
+              class="w-full rounded-xl border border-white/10 bg-[#173b57] px-4 py-3 text-white placeholder:text-[#b8c6cf] outline-none focus:border-[#d2b06a]"
+            ></textarea>
+
+            <button
+              type="submit"
+              class="flex w-full items-center justify-center gap-2 rounded-xl bg-[#b58a3a] px-5 py-3.5 font-black text-white shadow-lg hover:bg-[#d2b06a]"
+            >
+              Solicitar presupuesto
+              <ArrowRight class="h-5 w-5" strokeWidth={1.8} />
+            </button>
+
+          </form>
+
+        </div>
+
+      </div>
+
+    </div>
+
+  </section>
+
+</Layout>

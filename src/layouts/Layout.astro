@@ -1,0 +1,897 @@
+---
+import "../styles/global.css";
+
+interface Props {
+	title: string;
+	description?: string;
+	canonical?: string;
+	ogImage?: string;
+}
+
+const {
+	title,
+	description = "STARLYN REFORMAS. Reformas integrales, baños, cocinas, fontanería, electricidad, pladur y alicatados. Zaragoza y alrededores. Solicita tu presupuesto personalizado.",
+	canonical,
+	ogImage = "/images/logo-starlyn-reformas.png",
+} = Astro.props;
+
+/*
+ * URL BASE
+ * Mientras no exista dominio definitivo, usamos automáticamente
+ * la URL disponible en Astro.
+ */
+const siteUrl = (Astro.site?.toString() || Astro.url.origin).replace(/\/$/, "");
+
+const canonicalUrl = canonical
+	? new URL(canonical, siteUrl).toString()
+	: new URL(Astro.url.pathname, siteUrl).toString();
+
+const absoluteOgImage = ogImage.startsWith("http")
+	? ogImage
+	: `${siteUrl}${ogImage}`;
+
+/*
+ * DATOS ESTRUCTURADOS
+ * Datos reales de STARLYN REFORMAS.
+ */
+const businessSchema = {
+	"@context": "https://schema.org",
+	"@type": ["HomeAndConstructionBusiness", "GeneralContractor"],
+	"name": "STARLYN REFORMAS",
+	"url": canonicalUrl,
+	"logo": absoluteOgImage,
+	"image": absoluteOgImage,
+	"telephone": "+34614783004",
+	"email": "starlynreformas.ai@gmail.com",
+	"address": {
+		"@type": "PostalAddress",
+		"streetAddress": "Calle Antonio Bravo 22",
+		"postalCode": "50017",
+		"addressLocality": "Zaragoza",
+		"addressRegion": "Aragón",
+		"addressCountry": "ES",
+	},
+	"serviceType": [
+		"Reformas integrales",
+		"Reformas de baños",
+		"Reformas de cocinas",
+		"Fontanería",
+		"Electricidad",
+		"Pladur",
+		"Alicatados",
+	],
+	"areaServed": [
+		{
+			"@type": "AdministrativeArea",
+			"name": "Zaragoza",
+		},
+		{
+			"@type": "AdministrativeArea",
+			"name": "Aragón",
+		},
+	],
+};
+---
+
+<!doctype html>
+<html lang="es" class="scroll-smooth">
+	<head>
+		<meta charset="UTF-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+		<meta name="theme-color" content="#f7f4ee" />
+		<link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+		<meta name="generator" content={Astro.generator} />
+
+		<!-- =========================================
+		     SEO PRINCIPAL
+		========================================== -->
+		<title>{title}</title>
+		<meta name="description" content={description} />
+		<link rel="canonical" href={canonicalUrl} />
+
+		<!-- =========================================
+		     PRECONEXIONES
+		========================================== -->
+		<link rel="preconnect" href="https://fonts.googleapis.com" />
+		<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin="anonymous" />
+		<link rel="preconnect" href="https://wa.me" />
+
+		<!-- =========================================
+		     OPEN GRAPH
+		========================================== -->
+		<meta property="og:title" content={title} />
+		<meta property="og:description" content={description} />
+		<meta property="og:image" content={absoluteOgImage} />
+		<meta property="og:url" content={canonicalUrl} />
+		<meta property="og:type" content="website" />
+		<meta property="og:locale" content="es_ES" />
+		<meta property="og:site_name" content="STARLYN REFORMAS" />
+
+		<!-- =========================================
+		     TWITTER CARD
+		========================================== -->
+		<meta name="twitter:card" content="summary_large_image" />
+		<meta name="twitter:title" content={title} />
+		<meta name="twitter:description" content={description} />
+		<meta name="twitter:image" content={absoluteOgImage} />
+
+		<!-- =========================================
+		     DATOS ESTRUCTURADOS
+		========================================== -->
+		<script type="application/ld+json" set:html={JSON.stringify(businessSchema)} />
+	</head>
+
+	<body class="min-h-screen bg-[#f7f4ee] text-[#3f4548] antialiased font-sans flex flex-col">
+
+		<!-- =========================================
+		     HEADER
+		========================================== -->
+		<header class="sticky top-0 z-50 border-b border-[#e8ded0] bg-[#f7f4ee]/95 backdrop-blur-xl">
+			<div class="mx-auto flex max-w-7xl items-center justify-between px-4 py-3 sm:px-6 lg:px-8">
+
+				<!-- LOGO -->
+				<a
+					href="/"
+					class="flex items-center shrink-0"
+					aria-label="STARLYN REFORMAS - Inicio"
+				>
+					<img
+						src="/images/logo-starlyn-reformas.png"
+						alt="STARLYN REFORMAS"
+						class="h-22 w-auto object-contain"
+						width="220"
+						height="80"
+					/>
+				</a>
+
+				<!-- =========================================
+				     NAV DESKTOP
+				========================================== -->
+				<nav
+					class="hidden items-center gap-7 md:flex"
+					aria-label="Navegación principal"
+				>
+					<a
+						href="/"
+						class="text-sm font-semibold text-[#294d67] transition hover:text-[#b58a3a]"
+					>
+						Inicio
+					</a>
+
+					<!-- SERVICIOS DROPDOWN -->
+					<div class="relative" id="desktop-services">
+						<button
+							id="services-button"
+							type="button"
+							class="flex items-center gap-1.5 text-sm font-semibold text-[#294d67] transition hover:text-[#b58a3a]"
+							aria-expanded="false"
+							aria-haspopup="true"
+							aria-controls="services-menu"
+						>
+							Servicios
+
+							<svg
+								class="h-4 w-4 transition-transform"
+								id="services-chevron"
+								viewBox="0 0 24 24"
+								fill="none"
+								stroke="currentColor"
+								stroke-width="2"
+								aria-hidden="true"
+							>
+								<path
+									stroke-linecap="round"
+									stroke-linejoin="round"
+									d="m6 9 6 6 6-6"
+								/>
+							</svg>
+						</button>
+
+						<div
+							id="services-menu"
+							class="invisible absolute left-1/2 top-full mt-3 w-72 -translate-x-1/2 translate-y-1 opacity-0 rounded-2xl border border-[#e8ded0] bg-[#fffdf9] p-2 shadow-[0_18px_50px_rgba(16,42,67,0.12)] transition-all duration-200"
+							role="menu"
+						>
+							<a
+								href="/reformas-integrales"
+								role="menuitem"
+								class="block rounded-xl px-4 py-3 text-sm font-medium text-[#3f4548] transition hover:bg-[#f1ebe2] hover:text-[#102a43]"
+							>
+								Reformas integrales
+							</a>
+
+							<a
+								href="/banos"
+								role="menuitem"
+								class="block rounded-xl px-4 py-3 text-sm font-medium text-[#3f4548] transition hover:bg-[#f1ebe2] hover:text-[#102a43]"
+							>
+								Reformas de baños
+							</a>
+
+							<a
+								href="/cocinas"
+								role="menuitem"
+								class="block rounded-xl px-4 py-3 text-sm font-medium text-[#3f4548] transition hover:bg-[#f1ebe2] hover:text-[#102a43]"
+							>
+								Reformas de cocinas
+							</a>
+
+							<a
+								href="/fontaneria-electricidad"
+								role="menuitem"
+								class="block rounded-xl px-4 py-3 text-sm font-medium text-[#3f4548] transition hover:bg-[#f1ebe2] hover:text-[#102a43]"
+							>
+								Fontanería y electricidad
+							</a>
+
+							<div
+								class="my-1 border-t border-slate-100"
+								aria-hidden="true"
+							></div>
+
+							<a
+								href="/pladur"
+								role="menuitem"
+								class="block rounded-xl px-4 py-3 text-sm font-medium text-[#3f4548] transition hover:bg-[#f1ebe2] hover:text-[#102a43]"
+							>
+								Pladur
+							</a>
+
+							<a
+								href="/alicatados"
+								role="menuitem"
+								class="block rounded-xl px-4 py-3 text-sm font-medium text-[#3f4548] transition hover:bg-[#f1ebe2] hover:text-[#102a43]"
+							>
+								Alicatados
+							</a>
+						</div>
+					</div>
+
+					<a
+						href="/#proyectos"
+						class="text-sm font-semibold text-[#294d67] transition hover:text-[#b58a3a]"
+					>
+						Proyectos
+					</a>
+
+					<a
+						href="/#contacto"
+						class="text-sm font-semibold text-[#294d67] transition hover:text-[#b58a3a]"
+					>
+						Contacto
+					</a>
+				</nav>
+
+				<!-- =========================================
+				     ACCIONES DESKTOP
+				========================================== -->
+				<div class="hidden items-center gap-3 md:flex">
+					<a
+						href="tel:+34614783004"
+						class="rounded-xl px-3 py-2 text-sm font-bold text-[#173b57] transition hover:bg-[#e8ded0] hover:text-[#102a43]"
+					>
+						614 783 004
+					</a>
+
+					<a
+						href="https://wa.me/34614783004?text=Hola%2C%20quiero%20solicitar%20un%20presupuesto"
+						target="_blank"
+						rel="noopener noreferrer"
+						class="inline-flex items-center gap-2 rounded-xl bg-[#25D366] px-4 py-2.5 text-sm font-bold text-white shadow-sm transition hover:bg-[#20bd5c] hover:shadow-md"
+						aria-label="Contactar por WhatsApp"
+					>
+						<!-- ICONO WHATSAPP -->
+						<svg
+							class="h-4 w-4"
+							viewBox="0 0 24 24"
+							fill="currentColor"
+							aria-hidden="true"
+						>
+							<path
+								d="M20.52 3.48A11.87 11.87 0 0 0 12.08 0C5.54 0 0 5.54 0 12.08c0 2.09.55 4.13 1.6 5.93L.12 24l6.35-1.66a11.82 11.82 0 0 0 5.61 1.42h.01c6.54 0 11.86-5.32 11.86-11.86 0-3.17-1.23-6.15-3.43-8.42ZM12.09 21.75h-.01a9.86 9.86 0 0 1-5.03-1.37l-.36-.21-3.77.99 1.01-3.67-.23-.38a9.88 9.88 0 1 1 8.39 4.64Zm5.42-7.4c-.3-.15-1.77-.87-2.04-.97-.27-.1-.47-.15-.67.15-.2.3-.77.97-.95 1.17-.17.2-.35.22-.65.07-.3-.15-1.27-.47-2.42-1.5-.89-.79-1.49-1.77-1.66-2.07-.17-.3-.02-.46.13-.61.13-.13.3-.35.45-.52.15-.17.2-.3.3-.5.1-.2.05-.37-.02-.52-.07-.15-.67-1.62-.92-2.22-.24-.58-.49-.5-.67-.51h-.57c-.2 0-.52.07-.79.37-.27.3-1.04 1.02-1.04 2.49s1.07 2.89 1.22 3.09c.15.2 2.1 3.2 5.09 4.49.71.31 1.26.5 1.69.64.71.23 1.35.2 1.86.12.57-.09 1.77-.72 2.02-1.42.25-.7.25-1.3.17-1.42-.07-.12-.27-.2-.57-.35Z"
+							/>
+						</svg>
+
+						WhatsApp
+					</a>
+				</div>
+
+				<!-- =========================================
+				     BOTÓN MENÚ MÓVIL
+				========================================== -->
+				<button
+					id="mobile-menu-button"
+					type="button"
+					class="inline-flex items-center justify-center rounded-xl border border-slate-200 p-2.5 text-slate-700 transition hover:bg-slate-50 md:hidden"
+					aria-label="Abrir menú"
+					aria-expanded="false"
+					aria-controls="mobile-menu"
+				>
+					<svg
+						id="mobile-menu-icon-open"
+						class="h-6 w-6"
+						viewBox="0 0 24 24"
+						fill="none"
+						stroke="currentColor"
+						stroke-width="2"
+						aria-hidden="true"
+					>
+						<path
+							stroke-linecap="round"
+							stroke-linejoin="round"
+							d="M4 6h16M4 12h16M4 18h16"
+						/>
+					</svg>
+
+					<svg
+						id="mobile-menu-icon-close"
+						class="hidden h-6 w-6"
+						viewBox="0 0 24 24"
+						fill="none"
+						stroke="currentColor"
+						stroke-width="2"
+						aria-hidden="true"
+					>
+						<path
+							stroke-linecap="round"
+							stroke-linejoin="round"
+							d="M6 6l12 12M6 18L18 6"
+						/>
+					</svg>
+				</button>
+			</div>
+
+			<!-- =========================================
+			     MENÚ MÓVIL
+			========================================== -->
+			<div
+				id="mobile-menu"
+				class="hidden border-t border-slate-200 bg-white md:hidden"
+			>
+				<nav
+					class="mx-auto max-w-7xl px-4 py-4 sm:px-6"
+					aria-label="Navegación móvil"
+				>
+					<a
+						href="/"
+						class="block rounded-xl px-4 py-3 text-sm font-semibold text-slate-700 transition hover:bg-slate-50"
+					>
+						Inicio
+					</a>
+
+					<div class="my-1 border-t border-slate-100"></div>
+
+					<p class="px-4 pb-2 pt-3 text-xs font-bold uppercase tracking-wider text-slate-400">
+						Servicios
+					</p>
+
+					<a
+						href="/reformas-integrales"
+						class="block rounded-xl px-4 py-3 text-sm font-medium text-slate-700 transition hover:bg-slate-50"
+					>
+						Reformas integrales
+					</a>
+
+					<a
+						href="/banos"
+						class="block rounded-xl px-4 py-3 text-sm font-medium text-slate-700 transition hover:bg-slate-50"
+					>
+						Reformas de baños
+					</a>
+
+					<a
+						href="/cocinas"
+						class="block rounded-xl px-4 py-3 text-sm font-medium text-slate-700 transition hover:bg-slate-50"
+					>
+						Reformas de cocinas
+					</a>
+
+					<a
+						href="/fontaneria-electricidad"
+						class="block rounded-xl px-4 py-3 text-sm font-medium text-slate-700 transition hover:bg-slate-50"
+					>
+						Fontanería y electricidad
+					</a>
+
+					<a
+						href="/pladur"
+						class="block rounded-xl px-4 py-3 text-sm font-medium text-slate-700 transition hover:bg-slate-50"
+					>
+						Pladur
+					</a>
+
+					<a
+						href="/alicatados"
+						class="block rounded-xl px-4 py-3 text-sm font-medium text-slate-700 transition hover:bg-slate-50"
+					>
+						Alicatados
+					</a>
+
+					<div class="my-2 border-t border-slate-100"></div>
+
+					<a
+						href="/#proyectos"
+						class="block rounded-xl px-4 py-3 text-sm font-semibold text-slate-700 transition hover:bg-slate-50"
+					>
+						Proyectos
+					</a>
+
+					<a
+						href="/#contacto"
+						class="block rounded-xl px-4 py-3 text-sm font-semibold text-slate-700 transition hover:bg-slate-50"
+					>
+						Contacto
+					</a>
+
+					<div class="mt-3 grid grid-cols-2 gap-2">
+						<a
+							href="tel:+34614783004"
+							class="flex items-center justify-center rounded-xl border border-slate-200 px-4 py-3 text-sm font-bold text-slate-700 transition hover:bg-slate-50"
+						>
+							614 783 004
+						</a>
+
+						<a
+							href="https://wa.me/34614783004?text=Hola%2C%20quiero%20solicitar%20un%20presupuesto"
+							target="_blank"
+							rel="noopener noreferrer"
+							class="flex items-center justify-center rounded-xl bg-[#25D366] px-4 py-3 text-sm font-bold text-white transition hover:bg-[#20bd5c]"
+						>
+							WhatsApp
+						</a>
+					</div>
+				</nav>
+			</div>
+		</header>
+
+		<!-- =========================================
+		     CONTENIDO PRINCIPAL
+		========================================== -->
+		<main class="flex-1">
+			<slot />
+		</main>
+
+		<!-- =========================================
+		     FOOTER
+		========================================== -->
+		<footer class="border-t border-[#294d67] bg-[#102a43] text-white">
+			<div class="mx-auto max-w-7xl px-4 py-12 sm:px-6 lg:px-8">
+				<div class="grid gap-10 md:grid-cols-3">
+
+					<!-- MARCA -->
+					<div>
+						<a
+							href="/"
+							class="inline-block"
+							aria-label="STARLYN REFORMAS - Inicio"
+						>
+							<img
+								src="/images/logo-starlyn-reformas.png"
+								alt="STARLYN REFORMAS"
+								class="h-14 w-auto object-contain brightness-0 invert"
+								width="220"
+								height="80"
+							/>
+						</a>
+
+						<p class="mt-4 max-w-sm text-sm leading-relaxed text-[#d8d1c7]">
+							Reformas integrales, baños, cocinas e instalaciones para
+							viviendas y locales. Zaragoza y alrededores.
+						</p>
+					</div>
+
+					<!-- SERVICIOS -->
+					<div>
+						<h2 class="text-sm font-bold uppercase tracking-wider text-white">
+							Servicios
+						</h2>
+
+						<ul class="mt-4 space-y-2 text-sm text-slate-400">
+							<li>
+								<a
+									href="/reformas-integrales"
+									class="transition hover:text-white"
+								>
+									Reformas integrales
+								</a>
+							</li>
+
+							<li>
+								<a
+									href="/banos"
+									class="transition hover:text-white"
+								>
+									Baños
+								</a>
+							</li>
+
+							<li>
+								<a
+									href="/cocinas"
+									class="transition hover:text-white"
+								>
+									Cocinas
+								</a>
+							</li>
+
+							<li>
+								<a
+									href="/fontaneria-electricidad"
+									class="transition hover:text-white"
+								>
+									Fontanería y electricidad
+								</a>
+							</li>
+
+							<li>
+								<a
+									href="/pladur"
+									class="transition hover:text-white"
+								>
+									Pladur
+								</a>
+							</li>
+						</ul>
+					</div>
+
+					<!-- CONTACTO -->
+					<div>
+						<h2 class="text-sm font-bold uppercase tracking-wider text-white">
+							Contacto
+						</h2>
+
+						<div class="mt-4 space-y-3 text-sm text-slate-400">
+							<a
+								href="tel:+34614783004"
+								class="block transition hover:text-white"
+							>
+								614 783 004
+							</a>
+
+							<a
+								href="mailto:starlynreformas.ai@gmail.com"
+								class="block transition hover:text-white"
+							>
+								starlynreformas.ai@gmail.com
+							</a>
+
+							<p>
+								Calle Antonio Bravo 22<br />
+								50017 Zaragoza, España
+							</p>
+
+							<a
+								href="https://wa.me/34614783004?text=Hola%2C%20quiero%20solicitar%20un%20presupuesto"
+								target="_blank"
+								rel="noopener noreferrer"
+								class="inline-flex rounded-xl bg-[#25D366] px-4 py-2.5 font-bold text-white transition hover:bg-[#20bd5c]"
+							>
+								Contactar por WhatsApp
+							</a>
+						</div>
+					</div>
+				</div>
+
+				<div class="mt-10 border-t border-slate-800 pt-6">
+					<p class="text-center text-xs text-slate-500">
+						© {new Date().getFullYear()} STARLYN REFORMAS. Todos los derechos reservados.
+					</p>
+				</div>
+			</div>
+		</footer>
+
+		<!-- =========================================
+		     BARRA FIJA MÓVIL
+		========================================== -->
+		<div class="fixed inset-x-0 bottom-0 z-50 border-t border-[#e8ded0] bg-[#f7f4ee]/95 p-2 shadow-[0_-8px_30px_rgba(16,42,67,0.10)] backdrop-blur-xl md:hidden">
+			<div class="mx-auto grid max-w-lg grid-cols-2 gap-2">
+				<a
+					href="tel:+34614783004"
+					class="flex items-center justify-center rounded-xl bg-[#102a43] px-4 py-3 text-sm font-bold text-white transition hover:bg-[#173b57]"
+				>
+					📞 Llamar
+				</a>
+
+				<a
+					href="https://wa.me/34614783004?text=Hola%2C%20quiero%20solicitar%20un%20presupuesto"
+					target="_blank"
+					rel="noopener noreferrer"
+					class="flex items-center justify-center rounded-xl bg-[#25D366] px-4 py-3 text-sm font-bold text-white transition hover:bg-[#20bd5c]"
+				>
+					WhatsApp
+				</a>
+			</div>
+		</div>
+
+		<!-- =========================================
+		     JAVASCRIPT GLOBAL DEL LAYOUT
+		========================================== -->
+		<script is:inline>
+			(function () {
+				/* =========================================
+				   DROPDOWN SERVICIOS DESKTOP
+				========================================== */
+				function initServicesMenu() {
+					var button = document.getElementById("services-button");
+					var menu = document.getElementById("services-menu");
+					var container = document.getElementById("desktop-services");
+					var chevron = document.getElementById("services-chevron");
+
+					if (!button || !menu || !container) return;
+
+					function openMenu() {
+						menu.classList.remove(
+							"invisible",
+							"opacity-0",
+							"translate-y-1"
+						);
+
+						menu.classList.add(
+							"visible",
+							"opacity-100",
+							"translate-y-0"
+						);
+
+						button.setAttribute("aria-expanded", "true");
+
+						if (chevron) {
+							chevron.classList.add("rotate-180");
+						}
+					}
+
+					function closeMenu() {
+						menu.classList.add(
+							"invisible",
+							"opacity-0",
+							"translate-y-1"
+						);
+
+						menu.classList.remove(
+							"visible",
+							"opacity-100",
+							"translate-y-0"
+						);
+
+						button.setAttribute("aria-expanded", "false");
+
+						if (chevron) {
+							chevron.classList.remove("rotate-180");
+						}
+					}
+
+					button.addEventListener("click", function (event) {
+						event.stopPropagation();
+
+						var expanded =
+							button.getAttribute("aria-expanded") === "true";
+
+						if (expanded) {
+							closeMenu();
+						} else {
+							openMenu();
+						}
+					});
+
+					document.addEventListener("click", function (event) {
+						var target = event.target;
+
+						if (
+							target instanceof Node &&
+							!container.contains(target)
+						) {
+							closeMenu();
+						}
+					});
+
+					document.addEventListener("keydown", function (event) {
+						if (event.key === "Escape") {
+							closeMenu();
+							button.focus();
+						}
+					});
+				}
+
+				/* =========================================
+				   MENÚ MÓVIL
+				========================================== */
+				function initMobileMenu() {
+					var button = document.getElementById("mobile-menu-button");
+					var menu = document.getElementById("mobile-menu");
+					var iconOpen = document.getElementById("mobile-menu-icon-open");
+					var iconClose = document.getElementById("mobile-menu-icon-close");
+
+					if (!button || !menu) return;
+
+					function closeMobileMenu() {
+						menu.classList.add("hidden");
+						button.setAttribute("aria-expanded", "false");
+						button.setAttribute("aria-label", "Abrir menú");
+
+						if (iconOpen) {
+							iconOpen.classList.remove("hidden");
+						}
+
+						if (iconClose) {
+							iconClose.classList.add("hidden");
+						}
+					}
+
+					function openMobileMenu() {
+						menu.classList.remove("hidden");
+						button.setAttribute("aria-expanded", "true");
+						button.setAttribute("aria-label", "Cerrar menú");
+
+						if (iconOpen) {
+							iconOpen.classList.add("hidden");
+						}
+
+						if (iconClose) {
+							iconClose.classList.remove("hidden");
+						}
+					}
+
+					button.addEventListener("click", function () {
+						var expanded =
+							button.getAttribute("aria-expanded") === "true";
+
+						if (expanded) {
+							closeMobileMenu();
+						} else {
+							openMobileMenu();
+						}
+					});
+
+					var mobileLinks = menu.querySelectorAll("a");
+
+					mobileLinks.forEach(function (link) {
+						link.addEventListener("click", function () {
+							closeMobileMenu();
+						});
+					});
+
+					window.addEventListener("resize", function () {
+						if (window.innerWidth >= 768) {
+							closeMobileMenu();
+						}
+					});
+
+					document.addEventListener("keydown", function (event) {
+						if (event.key === "Escape") {
+							closeMobileMenu();
+						}
+					});
+				}
+
+				/* =========================================
+				   AUTOCOMPLETADO DE ZONA / DIRECCIÓN
+				========================================== */
+				function initAutocomplete() {
+					var input = document.getElementById("barrio-input");
+					var resultsList =
+						document.getElementById("direccion-results");
+					var wrapper =
+						document.getElementById("autocomplete-wrapper");
+
+					if (!input || !resultsList || !wrapper) return;
+
+					var zonasZaragoza = [
+						"Actur",
+						"Centro / Paseo Sagasta",
+						"Delicias",
+						"Romareda",
+						"San José",
+						"Las Fuentes",
+						"Santa Isabel",
+						"Valdespartera",
+						"Montecanal",
+						"Miralbueno",
+						"El Oliver",
+						"Torrero / La Paz",
+						"Almozara",
+						"Calle Antonio Bravo, Zaragoza",
+						"Calle Antonio Cánovas, Zaragoza",
+						"Paseo Independencia, Zaragoza",
+						"Gran Vía, Zaragoza",
+						"Calle Alfonso I, Zaragoza",
+						"Calle Don Jaime I, Zaragoza",
+						"Avenida de Madrid, Zaragoza",
+						"Avenida Navarra, Zaragoza",
+					];
+
+					function filterAndShow(query) {
+						var cleanQuery = query.toLowerCase().trim();
+
+						resultsList.innerHTML = "";
+
+						if (!cleanQuery) {
+							resultsList.classList.add("hidden");
+							return;
+						}
+
+						var matches = zonasZaragoza.filter(function (item) {
+							return (
+								item
+									.toLowerCase()
+									.indexOf(cleanQuery) !== -1
+							);
+						});
+
+						if (matches.length > 0) {
+							matches.forEach(function (zona) {
+								var li = document.createElement("li");
+
+								li.className =
+									"p-3 hover:bg-amber-50 cursor-pointer text-sm text-slate-700 flex items-center gap-2 transition-colors border-b border-slate-100 last:border-0";
+
+								li.setAttribute("role", "option");
+
+								var icon = document.createElement("span");
+								icon.className = "text-amber-500";
+								icon.textContent = "📍";
+
+								var text = document.createElement("span");
+								text.textContent = zona;
+
+								li.appendChild(icon);
+								li.appendChild(text);
+
+								li.addEventListener(
+									"mousedown",
+									function (event) {
+										event.preventDefault();
+
+										input.value = zona;
+										resultsList.classList.add("hidden");
+									}
+								);
+
+								resultsList.appendChild(li);
+							});
+
+							resultsList.classList.remove("hidden");
+						} else {
+							resultsList.classList.add("hidden");
+						}
+					}
+
+					input.addEventListener("input", function (event) {
+						var target = event.target;
+
+						if (target instanceof HTMLInputElement) {
+							filterAndShow(target.value);
+						}
+					});
+
+					input.addEventListener("focus", function () {
+						if (input.value.trim()) {
+							filterAndShow(input.value);
+						}
+					});
+
+					document.addEventListener("click", function (event) {
+						var target = event.target;
+
+						if (
+							target instanceof Node &&
+							!wrapper.contains(target)
+						) {
+							resultsList.classList.add("hidden");
+						}
+					});
+				}
+
+				function initAll() {
+					initServicesMenu();
+					initMobileMenu();
+					initAutocomplete();
+				}
+
+				if (document.readyState === "loading") {
+					document.addEventListener("DOMContentLoaded", initAll);
+				} else {
+					initAll();
+				}
+			})();
+		</script>
+	</body>
+</html>
