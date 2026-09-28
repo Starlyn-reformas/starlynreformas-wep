@@ -9,6 +9,7 @@
     "preview": "astro preview"
   },
   "dependencies": {
+    "@astrojs/cloudflare": "^12.6.12",
     "@astrojs/node": "^9.4.6",
     "@lucide/astro": "^1.48.0",
     "@supabase/ssr": "^0.12.7",
